@@ -9,7 +9,7 @@ function App() {
   return (
     <Container className="fs-1">
       <Row>
-        <Col>Hello</Col>
+        <Col>Bye Bye</Col>
         <Col>World</Col>
       </Row>
     </Container>
