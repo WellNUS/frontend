@@ -1,0 +1,31 @@
+/* Stylesheet for the Dashboard */
+:root {
+    --main-color: #ffe4e1;
+}
+
+.navbar-container-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background-color: var(--main-color);
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+img {
+    height: 2rem;
+}
+
+.navbar-container-bot {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main-color);
+    padding: 1rem 1.5rem;
+    gap: 2rem;
+}
