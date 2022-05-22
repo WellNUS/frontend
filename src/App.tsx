@@ -1,18 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Router } from 'react-router';
-import { Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import store from './store/store';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Home from './views/pages/home/Home';
+import Dashboard from './views/pages/Dashboard';
+import Login from './views/pages/authentication/Login';
+import Register from './views/pages/authentication/Register';
 
 function App() {
   return (
-    <Container className="fs-1">
-      <Row>
-        <Col>Hello</Col>
-        <Col>World</Col>
-      </Row>
-    </Container>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
