@@ -1,17 +1,29 @@
 /* Stylesheet for the Dashboard */
 :root {
-    --main-color: #ffe4e1;
+    --main-color: #ffb6c1;
+}
+
+h1, 
+p {
+    font-weight: bold;
+    color: white;
 }
 
 .navbar-container-top {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1.5rem 0 1.5rem;
     background-color: var(--main-color);
 }
 
-.navbar-left,
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 .navbar-right {
     display: flex;
     flex-direction: row;
@@ -28,4 +40,30 @@ img {
     background-color: var(--main-color);
     padding: 1rem 1.5rem;
     gap: 2rem;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.navlink {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.dashboard-containers {
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.dashboard-container {
+    border: 1px red solid;
+    border-radius: 10px;
+    flex-grow: 1;
 }
