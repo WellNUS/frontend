@@ -3,7 +3,6 @@ import "./styles.css"
 
 type Props = {
     title: string;
-    style: string;
 }
 
 const testData = [
@@ -14,14 +13,14 @@ const testData = [
     { title: "TITLE_5", description: "DESCRIPTION_5" }
 ]
 
-const Container: React.FC<Props> = ({ title, style }) => {
-    return <div className={style}>
-        <h3>{title}</h3>
+const Container: React.FC<Props> = ({ title }) => {
+    return <div className="dashboard-container">
+        <text className="dashboard-container-title">{title}</text>
         <div>
             {testData.map(data => {
-                return <div>
-                    <h4>{data.title}</h4>
-                    <h5>{data.description}</h5>
+                return <div className="dashboard-card">
+                    <text>{data.title}</text>
+                    <text>{data.description}</text>
                 </div>
             })}
         </div>

@@ -40,6 +40,7 @@ img {
     background-color: var(--main-color);
     padding: 1rem 1.5rem;
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .profile {
@@ -63,7 +64,31 @@ img {
 }
 
 .dashboard-container {
-    border: 1px red solid;
+    background-color: var(--main-color);
+    padding: 1rem;
     border-radius: 10px;
     flex-grow: 1;
+}
+
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.dashboard-container-title {
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+}
+
+.welcome-title {
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
 }
