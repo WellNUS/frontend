@@ -3,13 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom"
-import Dashboard from './views/pages/dashboard/Dashboard'
-
 import App from './App';
 
 const root = ReactDOM.createRoot(
