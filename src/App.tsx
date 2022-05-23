@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './views/pages/home/Home';
-import Dashboard from './views/pages/Dashboard';
+import Dashboard from './views/pages/dashboard/Dashboard';
 import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
 

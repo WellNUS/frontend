@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"
+import "./styles.css";
 
 type Props = {
     title: string;
@@ -15,13 +15,16 @@ const testData = [
 
 const Container: React.FC<Props> = ({ title }) => {
     return <div className="dashboard-container">
-        <text className="dashboard-container-title">{title}</text>
+        <div className="dashboard-container-title">{title}</div>
         <div>
-            {testData.map(data => {
-                return <div className="dashboard-card">
-                    <text>{data.title}</text>
-                    <text>{data.description}</text>
-                </div>
+            {testData.map((data, i) => {
+                return <div 
+                            key={i} 
+                            className="dashboard-card"
+                        >
+                            <div>{data.title}</div>
+                            <div>{data.description}</div>
+                        </div>
             })}
         </div>
     </div>

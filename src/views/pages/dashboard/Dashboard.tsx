@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../partials/Navbar/Navbar";
 import Container from "./Container";
+import "./styles.css";
 
 const Dashboard = () => {
     return <div>

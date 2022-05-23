@@ -1,0 +1,55 @@
+:root {
+    --main-color: #ffb6c1;
+}
+
+h1, 
+p {
+    font-weight: bold;
+    color: white;
+}
+
+img {
+    height: 2rem;
+}
+
+.navbar-container-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    background-color: var(--main-color);
+}
+
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.navbar-container-bot {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--main-color);
+    padding: 1rem 1.5rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.navlink {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { Carousel } from "react-bootstrap";
 
 import background from "../../../resource/background/counselling.jpg";
-import calendar from "../../../resource/icon/calendar.png";
-import group from "../../../resource/icon/group.png"
-import counsellor from "../../../resource/icon/online-counselling.png";
-import volunteer from "../../../resource/icon/volunteer.png";
+import calendar from "../../../resource/icon/homeIcons/calendar.png";
+import group from "../../../resource/icon/homeIcons/group.png"
+import counsellor from "../../../resource/icon/homeIcons/online-counselling.png";
+import volunteer from "../../../resource/icon/homeIcons/volunteer.png";
 import HomeNav from "./HomeNav";
 
 const Container = styled.div`
@@ -40,11 +40,11 @@ const Section = styled.div`
     margin: 3vh 3vw;
     background-color: lightpink;
     text-align: center;
+    color: white;
 `
 
 const CarouselCaption = styled(Carousel.Caption)`
     position: static;
-    color: black;
 `
 
 function Home(): React.ReactElement {
@@ -72,7 +72,7 @@ function Home(): React.ReactElement {
                     <Carousel>
                         <Carousel.Item>
                             <img
-                            className="d-block w-25 m-auto"
+                            className="d-block w-25 h-25 m-auto"
                             src={calendar}
                             alt="First slide"
                             />
@@ -83,7 +83,7 @@ function Home(): React.ReactElement {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-25 m-auto"
+                            className="d-block w-25 h-25 m-auto"
                             src={group}
                             alt="Second slide"
                             />
@@ -94,7 +94,7 @@ function Home(): React.ReactElement {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-25 m-auto"
+                            className="d-block w-25 h-25 m-auto"
                             src={counsellor}
                             alt="Third slide"
                             />
@@ -105,7 +105,7 @@ function Home(): React.ReactElement {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                            className="d-block w-25 m-auto"
+                            className="d-block w-25 h-25 m-auto"
                             src={volunteer}
                             alt="Fourth slide"
                             />

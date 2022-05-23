@@ -1,23 +1,27 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles.css";
+import logo from "../../../resource/icon/navIcons/logo.png"
+import bell from "../../../resource/icon/navIcons/bell.png";
+import exit from "../../../resource/icon/navIcons/exit.png";
+import profile from "../../../resource/icon/navIcons/profile.png";
 
 const Navbar = () => {
 
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">
-                <img src="https://cdn-icons.flaticon.com/png/512/5653/premium/5653466.png?token=exp=1653207030~hmac=af386abfe0f623b5b61392aa42d23ba4" alt="Logo" />
+                <img src={logo} alt="Logo" />
                 <h1>WellNUS</h1>
             </div>
             <div className="navbar-right">
                 <p>AY2021/2022, Semester 2, Week 9</p>
                 <div className="profile">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135707.png" alt="Profile" />
+                    <img src={profile} alt="Profile" />
                     <p>USERNAME</p>
                 </div>
-                <img src="https://cdn-icons-png.flaticon.com/512/2645/2645897.png" />
-                <img src="https://cdn-icons-png.flaticon.com/128/1286/1286853.png"/>
+                <img src={bell} />
+                <img src={exit}/>
             </div>
         </div>
         <div className="navbar-container-bot">
