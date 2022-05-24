@@ -1,9 +1,9 @@
 import React from "react";
-import "./styles.css";
-
-type Props = {
-    title: string;
-}
+import {
+    Wrapper,
+    ContainerTitle,
+    Card
+} from "./styledComponent/styled";
 
 const testData = [
     { title: "TITLE_1", description: "DESCRIPTION_1" },
@@ -13,21 +13,18 @@ const testData = [
     { title: "TITLE_5", description: "DESCRIPTION_5" }
 ]
 
-const Container: React.FC<Props> = ({ title }) => {
-    return <div className="dashboard-container">
-        <div className="dashboard-container-title">{title}</div>
+const Container = ({ title } : { title: string }) => {
+    return <Wrapper>
+        <ContainerTitle>{title}</ContainerTitle>
         <div>
             {testData.map((data, i) => {
-                return <div 
-                            key={i} 
-                            className="dashboard-card"
-                        >
+                return <Card key={i}>
                             <div>{data.title}</div>
                             <div>{data.description}</div>
-                        </div>
+                        </Card>
             })}
         </div>
-    </div>
+    </Wrapper>
 }
 
 export default Container;
