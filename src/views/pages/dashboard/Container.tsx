@@ -3,7 +3,7 @@ import {
     Wrapper,
     ContainerTitle,
     Card
-} from "./styledComponent/styled";
+} from "./styled/styled";
 
 const testData = [
     { title: "TITLE_1", description: "DESCRIPTION_1" },

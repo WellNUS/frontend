@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../store/slices/user";
 import GeneralForm from "../../partials/GeneralForm/GeneralForm";
-import { AltRow, Container, Form, MainRow } from "./styledComponents/styled";
+import { AltRow, Container, Form, MainRow } from "./styled/styled";
 
 function Register(): React.ReactElement {
     const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../partials/Navbar/Navbar";
 import Container from "./Container";
-import { Containers, WelcomeTitle } from "./styledComponent/styled"
+import { Containers, WelcomeTitle } from "./styled/styled"
 
 const Dashboard = () => {
     return <div>
