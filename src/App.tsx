@@ -9,6 +9,7 @@ import Dashboard from './views/pages/dashboard/Dashboard';
 import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
 import { ThemeProvider } from 'styled-components';
+import Room from './views/pages/room/Room';
 
 const theme = {
   main: "#ffb6c1"
@@ -24,6 +25,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/room" element={<Room />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
