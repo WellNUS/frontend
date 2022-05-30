@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../store/slices/user";
 import GeneralForm from "../../partials/GeneralForm/GeneralForm";
-import { AltRow, Container, Form, MainRow } from "./styled/styled";
+import { AltRow, Container, MainRow } from "./styled/styled";
+import "./styled/styles.css"
 
 function Login(): React.ReactElement {
     const dispatch = useDispatch();
@@ -40,41 +41,46 @@ function Login(): React.ReactElement {
         return <h1>You are already Logged In</h1>;
     }
     
-    return  <Container>
-                <MainRow>
-                    Login
-                </MainRow>    
-                <Form>
-                    <GeneralForm
-                        onSubmit={onSubmit}
-                        fields={[
-                            {
-                                id: "email",
-                                type: "email",
-                                label: "E-mail",
-                                placeholder: "Enter your E-mail",
-                                notes: ""
-                            },
-                            {
-                                id: "password",
-                                type: "password",
-                                label: "Password",
-                                placeholder: "Enter your Password",
-                                notes: ""
-                            }
-                        ]}
-                        error={errMsg}
-                        displayError={errMsg !== ""}
-                        closeError={() => setErrMsg("")}
-                    />
-                </Form>
-                <AltRow>
-                    Don't have an account? <Link to="/register">Click here!</Link>
-                </AltRow>
-                <AltRow>
-                    Go back to <Link to="/">HomePage</Link>
-                </AltRow>
-            </Container>    
+    return  <div className="background">
+        <div className="container">
+            <div className="auth-title">Log in</div>    
+            <div className="form">
+                <GeneralForm
+                    onSubmit={onSubmit}
+                    fields={[
+                        {
+                            id: "email",
+                            type: "email",
+                            label: "Email",
+                            placeholder: "Enter your email...",
+                            notes: ""
+                        },
+                        {
+                            id: "password",
+                            type: "password",
+                            label: "Password",
+                            placeholder: "Enter your password...",
+                            notes: ""
+                        }
+                    ]}
+                    error={errMsg}
+                    displayError={errMsg !== ""}
+                    closeError={() => setErrMsg("")}
+                />
+                <hr />
+                <Link to="/register" className="no-decoration">
+                    <button className="link-button">
+                        Don't have an account? Click here!
+                    </button>
+                </Link>
+                <Link to="/" className="no-decoration">
+                    <button className="link-button">
+                        Go back to home page.
+                    </button>
+                </Link>
+            </div>
+        </div>    
+    </div>
 }
 
 export default Login;

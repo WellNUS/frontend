@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../store/slices/user";
 import GeneralForm from "../../partials/GeneralForm/GeneralForm";
 import { AltRow, Container, Form, MainRow } from "./styled/styled";
+import "./styled/styles.css"
 
 function Register(): React.ReactElement {
     const dispatch = useDispatch();
@@ -30,46 +31,52 @@ function Register(): React.ReactElement {
         return <h1>You are already Logged In</h1>;
     }
 
-    return  <Container>
-                <MainRow>Register a new Account</MainRow>
-                <Form>
-                    <GeneralForm
-                        onSubmit={onSubmit}
-                        fields={[
-                            {
-                                id: "email",
-                                type: "email",
-                                label: "E-mail",
-                                placeholder: "Enter your E-mail",
-                                notes: "E-mail must be a valid NUS email (e.g. e1234567@u.nus.edu)"
-                            },
-                            {
-                                id: "password",
-                                type: "password",
-                                label: "Password",
-                                placeholder: "Enter your Password",
-                                notes: ""
-                            },
-                            {
-                                id: "password_confirmation",
-                                type: "password",
-                                label: "Password Confirmation",
-                                placeholder: "Confirm your Password",
-                                notes: ""
-                            },
-                        ]}
-                        error={errMsg}
-                        displayError={errMsg !== ""}
-                        closeError={() => setErrMsg("")}
-                    />
-                </Form>
-                <AltRow>
-                    Already have an account? <Link to="/login">Click here to login!</Link>
-                </AltRow>
-                <AltRow>
-                    Go back to <Link to="/">HomePage</Link>
-                </AltRow>
-            </Container>
+    return <div className="background flex-wrapper">
+        <div className="register-container">
+            <div className="auth-title">Sign up</div>
+            <div className="form">
+                <GeneralForm
+                    onSubmit={onSubmit}
+                    fields={[
+                        {
+                            id: "email",
+                            type: "email",
+                            label: "Email",
+                            placeholder: "Enter your email...",
+                            notes: "must be a valid NUS email (e.g. e1234567@u.nus.edu)"
+                        },
+                        {
+                            id: "password",
+                            type: "password",
+                            label: "Password",
+                            placeholder: "Enter your password...",
+                            notes: ""
+                        },
+                        {
+                            id: "password_confirmation",
+                            type: "password",
+                            label: "Password confirmation",
+                            placeholder: "Confirm your password...",
+                            notes: ""
+                        },
+                    ]}
+                    error={errMsg}
+                    displayError={errMsg !== ""}
+                    closeError={() => setErrMsg("")}
+                />
+            <Link to="/login" className="no-decoration">
+                <button className="link-button">
+                    Already signed up? Click here!
+                </button>
+            </Link>
+            <Link to="/" className="no-decoration">
+                <button className="link-button">
+                    Go back to home page.
+                </button>
+            </Link>
+            </div>
+        </div>
+    </div>
 }
 
 export default Register;

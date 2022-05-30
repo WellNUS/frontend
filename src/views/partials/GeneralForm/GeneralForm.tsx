@@ -6,10 +6,10 @@ import AlertDismissible from "./AlertDismissible";
 import styled from "styled-components";
 
 const StyledButton = styled(Button)`
+    margin: 1rem 0 0rem 0;
+    width: 100%;
     color: black;
-    background-color: lightpink;
-    border: 0;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    border: 1px #DCDCDC solid;
 `
 
 type Props = {
@@ -22,7 +22,7 @@ type Props = {
 
 function GeneralForm(props: Props): React.ReactElement {
     const { fields, onSubmit, error, displayError, closeError } = props;
-    return <Form onSubmit={onSubmit}>
+    return <div onSubmit={onSubmit}>
                 {
                     fields.map((f, i) => (
                         <FormField
@@ -43,7 +43,7 @@ function GeneralForm(props: Props): React.ReactElement {
                 <StyledButton variant="white" type="submit">
                     Submit
                 </StyledButton>
-            </Form>
+            </div>
 }
 
 export default GeneralForm;
