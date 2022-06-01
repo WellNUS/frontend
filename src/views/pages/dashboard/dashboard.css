@@ -1,25 +1,41 @@
-import styled from "styled-components";
+:root {
+    --theme-two: #ffb6c1;
+    --theme-one: white;
+}
 
-export const Containers = styled.div`
+/* Dashboard.tsx */
+
+.dashboard_title {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.dashboard_boards {
     display: flex;
     flex-direction: row;
     padding: 1rem;
     gap: 1rem;
     border-radius: 10px;
     flex-grow: 1;
-`
-export const Wrapper = styled.div`
-    background-color: ${props => props.theme.main};
+}
+
+/* Board.tsx */
+
+.board {
+    background-color: var(--theme-two);
     padding: 1rem;
     border-radius: 10px;
     flex-grow: 1;
-`
-export const ContainerTitle = styled.div`
+}
+
+.board_title {
     font-weight: bold;
     font-size: 1rem;
     color: white;
-`
-export const Card = styled.div`
+}
+
+.board_card {
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -28,9 +44,4 @@ export const Card = styled.div`
     padding: 0.5rem;
     margin-bottom: 0.5rem;
     font-size: 0.7rem;
-`
-export const WelcomeTitle = styled.div`
-    padding: 1rem 2rem;
-    font-size: 2rem;
-    font-weight: bold;
-`
+}

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-    Wrapper,
-    ContainerTitle,
-    Card
-} from "./styled/styled";
+import "./dashboard.css";
 
 const testData = [
     { title: "TITLE_1", description: "DESCRIPTION_1" },
@@ -13,18 +9,18 @@ const testData = [
     { title: "TITLE_5", description: "DESCRIPTION_5" }
 ]
 
-const Container = ({ title } : { title: string }) => {
-    return <Wrapper>
-        <ContainerTitle>{title}</ContainerTitle>
+const Board = ({ title } : { title: string }) => {
+    return <div className="board">
+        <div className="board_title">{title}</div>
         <div>
             {testData.map((data, i) => {
-                return <Card key={i}>
+                return <div className="board_card" key={i}>
                             <div>{data.title}</div>
                             <div>{data.description}</div>
-                        </Card>
+                        </div>
             })}
         </div>
-    </Wrapper>
+    </div>
 }
 
-export default Container;
+export default Board;

@@ -1,17 +1,17 @@
 import React from "react";
 import Navbar from "../../partials/Navbar/Navbar";
-import Container from "./Container";
-import { Containers, WelcomeTitle } from "./styled/styled"
+import Board from "./Board";
+import "./dashboard.css";
 
 const Dashboard = () => {
     return <div>
         <Navbar />
-        <WelcomeTitle>Welcome back, USERNAME</WelcomeTitle>
-        <Containers>
-            <Container title="Announcements" />
-            <Container title="Upcoming Appointments" />
-            <Container title="Recent Sessions" />
-        </Containers>
+        <div className="dashboard_title">Welcome back, USERNAME</div>
+        <div className="dashboard_boards">
+            <Board title="Announcements" />
+            <Board title="Upcoming Appointments" />
+            <Board title="Recent Sessions" />
+        </div>
     </div>
 }
 
