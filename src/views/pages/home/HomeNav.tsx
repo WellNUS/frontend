@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./home.css";
-import logo from "../../../resource/icon/navIcons/logo.png"
+import logo from "../../../static/icon/navIcons/logo.png"
 
 function HomeNav(props: any): React.ReactElement {
     const { loggedIn } = useSelector((state: any): any => state.user);

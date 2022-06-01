@@ -2,7 +2,7 @@ import React from "react";
 import Channels from "./Channels";
 import Members from "./Members";
 import Messages from "./Messages";
-import "./style/styles.css"
+import "./room.css"
 
 const Room = () => {
     return <div className="room-wrapper">

@@ -1,11 +1,11 @@
-import calendar from "../../../resource/icon/homeIcons/calendar.png";
-import group from "../../../resource/icon/homeIcons/group.png"
-import counsellor from "../../../resource/icon/homeIcons/online-counselling.png";
-import volunteer from "../../../resource/icon/homeIcons/volunteer.png";
+import calendar from "../../../static/icon/homeIcons/calendar.png";
+import group from "../../../static/icon/homeIcons/group.png"
+import counsellor from "../../../static/icon/homeIcons/online-counselling.png";
+import volunteer from "../../../static/icon/homeIcons/volunteer.png";
 import HomeNav from "./HomeNav";
 import { Carousel } from "react-bootstrap";
 import "./home.css";
-import nuhImage from "../../../resource/icon/homeIcons/nuh-building.png";
+import nuhImage from "../../../static/icon/homeIcons/nuh-building.png";
 import Footer from "./Footer";
 
 function Home(): React.ReactElement {
@@ -75,28 +75,28 @@ function Home(): React.ReactElement {
                     WellNUS jump starts the friend making process and provide on-demand mental health support provided by student volunteers and mental health professionals.
                 </div>
             </div>
-            <img src={nuhImage} className="home_second_row_img"/>
+            <img src={nuhImage} className="home_second_row_img" alt="NUH"/>
         </div>
         <div className="home_third_row">
             <div className="home_third_row_header">Core Features</div>
             <div className="home_cards">
                 <div className="home_card">
-                    <img src={calendar} className="home_card_img" />
+                    <img src={calendar} className="home_card_img" alt="calendar" />
                     <h4>Book a Session</h4>
                     <p className="home_card_caption">Make an appointment with a particular counsellor easily.</p>
                 </div>
                 <div className="home_card">
-                    <img src={group} className="home_card_img"/>
+                    <img src={group} className="home_card_img" alt="group"/>
                     <h4>Group Matching</h4>
                     <p className="home_card_caption">Find a group of like-minded peers to go through thick and thin together.</p>
                 </div>
                 <div className="home_card">
-                    <img src={counsellor} className="home_card_img"/>
+                    <img src={counsellor} className="home_card_img" alt="counsellor"/>
                     <h4>On-Demand Counselling</h4>
                     <p className="home_card_caption">Get matched with an available counsellor immediately.</p>
                 </div>
                 <div className="home_card">
-                    <img src={volunteer} className="home_card_img"/>
+                    <img src={volunteer} className="home_card_img" alt="volunteer"/>
                     <h4>Volunteer to help others</h4>
                     <p className="home_card_caption">Choose to lend a helping hand by training to be a student volunteer counsellor.</p>
                 </div>

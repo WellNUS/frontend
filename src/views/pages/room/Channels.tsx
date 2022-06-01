@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/styles.css";
+import "./room.css";
 
 const Channels = () => {
     return <div className="room-channels-wrapper">

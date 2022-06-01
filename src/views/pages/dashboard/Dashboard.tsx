@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../../partials/Navbar/Navbar";
+import Navbar from "../../components/navbar/Navbar";
 import Board from "./Board";
 import "./dashboard.css";
 

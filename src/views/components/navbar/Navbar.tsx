@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles.css";
-import logo from "../../../resource/icon/navIcons/logo.png"
-import bell from "../../../resource/icon/navIcons/bell.png";
-import exit from "../../../resource/icon/navIcons/exit.png";
-import profile from "../../../resource/icon/navIcons/profile.png";
+import logo from "../../../static/icon/navIcons/logo.png"
+import bell from "../../../static/icon/navIcons/bell.png";
+import exit from "../../../static/icon/navIcons/exit.png";
+import profile from "../../../static/icon/navIcons/profile.png";
 
 const Navbar = () => {
 

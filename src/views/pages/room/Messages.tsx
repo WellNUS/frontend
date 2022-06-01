@@ -1,5 +1,5 @@
 import React from "react";
-import "./style/styles.css";
+import "./room.css";
 
 const userMessages = [
     { profile: "A", 
