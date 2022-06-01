@@ -36,103 +36,112 @@
     margin-left: 1rem;
 }
 
-/*  */
+/* Home.tsx */
 
-.home-top-row {
+.home {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    display: block;
+}
+
+.home_top_row {
     background-color: #ffb6c1;
     height: 100vh;
     display: flex;
 }
 
-.home-top-row-left-col {
+.home_top_row_left_col {
     font-size: 3rem;
     color: white;
     font-weight: 700;
     text-align: left;
     padding: 30vh 5vw;
-    /* border: 1px red solid; */
     width: 60vw;
 }
 
-.home-top-row-left-col-subheading {
+.home_top_row_left_col_subheading {
     font-size: 1.5rem;
 }
 
-.home-top-row-right-col {
+.home_top_row_right_col {
     width: 40vw;
 }
 
-.carousel-wrapper {
-    margin: 10vh 0;
+.home_carousel {
+    padding: 3vh 3vw;
+    margin: 3vh 3vw;
+    margin-top: 10vh !important;
+    text-align: center;
+    color: white;
 }
 
-.carousel-img {
+.home_carousel_img {
     width: 15rem;
     height: auto;
 
 }
 
-.section-wrapper {
+.home_carousel_caption {
+    position: static;
+}
+
+.home_second_row {
     display: flex;
     flex-direction: row;
     padding: 4.5rem;
     text-align: justify;
 }
 
-.section-header {
+.home_second_row_header,
+.home_third_row_header {
     font-size: 2rem;
     margin: 1.5rem 0;
     font-weight: 600;
 }
 
-.section-image {
+.home_second_row_img {
     align-self: center;
     height: 15rem;
     margin-left: 4rem;
 }
 
-.card-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.core-features-wrapper {
+.home_third_row {
     display: flex;
     flex-direction: column;
     padding: 4.5rem;
     text-align: justify;
 }
 
-.core-features-card {
+.home_cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.home_card {
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     margin: 0.4rem;
     padding: 0.8rem;
     border-radius: 5px;
 }
 
-.core-features-img {
+.home_card_img {
     width: 10rem;
     height: auto;
     margin: 1rem;
 }
 
-.core-features-desc {
+.home_card_caption {
     color: black;
     font-weight: 300;
     width: 20vw;
     text-align: left;
 }
 
-h3 {
-    text-align: center;
-}
+/* Footer.tsx */
 
-h4 {
-    text-align: left;
-}
-
-.home-footer {
+.home_footer {
     background-color: #ffb6c1;
     padding: 5rem;
     padding-right: 15rem;
@@ -142,11 +151,11 @@ h4 {
     color: white;
 }
 
-.home-footer-heading {
+.home_footer_heading {
     font-size: 1.5rem;
     font-weight: 800;
 }
 
-.home-footer-subheading {
+.home_footer_subheading {
     font-size: 1rem;
 }
