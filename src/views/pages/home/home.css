@@ -1,4 +1,11 @@
-.wrapper {
+:root {
+    --theme-two: #ffb6c1;
+    --theme-one: white;
+}
+
+/* HomeNav.tsx */
+
+.homenav {
     display: flex;
     padding: 0.5rem;
     flex-direction: row;
@@ -8,12 +15,18 @@
     padding: 1rem 2rem;
 }
 
-.logo {
+.homenav_logo {
     justify-content: flex-start;
     margin: 0 1rem;
 }
 
-.btn {
+.homenav_logotext {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.homenav_btn {
     color: #ffb6c1;
     text-align: center;
     font-size: 1rem;
@@ -23,11 +36,7 @@
     margin-left: 1rem;
 }
 
-.wellnus-text {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+/*  */
 
 .home-top-row {
     background-color: #ffb6c1;

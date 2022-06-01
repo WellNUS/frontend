@@ -13,7 +13,7 @@ import {
     CarouselCaption
 } from "./styled/styled";
 
-import "./styled/styles.css";
+import "./home.css";
 import nuhImage from "../../../resource/icon/homeIcons/nuh-building.png";
 import Footer from "./Footer";
 
