@@ -15,7 +15,7 @@ function Login(): React.ReactElement {
     const authenticate = (payload: any): boolean => {
         const { email, password } = payload;
         for(let i = 0; i < users.length; i++) {
-            if(users[i].email == email && users[i].password == password) {
+            if(users[i].email === email && users[i].password === password) {
                 return true;
             }
         }

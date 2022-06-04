@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from "react";
 import { Field } from "../../../types/authentication/types";
 import FormField from "./FormField";
 import AlertDismissible from "./AlertDismissible";
-import "../../pages/authentication/authentication.css"
+import "../../pages/authentication/authentication.css";
 
 type Props = {
     onSubmit: (e: SyntheticEvent) => void; 

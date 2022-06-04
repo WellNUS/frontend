@@ -19,7 +19,7 @@ function Register(): React.ReactElement {
             passwordConfirmation: e.target[2].value
         }
         if (userDetails.passwordConfirmation !== userDetails.password) {
-            return setErrMsg("Password and password confirmation does not match")
+            return setErrMsg("Password and password confirmation does not match.")
         }
         dispatch(userSlice.actions.add(userDetails))
         dispatch(userSlice.actions.authenticate(userDetails))
