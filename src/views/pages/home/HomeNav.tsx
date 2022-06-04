@@ -11,7 +11,7 @@ function HomeNav(props: any): React.ReactElement {
     return <div className="homenav">
         <div>
             <img src={logo} className="homenav_logo"/>
-            <text className="homenav_logotext">WellNUS</text>
+            <div className="homenav_logotext">WellNUS</div>
         </div>
         <div className="homenav_buttons">
             <Link to="/login" className="homenav_btn btn">Login</Link>

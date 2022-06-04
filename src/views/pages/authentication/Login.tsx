@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import userSlice from "../../../store/slices/user";
+import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
 

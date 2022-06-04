@@ -1,19 +1,11 @@
 import React, { SyntheticEvent } from "react";
-import { Button, Form } from "react-bootstrap";
 import { Field } from "../../../types/authentication/types";
 import FormField from "./FormField";
 import AlertDismissible from "./AlertDismissible";
-import styled from "styled-components";
-
-const StyledButton = styled(Button)`
-    margin: 1rem 0 0rem 0;
-    width: 100%;
-    color: black;
-    border: 1px #DCDCDC solid;
-`
+import "../../pages/authentication/authentication.css"
 
 type Props = {
-    onSubmit: (e: SyntheticEvent)=>void; 
+    onSubmit: (e: SyntheticEvent) => void; 
     fields: Field[];
     error: string;
     displayError: boolean;
@@ -22,7 +14,7 @@ type Props = {
 
 function GeneralForm(props: Props): React.ReactElement {
     const { fields, onSubmit, error, displayError, closeError } = props;
-    return <div onSubmit={onSubmit}>
+    return <form onSubmit={onSubmit}>
                 {
                     fields.map((f, i) => (
                         <FormField
@@ -40,10 +32,10 @@ function GeneralForm(props: Props): React.ReactElement {
                     display={displayError}
                     onClose={closeError}
                 />
-                <StyledButton variant="white" type="submit">
+                <button type="submit" className="btn link-button">
                     Submit
-                </StyledButton>
-            </div>
+                </button>
+            </form>
 }
 
 export default GeneralForm;

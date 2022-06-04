@@ -20,14 +20,15 @@ const userSlice: Slice = createSlice({
     reducers: {
         authenticate: (state: State, action: PayloadAction<UserDetail>) => {
             const users = state.users;
+            console.log(action.payload)
             const { email, password } = action.payload;
-            for(let i = 0; i < users.length; i++) {
-                if(users[i].email == email && users[i].password == password) {
-                    return {
-                        loggedIn: true,
-                        details: users[i],
-                        users: state.users
-                    };
+            const user = users.find(user => user.email == email && user.password == password);
+            console.log(user);
+            if (user !== undefined) {
+                return {
+                    loggedIn: true,
+                    details: user,
+                    users: state.users
                 }
             }
             return state;
