@@ -53,6 +53,13 @@ const userSlice: Slice = createSlice({
                 state.users.splice(details.id, 1)
             }
             return state;
+        },
+        logout: (state: State) => {
+            return {
+                loggedIn: false,
+                details: null,
+                users: state.users
+            }
         }
     }
 });

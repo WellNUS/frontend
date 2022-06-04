@@ -1,13 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
 import logo from "../../../static/icon/navIcons/logo.png"
 import bell from "../../../static/icon/navIcons/bell.png";
 import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
+import { logout } from "../../pages/authentication/Logout";
 
 const Navbar = () => {
-
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">
@@ -20,8 +20,10 @@ const Navbar = () => {
                     <img src={profile} alt="Profile" />
                     <p>USERNAME</p>
                 </div>
-                <img src={bell} />
-                <img src={exit}/>
+                <img src={bell} alt="bell"/>
+                <Link to="/" onClick={() => logout()}>
+                    <img src={exit} alt="exit"/>
+                </Link>
             </div>
         </div>
         <div className="navbar-container-bot">

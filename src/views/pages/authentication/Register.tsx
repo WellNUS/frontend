@@ -8,7 +8,7 @@ import "./authentication.css"
 function Register(): React.ReactElement {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { loggedIn } = useSelector((state: any): any => state).user;
+    const { loggedIn } = useSelector((state: any): any => state.user);
     const [ errMsg, setErrMsg ] = useState("");
 
     const onSubmit = (e: any) => {   
