@@ -10,6 +10,7 @@ function Register(): React.ReactElement {
     const navigate = useNavigate();
     const { loggedIn } = useSelector((state: any): any => state.user);
     const [ errMsg, setErrMsg ] = useState("");
+    const [ status, setStatus ] = useState(0);
 
     const onSubmit = (e: any) => {   
         e.preventDefault(); 
@@ -21,15 +22,11 @@ function Register(): React.ReactElement {
         if (userDetails.passwordConfirmation !== userDetails.password) {
             return setErrMsg("Password and password confirmation does not match.")
         }
-
         registerBE(userDetails);
-
-        dispatch(userSlice.actions.add(userDetails))
-        dispatch(userSlice.actions.authenticate(userDetails))
-        navigate("/dashboard")
     }
 
-    const registerBE = async ({ email, password } : { email: string, password: string }) => {
+    const registerBE = async (userDetails : { email: string, password: string }) => {
+        const { email, password } = userDetails;
         const requestOptions = {
             method: 'POST',
             // TODO: Change the body and the form later
@@ -43,18 +40,24 @@ function Register(): React.ReactElement {
                 "password": password
             })
         }
+        const response = await fetch("http://localhost:8080/user", requestOptions);
         try {
-            const response = await fetch("http://localhost:8080/user", requestOptions);
-            console.log(response);
-            console.log("status: " + response.status);
+            if (response.status === 200) {
+                dispatch(userSlice.actions.add(userDetails))
+                dispatch(userSlice.actions.authenticate(userDetails))
+                navigate("/dashboard")
+            } else {
+                // TODO: Create an alert to indicate invalid input(s).
+                console.log("Invalid input(s).")
+            }
         } catch (err) {
             console.log(err);
         }
     }
 
-    if (loggedIn) {
-        return <h1>You are already Logged In</h1>;
-    }
+    // if (loggedIn) {
+    //     return <h1>You are already Logged In</h1>;
+    // }
 
     return <div className="background flex-wrapper">
         <div className="register-container">
