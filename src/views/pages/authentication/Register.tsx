@@ -15,15 +15,41 @@ function Register(): React.ReactElement {
         e.preventDefault(); 
         const userDetails = {
             email: e.target[0].value,
-            password: e.target[1].value,
+            password: String(e.target[1].value),
             passwordConfirmation: e.target[2].value
         }
         if (userDetails.passwordConfirmation !== userDetails.password) {
             return setErrMsg("Password and password confirmation does not match.")
         }
+
+        registerBE(userDetails);
+
         dispatch(userSlice.actions.add(userDetails))
         dispatch(userSlice.actions.authenticate(userDetails))
         navigate("/dashboard")
+    }
+
+    const registerBE = async ({ email, password } : { email: string, password: string }) => {
+        const requestOptions = {
+            method: 'POST',
+            // TODO: Change the body and the form later
+            body: JSON.stringify({
+                "first_name": "Alice",
+                "last_name": "Doe",
+                "gender": "M",
+                "faculty": "COMPUTING",
+                "email": email,
+                "user_role": "MEMBER",
+                "password": password
+            })
+        }
+        try {
+            const response = await fetch("http://localhost:8080/user", requestOptions);
+            console.log(response);
+            console.log("status: " + response.status);
+        } catch (err) {
+            console.log(err);
+        }
     }
 
     if (loggedIn) {
