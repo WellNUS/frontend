@@ -48,6 +48,7 @@ function Register(): React.ReactElement {
                 navigate("/dashboard")
             } else {
                 // TODO: Create an alert to indicate invalid input(s).
+                // setErrMsg here
                 console.log("Invalid input(s).")
             }
         } catch (err) {

@@ -13,6 +13,7 @@ const userSlice: Slice = createSlice({
         loggedIn: false, 
         details: null,
         users: [{
+            id: 0,
             email: "test@gmail",
             password: "123"
         }]
