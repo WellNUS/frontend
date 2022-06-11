@@ -6,9 +6,13 @@ export type Field = {
     notes: string;
 }
 
-export type UserDetail = {
+export type UserDetails = {
     id?: number;
+    first_name: string;
+    last_name: string;
+    gender: string;
+    faculty: string;
     email: string;
-    password: string;
+    password?: string;
     passwordConfirmation?: string; 
 }

@@ -1,10 +1,10 @@
-import { UserDetail } from "../authentication/types"
+import { UserDetails } from "../authentication/types"
 
 export type StoreState = {
     user: {
         loggedIn: boolean,
-        details: UserDetail | null,
-        users: UserDetail[]
+        details: UserDetails | null,
+        users: UserDetails[]
     }
 }
 
