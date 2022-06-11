@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { idText } from "typescript";
 import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
@@ -13,20 +12,22 @@ function Login(): React.ReactElement {
     const [ errMsg, setErrMsg ] = useState("");
 
     // Remove when database implemented
-    const auth = async (userDetails : { id: number, email: string, password: string }) => {
-        const { id, email, password } = userDetails;
-        const requestOptions = {
-            method: 'GET'
-        }
-        const response = await fetch("http://localhost:8080/user/" + id, requestOptions);
-        return response.status;
-        // const { email, password } = payload;
-        // for(let i = 0; i < users.length; i++) {
-        //     if(users[i].email === email && users[i].password === password) {
-        //         return true;
-        //     }
+    const auth = (userDetails : { id: number, email: string, password: string }) => {
+        // const { id, email, password } = userDetails;
+        // const requestOptions = {
+        //     method: 'GET'
         // }
-        // return false;
+        // const response = await fetch("http://localhost:8080/user/" + id, requestOptions);
+        // return response.status;
+
+        // Temporary
+        const { email, password } = userDetails;
+        for(let i = 0; i < users.length; i++) {
+            if(users[i].email === email && users[i].password === password) {
+                return true;
+            }
+        }
+        return false;
     }
 
     const onSubmit = (e: any) => {   
@@ -38,18 +39,26 @@ function Login(): React.ReactElement {
         }
 
         // TODO: use a more secured method for storing user data
-        auth(authenticationPayload).then(status => {
-            if (status === 200) {
-                dispatch(userSlice.actions.authenticate(authenticationPayload))
-                navigate("/dashboard")
-            } else {
-                setErrMsg("Invalid Credentials")
-            }
-        });
+        // auth(authenticationPayload).then(status => {
+        //     if (status === 200) {
+        //         dispatch(userSlice.actions.authenticate(authenticationPayload))
+        //         navigate("/dashboard")
+        //     } else {
+        //         setErrMsg("Invalid Credentials")
+        //     }
+        // });
+
+        // Temporary
+        if (auth(authenticationPayload)) {
+            dispatch(userSlice.actions.authenticate(authenticationPayload))
+            navigate("/dashboard")
+        } else {
+            setErrMsg("Invalid Credentials.")
+        }
     }
 
     if (loggedIn) {
-        return <h1>You are already Logged In</h1>;
+        return <div>You are already Logged In</div>;
     }
     
     return  <div className="background">
