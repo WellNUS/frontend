@@ -14,9 +14,9 @@ const userSlice: Slice = createSlice({
         details: null,
         users: [{
             id: 0,
-            first_name: "test",
-            last_name: "test",
-            gender: "M",
+            first_name: "Hermione",
+            last_name: "Granger",
+            gender: "F",
             faculty: "COMPUTING",
             email: "test@gmail",
             password: "123"
