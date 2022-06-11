@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
+import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
 
 function Login(): React.ReactElement {
     const dispatch = useDispatch();
@@ -12,8 +13,16 @@ function Login(): React.ReactElement {
     const [ errMsg, setErrMsg ] = useState("");
 
     // Remove when database implemented
-    const authenticate = (payload: any): boolean => {
-        const { email, password } = payload;
+    const auth = (userDetails : UserDetailsType) => {
+        // const { id, email, password } = userDetails;
+        // const requestOptions = {
+        //     method: 'GET'
+        // }
+        // const response = await fetch("http://localhost:8080/user/" + id, requestOptions);
+        // return response.status;
+
+        // Temporary
+        const { email, password } = userDetails;
         for(let i = 0; i < users.length; i++) {
             if(users[i].email === email && users[i].password === password) {
                 return true;
@@ -24,20 +33,40 @@ function Login(): React.ReactElement {
 
     const onSubmit = (e: any) => {   
         e.preventDefault(); 
-        const authenticationPayload = {
+        // TODO: call API to GET the user details from database.
+        // Temporary hard-coding
+        const userDetails = {
+            first_name: users[0].first_name,
+            last_name: users[0].last_name,
+            gender: users[0].gender,
+            faculty: users[0].faculty,
             email: e.target[0].value,
             password: e.target[1].value
         }
-        if (authenticate(authenticationPayload)) {
-            dispatch(userSlice.actions.authenticate(authenticationPayload))
+
+        // TODO: use a more secured method for storing user data
+        // Calling backend API
+        // auth(authenticationPayload).then(status => {
+        //     if (status === 200) {
+        //         dispatch(userSlice.actions.authenticate(authenticationPayload))
+        //         navigate("/dashboard")
+        //     } else {
+        //         setErrMsg("Invalid Credentials")
+        //     }
+        // });
+
+        // Temporary
+        // currently not calling backend API
+        if (auth(userDetails)) {
+            dispatch(userSlice.actions.authenticate(userDetails))
             navigate("/dashboard")
         } else {
-            setErrMsg("Invalid Credentials")
+            setErrMsg("Invalid Credentials.")
         }
     }
 
     if (loggedIn) {
-        return <h1>You are already Logged In</h1>;
+        return <div>You are already Logged In</div>;
     }
     
     return  <div className="background">

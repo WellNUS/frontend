@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction, Slice } from "@reduxjs/toolkit";
-import { UserDetail } from "../../types/authentication/types";
+import { UserDetails } from "../../types/authentication/types";
 
 type State = {
     loggedIn: boolean
-    details: UserDetail | null
-    users: UserDetail[]
+    details: UserDetails | null
+    users: UserDetails[]
 };
 
 const userSlice: Slice = createSlice({
@@ -13,15 +13,21 @@ const userSlice: Slice = createSlice({
         loggedIn: false, 
         details: null,
         users: [{
+            id: 0,
+            first_name: "Hermione",
+            last_name: "Granger",
+            gender: "F",
+            faculty: "COMPUTING",
             email: "test@gmail",
             password: "123"
         }]
     } as State,
     reducers: {
-        authenticate: (state: State, action: PayloadAction<UserDetail>) => {
+        authenticate: (state: State, action: PayloadAction<UserDetails>) => {
             const users = state.users;
-            const { email, password } = action.payload;
-            const user = users.find(user => user.email === email && user.password === password);
+            // const user = users.find(user => user.email === email && user.password === password);
+            const { first_name, last_name, gender, faculty, email } = action.payload;
+            const user = { first_name, last_name, gender, faculty, email };
             if (user !== undefined) {
                 return {
                     loggedIn: true,
@@ -31,7 +37,7 @@ const userSlice: Slice = createSlice({
             }
             return state;
         },
-        update: (state: State, action: PayloadAction<UserDetail>) => {
+        update: (state: State, action: PayloadAction<UserDetails>) => {
             const { loggedIn, details } = state;
             if (loggedIn && details != null && details.id != null) {
                 state.users[details.id].email = details.email
@@ -39,11 +45,14 @@ const userSlice: Slice = createSlice({
             }
             return state;
         },
-        add: (state: State, action: PayloadAction<UserDetail>) => {
+        add: (state: State, action: PayloadAction<UserDetails>) => {
             state.users[state.users.length] = {
                 id: state.users.length,
+                first_name: action.payload.first_name,
+                last_name: action.payload.last_name,
+                gender: action.payload.gender,
+                faculty: action.payload.faculty,
                 email: action.payload.email,
-                password: action.payload.password,
             }
             return state;
         },

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import userSlice from "../../../state/slices/user";
 
-export const logout = () => {
+export const Logout = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state);
