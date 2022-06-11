@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
+import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
 
 function Login(): React.ReactElement {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function Login(): React.ReactElement {
     const [ errMsg, setErrMsg ] = useState("");
 
     // Remove when database implemented
-    const auth = (userDetails : { id: number, email: string, password: string }) => {
+    const auth = (userDetails : UserDetailsType) => {
         // const { id, email, password } = userDetails;
         // const requestOptions = {
         //     method: 'GET'
@@ -32,13 +33,19 @@ function Login(): React.ReactElement {
 
     const onSubmit = (e: any) => {   
         e.preventDefault(); 
-        const authenticationPayload = {
-            id: 0,
+        // TODO: call API to GET the user details from database.
+        // Temporary hard-coding
+        const userDetails = {
+            first_name: users[0].first_name,
+            last_name: users[0].last_name,
+            gender: users[0].gender,
+            faculty: users[0].faculty,
             email: e.target[0].value,
             password: e.target[1].value
         }
 
         // TODO: use a more secured method for storing user data
+        // Calling backend API
         // auth(authenticationPayload).then(status => {
         //     if (status === 200) {
         //         dispatch(userSlice.actions.authenticate(authenticationPayload))
@@ -49,8 +56,9 @@ function Login(): React.ReactElement {
         // });
 
         // Temporary
-        if (auth(authenticationPayload)) {
-            dispatch(userSlice.actions.authenticate(authenticationPayload))
+        // currently not calling backend API
+        if (auth(userDetails)) {
+            dispatch(userSlice.actions.authenticate(userDetails))
             navigate("/dashboard")
         } else {
             setErrMsg("Invalid Credentials.")

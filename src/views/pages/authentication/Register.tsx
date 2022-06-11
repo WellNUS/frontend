@@ -48,7 +48,7 @@ function Register(): React.ReactElement {
         const response = await fetch("http://localhost:8080/user", requestOptions);
         try {
             if (response.status === 200) {
-                dispatch(userSlice.actions.add(userDetails)) // TODO: remove this later
+                // dispatch(userSlice.actions.add(userDetails)) // TODO: remove this later
                 dispatch(userSlice.actions.authenticate(userDetails)) // update redux loggedIn state
                 navigate("/dashboard")
             } else {

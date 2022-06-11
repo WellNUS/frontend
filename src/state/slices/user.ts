@@ -14,6 +14,10 @@ const userSlice: Slice = createSlice({
         details: null,
         users: [{
             id: 0,
+            first_name: "test",
+            last_name: "test",
+            gender: "M",
+            faculty: "COMPUTING",
             email: "test@gmail",
             password: "123"
         }]
@@ -21,8 +25,9 @@ const userSlice: Slice = createSlice({
     reducers: {
         authenticate: (state: State, action: PayloadAction<UserDetails>) => {
             const users = state.users;
-            const { email, password } = action.payload;
-            const user = users.find(user => user.email === email && user.password === password);
+            // const user = users.find(user => user.email === email && user.password === password);
+            const { first_name, last_name, gender, faculty, email } = action.payload;
+            const user = { first_name, last_name, gender, faculty, email };
             if (user !== undefined) {
                 return {
                     loggedIn: true,
