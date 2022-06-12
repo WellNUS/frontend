@@ -6,6 +6,7 @@ import bell from "../../../static/icon/navIcons/bell.png";
 import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
 import { useSelector } from "react-redux";
+import LogoutModal from "../../pages/authentication/Logout";
 // import { logout } from "../../pages/authentication/Logout";
 
 const Navbar = () => {
@@ -18,13 +19,14 @@ const Navbar = () => {
             </div>
             <div className="navbar-right">
                 <p>AY2021/2022, Semester 2, Week 9</p>
-                <div className="profile">
-                    <img src={profile} alt="Profile" />
-                    <p>{details.first_name} {details.last_name}</p>
-                </div>
+                <Link to="/profile" className="profile">
+                        <img src={profile} alt="Profile" />
+                        <p>{details.first_name} {details.last_name}</p>
+                </Link>
                 <img src={bell} alt="bell"/>
+                <LogoutModal />
                 {/* <Link to="/" onClick={() => logout()}> */}
-                    <img src={exit} alt="exit"/>
+                    {/* <img src={exit} alt="exit"/> */}
                 {/* </Link> */}
             </div>
         </div>
