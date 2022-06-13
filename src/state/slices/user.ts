@@ -23,7 +23,7 @@ const userSlice: Slice = createSlice({
             }
             return state;
         },
-        logout: (state: State) => {
+        logout: () => {
             return {
                 loggedIn: false,
                 details: null,

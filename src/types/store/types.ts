@@ -4,7 +4,6 @@ export type StoreState = {
     user: {
         loggedIn: boolean,
         details: UserDetails | null,
-        users: UserDetails[]
     }
 }
 

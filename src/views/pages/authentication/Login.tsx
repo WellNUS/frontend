@@ -24,15 +24,6 @@ function Login(): React.ReactElement {
         const response = await fetch("http://localhost:8080/session", requestOptions);
         const data = await response.json();
         return data;
-
-        // // Temporary
-        // const { email, password } = userDetails;
-        // for(let i = 0; i < users.length; i++) {
-        //     if(users[i].email === email && users[i].password === password) {
-        //         return true;
-        //     }
-        // }
-        // return false;
     }
 
     const onSubmit = (e: any) => {   
@@ -50,11 +41,6 @@ function Login(): React.ReactElement {
         // TODO: use a more secured method for storing user data
         // Calling backend API
         handleAuth(userDetails).then((data: any) => {
-            console.log(data); // delete later
-            console.log(data.logged_in); // delete later
-            console.log(data.user); // delete later
-            // const { id, first_name, last_name, gender, faculty, email, user_role } = data.user;
-            // const user = { id, first_name, last_name
             if (data.logged_in) {
                 dispatch(userSlice.actions.authenticate(data.user));
                 navigate("/dashboard");
@@ -62,15 +48,6 @@ function Login(): React.ReactElement {
                 setErrMsg("Invalid Credentials");
             }
         });
-
-        // // Temporary
-        // // currently not calling backend API
-        // if (auth(userDetails)) {
-        //     dispatch(userSlice.actions.authenticate(userDetails))
-        //     navigate("/dashboard")
-        // } else {
-        //     setErrMsg("Invalid Credentials.")
-        // }
     }
 
     if (loggedIn) {
