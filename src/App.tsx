@@ -10,6 +10,7 @@ import Register from './views/pages/authentication/Register';
 import Room from './views/pages/room/Room';
 import Profile from './views/pages/profile/Profile';
 
+// Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
   () => {saveState(store.getState());}
 );
