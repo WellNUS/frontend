@@ -12,57 +12,65 @@ function Login(): React.ReactElement {
     const { loggedIn, users } = useSelector((state: any): any => state).user;
     const [ errMsg, setErrMsg ] = useState("");
 
-    // Remove when database implemented
-    const auth = (userDetails : UserDetailsType) => {
-        // const { id, email, password } = userDetails;
-        // const requestOptions = {
-        //     method: 'GET'
-        // }
-        // const response = await fetch("http://localhost:8080/user/" + id, requestOptions);
-        // return response.status;
-
-        // Temporary
+    const handleAuth = async (userDetails : UserDetailsType) => {
         const { email, password } = userDetails;
-        for(let i = 0; i < users.length; i++) {
-            if(users[i].email === email && users[i].password === password) {
-                return true;
-            }
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify({
+                "email": email,
+                "password": password
+            })
         }
-        return false;
+        const response = await fetch("http://localhost:8080/session", requestOptions);
+        const data = await response.json();
+        return data;
+
+        // // Temporary
+        // const { email, password } = userDetails;
+        // for(let i = 0; i < users.length; i++) {
+        //     if(users[i].email === email && users[i].password === password) {
+        //         return true;
+        //     }
+        // }
+        // return false;
     }
 
     const onSubmit = (e: any) => {   
         e.preventDefault(); 
-        // TODO: call API to GET the user details from database.
-        // Temporary hard-coding
         const userDetails = {
-            first_name: users[0].first_name,
-            last_name: users[0].last_name,
-            gender: users[0].gender,
-            faculty: users[0].faculty,
+            first_name: "",
+            last_name: "",
+            gender: "",
+            faculty: "",
             email: e.target[0].value,
-            password: e.target[1].value
+            password: e.target[1].value,
+            user_role: ""
         }
 
         // TODO: use a more secured method for storing user data
         // Calling backend API
-        // auth(authenticationPayload).then(status => {
-        //     if (status === 200) {
-        //         dispatch(userSlice.actions.authenticate(authenticationPayload))
-        //         navigate("/dashboard")
-        //     } else {
-        //         setErrMsg("Invalid Credentials")
-        //     }
-        // });
+        handleAuth(userDetails).then((data: any) => {
+            console.log(data); // delete later
+            console.log(data.logged_in); // delete later
+            console.log(data.user); // delete later
+            // const { id, first_name, last_name, gender, faculty, email, user_role } = data.user;
+            // const user = { id, first_name, last_name
+            if (data.logged_in) {
+                dispatch(userSlice.actions.authenticate(data.user));
+                navigate("/dashboard");
+            } else {
+                setErrMsg("Invalid Credentials");
+            }
+        });
 
-        // Temporary
-        // currently not calling backend API
-        if (auth(userDetails)) {
-            dispatch(userSlice.actions.authenticate(userDetails))
-            navigate("/dashboard")
-        } else {
-            setErrMsg("Invalid Credentials.")
-        }
+        // // Temporary
+        // // currently not calling backend API
+        // if (auth(userDetails)) {
+        //     dispatch(userSlice.actions.authenticate(userDetails))
+        //     navigate("/dashboard")
+        // } else {
+        //     setErrMsg("Invalid Credentials.")
+        // }
     }
 
     if (loggedIn) {

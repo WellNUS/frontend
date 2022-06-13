@@ -19,15 +19,16 @@ const userSlice: Slice = createSlice({
             gender: "F",
             faculty: "COMPUTING",
             email: "test@gmail",
-            password: "123"
+            password: "123",
+            user_role: "MEMBER"
         }]
     } as State,
     reducers: {
         authenticate: (state: State, action: PayloadAction<UserDetails>) => {
             const users = state.users;
             // const user = users.find(user => user.email === email && user.password === password);
-            const { first_name, last_name, gender, faculty, email } = action.payload;
-            const user = { first_name, last_name, gender, faculty, email };
+            const { first_name, last_name, gender, faculty, email, user_role } = action.payload;
+            const user = { first_name, last_name, gender, faculty, email, user_role };
             if (user !== undefined) {
                 return {
                     loggedIn: true,
@@ -53,6 +54,7 @@ const userSlice: Slice = createSlice({
                 gender: action.payload.gender,
                 faculty: action.payload.faculty,
                 email: action.payload.email,
+                user_role: action.payload.user_role
             }
             return state;
         },

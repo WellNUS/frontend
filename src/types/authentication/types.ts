@@ -15,4 +15,5 @@ export type UserDetails = {
     email: string;
     password?: string;
     passwordConfirmation?: string; 
+    user_role: string;
 }

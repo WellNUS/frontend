@@ -22,7 +22,8 @@ function Register(): React.ReactElement {
             faculty: e.target[3].value,
             email: e.target[4].value,
             password: String(e.target[5].value),
-            passwordConfirmation: e.target[6].value
+            passwordConfirmation: e.target[6].value,
+            user_role: "MEMBER" // default
         }
         if (userDetails.passwordConfirmation !== userDetails.password) {
             return setErrMsg("Password and password confirmation does not match.")
