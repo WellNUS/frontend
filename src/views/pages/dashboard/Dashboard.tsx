@@ -23,12 +23,6 @@ const Dashboard = () => {
     return <div>
         <Navbar />
         <div className="dashboard_title">Welcome back, {details.first_name}!</div>
-        <div>{details.first_name}</div>
-        <div>{details.last_name}</div>
-        <div>{details.gender}</div>
-        <div>{details.faculty}</div>
-        {/* temporary */}
-        <div className="dashboard_title">Status: {loggedIn ? "Logged in" : "Not logged in"}</div>
         <div className="dashboard_boards">
             <Board title="Announcements" />
             <Board title="Upcoming Appointments" />
