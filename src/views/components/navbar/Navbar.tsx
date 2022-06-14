@@ -31,10 +31,10 @@ const Navbar = () => {
             </div>
         </div>
         <div className="navbar-container-bot">
-            <NavLink to="" className="navlink">
+            <NavLink to="/dashboard" className="navlink">
                 DASHBOARD
             </NavLink>
-            <NavLink to="" className="navlink">
+            <NavLink to="/group" className="navlink">
                 GROUP
             </NavLink>
             <NavLink to="" className="navlink">

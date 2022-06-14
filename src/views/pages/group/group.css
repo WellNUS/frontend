@@ -1,0 +1,33 @@
+:root {
+    --theme-two: #ffb6c1;
+    --theme-one: white;
+}
+
+.group_title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.group_heading_row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.groups {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    gap: 1rem;
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: 500;
+    background-color: var(--theme-one);
+    border: 4px solid var(--theme-two);
+    padding: 1rem;
+    border-radius: 10px;
+}
