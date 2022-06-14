@@ -56,8 +56,8 @@ function Login(): React.ReactElement {
     
     return  <div className="background">
         <div className="container">
-            <div className="auth-title">Log in</div>    
-            <div className="form">
+            <div className="auth-title">Log in</div>   
+            <div className="form-login">
                 <GeneralForm
                     onSubmit={onSubmit}
                     fields={[
@@ -80,7 +80,7 @@ function Login(): React.ReactElement {
                     displayError={errMsg !== ""}
                     closeError={() => setErrMsg("")}
                 />
-                <hr />
+                <br />
                 <Link to="/register" className="no-decoration">
                     <button className="link-button">
                         Don't have an account? Click here!

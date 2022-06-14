@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
-import logo from "../../../static/icon/navIcons/logo.png"
+// import logo from "../../../static/icon/navIcons/logo.png"
 import bell from "../../../static/icon/navIcons/bell.png";
 import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
@@ -14,7 +14,7 @@ const Navbar = () => {
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">
-                <img src={logo} alt="Logo" />
+                {/* <img src={logo} alt="Logo" /> */}
                 <h1>WellNUS</h1>
             </div>
             <div className="navbar-right">

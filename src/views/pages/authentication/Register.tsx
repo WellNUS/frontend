@@ -6,7 +6,7 @@ import GeneralForm from "../../components/form/GeneralForm";
 import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
 import "./authentication.css"
 
-function Register(): React.ReactElement {
+const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loggedIn } = useSelector((state: any): any => state.user);
@@ -55,7 +55,7 @@ function Register(): React.ReactElement {
             } else {
                 // TODO: Create an alert to indicate invalid input(s).
                 // setErrMsg here
-                console.log("Invalid input(s).")
+                setErrMsg("Invalid input(s).");
             }
         } catch (err) {
             console.log(err);
@@ -68,8 +68,22 @@ function Register(): React.ReactElement {
 
     return <div className="background flex-wrapper">
         <div className="register-container">
-            <div className="auth-title">Sign up</div>
-            <div className="form">
+            <div className="register-header">
+                <div className="auth-title">Sign up</div>
+                <div className="auth-links">
+                    <Link to="/login" className="no-decoration">
+                        <button className="link-button">
+                            Login
+                        </button>
+                    </Link>
+                    <Link to="/" className="no-decoration">
+                        <button className="link-button">
+                            Home
+                        </button>
+                    </Link>
+                </div>
+            </div>
+            <div className="form-register">
                 <GeneralForm
                     onSubmit={onSubmit}
                     fields={[
@@ -128,16 +142,6 @@ function Register(): React.ReactElement {
                     displayError={errMsg !== ""}
                     closeError={() => setErrMsg("")}
                 />
-            <Link to="/login" className="no-decoration">
-                <button className="link-button">
-                    Already signed up? Click here!
-                </button>
-            </Link>
-            <Link to="/" className="no-decoration">
-                <button className="link-button">
-                    Go back to home page.
-                </button>
-            </Link>
             </div>
         </div>
     </div>

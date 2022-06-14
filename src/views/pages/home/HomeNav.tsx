@@ -10,7 +10,7 @@ function HomeNav(props: any): React.ReactElement {
     } 
     return <div className="homenav">
         <div>
-            <img src={logo} className="homenav_logo"/>
+            {/* <img src={logo} className="homenav_logo"/> */}
             <div className="homenav_logotext">WellNUS</div>
         </div>
         <div className="homenav_buttons">

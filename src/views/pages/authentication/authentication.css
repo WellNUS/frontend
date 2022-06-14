@@ -33,7 +33,36 @@
     margin-left: 2rem;
 }
 
-.form {
+.auth-links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.register-container {
+    background-color: var(--theme-one);
+    height: 80vh;
+    width: 30vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 3rem 0;
+    border-radius: 10px;
+}
+
+.register-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.form-register {
+    display: flex;
+    flex-direction: row;
+    margin: 2rem;
+}
+
+.form-login {
     margin: 2rem;
 }
 
@@ -55,14 +84,4 @@
 .no-decoration {
     text-decoration: none;
     color: black;
-}
-
-.register-container {
-    background-color: var(--theme-one);
-    height: 80vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    width: 30vw;
-    padding: 3rem 0;
-    border-radius: 10px;
 }
