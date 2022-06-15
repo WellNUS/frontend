@@ -25,9 +25,6 @@ const Navbar = () => {
                 </Link>
                 <img src={bell} alt="bell"/>
                 <LogoutModal />
-                {/* <Link to="/" onClick={() => logout()}> */}
-                    {/* <img src={exit} alt="exit"/> */}
-                {/* </Link> */}
             </div>
         </div>
         <div className="navbar-container-bot">

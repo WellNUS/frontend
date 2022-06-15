@@ -12,6 +12,7 @@ const testData = [
 const Board = ({ title, flexDirection } : { title: string, flexDirection: string }) => {
     return <div className="board">
         <div className="board_title">{title}</div>
+        <br />
         <div className={flexDirection === "column" ? "board_cards_column" : "board_cards_row"}>
             {testData.map((data, i) => {
                 return <div className="board_card" key={i}>

@@ -23,18 +23,21 @@ const LogoutModal = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        // await fetch("http://localhost:8080/session", 
+        //     { method: 'DELETE' })
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
         const logout = userSlice.actions.logout;
         dispatch(logout(user));
         navigate("/");
     }
 
     return (
-        <>
-            <Button variant="primary" onClick={handleShow}>
+        <div>
+            <Button variant="primary" onClick={handleShow} className="logout_button">
                 <img src={exit} alt="exit"/>
             </Button>
-
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Confirm Logout</Modal.Title>
@@ -49,7 +52,7 @@ const LogoutModal = () => {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
+        </div>
     );
 }
 

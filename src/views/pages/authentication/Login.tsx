@@ -79,6 +79,7 @@ function Login(): React.ReactElement {
                     error={errMsg}
                     displayError={errMsg !== ""}
                     closeError={() => setErrMsg("")}
+                    hideSubmit={false}
                 />
                 <br />
                 <Link to="/register" className="no-decoration">

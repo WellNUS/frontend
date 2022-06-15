@@ -141,6 +141,7 @@ const Register = () => {
                     error={errMsg}
                     displayError={errMsg !== ""}
                     closeError={() => setErrMsg("")}
+                    hideSubmit={false}
                 />
             </div>
         </div>

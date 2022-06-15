@@ -10,10 +10,11 @@ type Props = {
     error: string;
     displayError: boolean;
     closeError: () => void;
+    hideSubmit: boolean;
 }
 
 function GeneralForm(props: Props): React.ReactElement {
-    const { fields, onSubmit, error, displayError, closeError } = props;
+    const { fields, onSubmit, error, displayError, closeError, hideSubmit } = props;
     return <form onSubmit={onSubmit}>
                 {
                     fields.map((f, i) => (

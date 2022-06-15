@@ -85,3 +85,13 @@
     text-decoration: none;
     color: black;
 }
+
+.logout_button {
+    background-color: var(--theme-two);
+    border: none;
+    transform: translateY(-0.4rem);
+}
+
+.logout_button:hover {
+    background-color: var(--theme-one);
+}
