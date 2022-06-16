@@ -13,6 +13,7 @@ export async function saveState(state: any) {
   try {
     const serializedState = JSON.stringify(state);
     sessionStorage.setItem(KEY, serializedState);
+    
   } catch (e) {
     // Ignore
   }

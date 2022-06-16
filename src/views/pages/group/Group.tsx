@@ -38,9 +38,9 @@ const Group = () => {
         // }
     }
 
-    // useEffect(() => {
-    //     handleFetch();
-    // }, []);
+    useEffect(() => {
+        handleFetch();
+    }, []);
 
     return (
         <div>

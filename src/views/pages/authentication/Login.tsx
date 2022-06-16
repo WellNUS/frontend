@@ -5,12 +5,14 @@ import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
 import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
+import { useCookies } from "react-cookie";
 
 function Login(): React.ReactElement {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loggedIn, users } = useSelector((state: any): any => state).user;
     const [ errMsg, setErrMsg ] = useState("");
+    const [ cookies, setCookies ] = useCookies(['user']);
 
     const handleAuth = async (userDetails : UserDetailsType) => {
         const { email, password } = userDetails;
@@ -42,6 +44,7 @@ function Login(): React.ReactElement {
         // Calling backend API
         handleAuth(userDetails).then((data: any) => {
             if (data.logged_in) {
+                // setCookies('user', { logged_in: true, user: data.user });
                 dispatch(userSlice.actions.authenticate(data.user));
                 navigate("/dashboard");
             } else {
