@@ -32,7 +32,7 @@ const Dashboard = () => {
     }
 
     return <div>
-        <Navbar />
+        <Navbar hideTop={false}/>
         {/* <button onClick={() => send()}>Send</button> */}
         <div className="dashboard_title">Welcome back, {details.first_name}!</div>
         <div className="dashboard_boards">

@@ -39,7 +39,7 @@ img {
     background-color: var(--main-color);
     padding: 1rem 1.5rem;
     gap: 2rem;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
 }
 
 .profile {

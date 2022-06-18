@@ -9,8 +9,29 @@ import { useSelector } from "react-redux";
 import LogoutModal from "../../pages/authentication/Logout";
 // import { logout } from "../../pages/authentication/Logout";
 
-const Navbar = () => {
+const Navbar = (props : { hideTop : boolean }) => {
+    const { hideTop } = props;
     const { details, loggedIn } = useSelector((state: any) => state.user);
+
+    if (hideTop) {
+        return (
+            <div className="navbar-container-bot">
+                <NavLink to="/dashboard" className="navlink">
+                    DASHBOARD
+                </NavLink>
+                <NavLink to="/groups" className="navlink">
+                    GROUPS
+                </NavLink>
+                <NavLink to="" className="navlink">
+                    TALK
+                </NavLink>
+                <NavLink to="" className="navlink">
+                    BECOME
+                </NavLink>
+            </div>
+        )
+    }
+
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">

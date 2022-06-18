@@ -6,6 +6,7 @@ import Messages from "./Messages";
 import "../group.css";
 import GroupDetails from "./GroupDetails";
 import { GroupDetails as GroupDetailsType } from "../../../../types/group/types";
+import Navbar from "../../../components/navbar/Navbar";
 
 const Group = () => {
     const [group, setGroup] = useState<GroupDetailsType>();
@@ -31,6 +32,8 @@ const Group = () => {
     }, []);
 
     return (
+        <div>
+        <Navbar hideTop={true}/>
         <div className="room-wrapper">
             <div className="room-left-col">
                 {/* <Channels /> */}
@@ -42,6 +45,7 @@ const Group = () => {
             <div className="room-right-col">
                 <Members />
             </div>
+        </div>
         </div>
         // <div>
         //     Group here.

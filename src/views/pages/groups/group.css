@@ -84,19 +84,21 @@ button {
 .room-left-col,
 .room-middle-col,
 .room-right-col {
-    height: 100vh;
+    height: 93vh;
 }
 
 .room-left-col {
     width: 20vw;
-    padding-left: 2rem;
-    padding-top: 10rem;
+    padding: 0 2rem;
+    padding-top: 1rem;
     background-color: var(--theme-two);
 }
 
 .room-middle-col {
     width: 60vw;
-    background-color: var(--theme-one);
+    background-color: var(--theme-two);
+    /* border-left: 1px var(--theme-one) solid; */
+    border-right: 1px var(--theme-one) solid;
 
 }
 
@@ -137,8 +139,9 @@ button {
     margin-right: 10rem;
     padding: 0.5rem 2rem;
     border-radius: 10px;
-    background-color: var(--theme-two);
-    color: var(--theme-one);
+    color: var(--theme-two);
+    /* color: black; */
+    background-color: var(--theme-one);
 }
 
 .room-message-profile {
@@ -167,4 +170,34 @@ button {
     width: 10rem;
     border-radius: 5px;
     padding-left: 1rem;
+}
+
+/* GroupDetails.tsx */
+
+.group_details {
+    border: 1px var(--theme-one) solid;
+    padding: 1rem;
+    border-radius: 20px;
+}
+
+.group_details_name {
+    color: var(--theme-one);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.group_details_description {
+    color: var(--theme-one);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.group_details_box {
+    background-color: var(--theme-one);
+    color: var(--theme-two);
+    font-weight: 600;
+    margin: 1rem 0;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
 }

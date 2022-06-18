@@ -35,7 +35,7 @@ const Group = () => {
 
     return (
         <div>
-            <Navbar />
+            <Navbar hideTop={false}/>
             <div className="group_heading_row">
                 <div className="group_title">Groups</div>
                 <CreateGroup />

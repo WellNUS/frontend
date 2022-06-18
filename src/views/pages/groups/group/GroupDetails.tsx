@@ -8,12 +8,10 @@ type Props = {
 const GroupDetails = (props : Props) => {
     const { group } = props;
     return (
-        <div>
-            <div>ID: {group?.id}</div>
-            <div>{group?.group_name}</div>
-            <div>{group?.group_description}</div>
-            <div>{group?.category}</div>
-            <div>{group?.owner_id}</div>
+        <div className="group_details">
+            <div className="group_details_name">{group?.group_name}</div>
+            <div className="group_details_description">{group?.group_description}</div>
+            <div className="group_details_box">{group?.category}</div>
         </div>
     )
 }
