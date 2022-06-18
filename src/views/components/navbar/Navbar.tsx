@@ -31,8 +31,8 @@ const Navbar = () => {
             <NavLink to="/dashboard" className="navlink">
                 DASHBOARD
             </NavLink>
-            <NavLink to="/group" className="navlink">
-                GROUP
+            <NavLink to="/groups" className="navlink">
+                GROUPS
             </NavLink>
             <NavLink to="" className="navlink">
                 TALK

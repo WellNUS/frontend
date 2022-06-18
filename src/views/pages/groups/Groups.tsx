@@ -25,7 +25,6 @@ const Group = () => {
                 return response.json()
             })
             .then(data => {
-                // console.log(data)
                 setGroups(data)
             });
     }
@@ -48,14 +47,14 @@ const Group = () => {
                     <div className="group_category">Categories</div>
                     <div className="group_button">Action</div>
                 </div>
-                {groups.map((group) => {
+                {groups.map((group, id) => {
                     return (
-                        <div className="group" key={group.id}>
+                        <div className="group" key={id}>
                             <div className="group_name">{group.group_name}</div>
                             <div className="group_description">{group.group_description}</div>
                             <div className="group_category">{group.category}</div>
                             <div className="group_button">
-                                <Link to={`/group/${group.id}`}>
+                                <Link to={`/groups/${group.id}`}>
                                     {/* <button>View</button> */}
                                     View
                                 </Link>
