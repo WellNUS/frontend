@@ -9,6 +9,7 @@ import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
 import Room from './views/pages/room/Room';
 import Profile from './views/pages/profile/Profile';
+import Groups from './views/pages/group/Groups';
 import Group from './views/pages/group/Group';
 
 // Ensure that redux state changes will be saved into sessionStorage.
@@ -28,7 +29,8 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/room" element={<Room />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/group" element={<Group />} />
+            <Route path="/group" element={<Groups />} />
+            <Route path="/group/:group_id" element={<Group />} />
           </Routes>
         </BrowserRouter>
     </Provider>

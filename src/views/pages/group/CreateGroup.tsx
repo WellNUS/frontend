@@ -26,11 +26,15 @@ const CreateGroup = () => {
         }
         const requestOptions = {
             method: 'POST',
+            credentials: 'include' as RequestCredentials,
             body: JSON.stringify(groupDetails)
         }
         await fetch("http://localhost:8080/group", requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {
+                console.log(data);
+                handleClose();
+            });
     }
 
     return (
