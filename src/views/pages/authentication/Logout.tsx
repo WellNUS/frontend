@@ -19,10 +19,9 @@ const LogoutModal = () => {
     const handleLogout = async () => {
         await fetch("http://localhost:8080/session", 
             {
-                method: 'DELETE'
-            })
-            // .then(response => response.json())
-            // .then(data => console.log(data));
+                method: 'DELETE',
+                credentials: 'include' as RequestCredentials,
+            });
         const logout = userSlice.actions.logout;
         dispatch(logout(user));
         // setCookies('user', { logged_in: false, user: null });

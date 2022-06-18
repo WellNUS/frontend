@@ -18,6 +18,7 @@ function Login(): React.ReactElement {
         const { email, password } = userDetails;
         const requestOptions = {
             method: 'POST',
+            credentials: 'include' as RequestCredentials,
             body: JSON.stringify({
                 "email": email,
                 "password": password
