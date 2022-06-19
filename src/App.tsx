@@ -11,6 +11,7 @@ import Room from './views/pages/room/Room';
 import Profile from './views/pages/profile/Profile';
 import Groups from './views/pages/groups/Groups';
 import Group from './views/pages/groups/group/GroupRoom';
+import JoinGroup from './views/pages/groups/JoinGroup';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -31,6 +32,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
+            <Route path="/join" element={<JoinGroup />} />
           </Routes>
         </BrowserRouter>
     </Provider>

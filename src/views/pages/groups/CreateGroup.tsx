@@ -39,7 +39,7 @@ const CreateGroup = () => {
 
     return (
         <div>
-            <Button variant="primary" onClick={handleShow} className="group_create_button">
+            <Button variant="primary" onClick={handleShow} className="group_heading_button">
                 Create Group
             </Button>
             <Modal show={show} onHide={handleClose} className="create_group_modal">

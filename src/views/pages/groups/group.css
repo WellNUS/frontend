@@ -14,6 +14,13 @@
     padding: 1rem 2rem;
 }
 
+.group_heading_buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
 .groups {
     display: flex;
     flex-direction: column;
@@ -60,7 +67,7 @@ button {
     width: 8%;
 }
 
-.group_create_button {
+.group_heading_button {
     background-color: var(--theme-two);
     color: var(--theme-one);
     padding: 0.5rem 1rem;
@@ -200,4 +207,35 @@ button {
     width: fit-content;
     border-radius: 5px;
     padding: 0.2rem 1rem;
+}
+
+/* JoinGroup.tsx */
+
+.join_group_main {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 2rem;
+}
+
+.join_group_left_column {
+    width: 30vw;
+    padding: 2rem;
+}
+
+.join_group_right_column {
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    padding: 2rem;
+    border: 1px red solid;
+}
+
+.join_group_top_row {
+    height: 100%;
+    /* border: 1px red solid; */
+}
+
+.join_group_bottom_row {
+    height: 0%;
+    /* border: 1px black solid; */
 }

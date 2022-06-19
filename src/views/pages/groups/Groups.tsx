@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar/Navbar";
 import CreateGroup from "./CreateGroup";
 import "./group.css";
+import JoinGroup from "./JoinGroup";
 
 const groupsTestData = [
     { group_name: "Group Asgard", group_description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vel.", category: "Counselling" },
@@ -38,7 +40,12 @@ const Group = () => {
             <Navbar hideTop={false}/>
             <div className="group_heading_row">
                 <div className="group_title">Groups</div>
-                <CreateGroup />
+                <div className="group_heading_buttons">
+                    <Link to="/join">            
+                        <Button variant="primary" className="group_heading_button">Join Group</Button>
+                    </Link>
+                    <CreateGroup />
+                </div>
             </div>
             <div className="groups">
                 <div className="group table_head">
