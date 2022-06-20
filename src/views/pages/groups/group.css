@@ -227,7 +227,6 @@ button {
     flex-direction: column;
     width: 70vw;
     padding: 2rem;
-    border: 1px red solid;
 }
 
 .join_group_top_row {

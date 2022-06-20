@@ -9,7 +9,10 @@ import "./group.css";
 import Navbar from "../../components/navbar/Navbar";
 
 const JoinGroup = () => {
-    const [requests, getRequests] = useState([]);
+    const [requests, setRequests] = useState<any[]>([]);
+    const [userFullName, setUserFullName] = useState("");
+    const [groupName, setGroupName] = useState("");
+    const [names, setNames] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
 
     const handleFetch = async () => {
@@ -19,8 +22,31 @@ const JoinGroup = () => {
         }
         await fetch("http://localhost:8080/join", requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {
+                setRequests(data);
+            });
     }
+
+    // const getUserAndGroupNames = async () => {
+    //     const requestOptions = {
+    //         method: 'GET',
+    //         credentials: 'include' as RequestCredentials,
+    //     }
+    //     requests.map(async request => {
+    //         await fetch(`http://localhost:8080/user/${request.user_id}`, requestOptions)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 setUserFullName(data.user.first_name + " " + data.user.last_name);
+    //             })
+    //         await fetch(`http://localhost:8080/group/${request.group_id}`, requestOptions)
+    //             .then(response => response.json())
+    //             .then(data => {
+    //                 setGroupName(data.group.group_name);
+    //             })
+    //         // return {...request, userName: userFullName, groupName: groupName};
+    //         setNames([...names, {userName: userFullName, groupName: groupName}]);
+    //     })
+    // }
 
     const handleJoin = async (e: any) => {
         e.preventDefault();
@@ -33,12 +59,47 @@ const JoinGroup = () => {
         }
         await fetch("http://localhost:8080/join", requestOptions)
             .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        window.location.reload();
+    }
+
+    const handleApprove = async (groupID : number) => {
+        const requestOptions = {
+            method: 'PATCH',
+            credentials: 'include' as RequestCredentials,
+            body: JSON.stringify({
+                "approve": true
+            })
+        }
+        await fetch(`http://localhost:8080/join/${groupID}`, requestOptions)
+            .then(response => response.json())
             .then(data => console.log(data));
+        window.location.reload();
+    }
+
+    const handleReject = async (groupID : number) => {
+        const requestOptions = {
+            method: 'PATCH',
+            credentials: 'include' as RequestCredentials,
+            body: JSON.stringify({
+                "approve": false
+            })
+        }
+        await fetch(`http://localhost:8080/join/${groupID}`, requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data));
+        window.location.reload();
     }
 
     useEffect(() => {
         handleFetch();
     }, []);
+
+    // useEffect(() => {
+    //     getUserAndGroupNames();
+    // }, []);
 
     return (
         <div>
@@ -67,23 +128,27 @@ const JoinGroup = () => {
                 </div>
                 <div className="join_group_right_column">
                     <div className="group table_head">
-                        <div className="group_name">Your Groups</div>
-                        <div className="group_description">Description</div>
-                        <div className="group_category">Categories</div>
-                        <div className="group_button">Action</div>
+                        <div className="group_name">Request ID</div>
+                        <div className="group_description">User ID</div>
+                        <div className="group_category">Group ID</div>
+                        <div className="group_button">Approve</div>
+                        <div className="group_button">Reject</div>
                     </div>
                     {requests.map((request, id) => {
                         return (
                             <div className="group" key={id}>
-                                {/* <div className="group_name">{group.group_name}</div>
-                                <div className="group_description">{group.group_description}</div>
-                                <div className="group_category">{group.category}</div>
+                                {/* <div className="group_description">{request.userName}</div>
+                                <div className="group_category">{request.groupName}</div> */}
+                                {/* <div className="group_name">{group.group_name}</div> */}
+                                <div className="group_name">{request.id}</div>
+                                <div className="group_description">{request.user_id}</div>
+                                <div className="group_category">{request.group_id}</div>
                                 <div className="group_button">
-                                    <Link to={`/groups/${group.id}`}>
-                                        <button>View</button>
-                                        View
-                                    </Link>
-                                </div> */}
+                                    <button onClick={() => handleApprove(request.group_id)}>Approve</button>
+                                </div>
+                                <div className="group_button">
+                                    <button onClick={() => handleReject(request.group_id)}>Reject</button>
+                                </div>
                             </div>
                         )
                     })}
