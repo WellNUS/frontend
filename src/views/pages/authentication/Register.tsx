@@ -35,6 +35,7 @@ const Register = () => {
         const { first_name, last_name, gender, faculty, email, password } = userDetails;
         const requestOptions = {
             method: 'POST',
+            credentials: 'include' as RequestCredentials,
             // TODO: Change the body and the form later
             body: JSON.stringify({
                 "first_name": first_name,
