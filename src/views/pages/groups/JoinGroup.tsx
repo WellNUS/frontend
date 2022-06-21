@@ -76,7 +76,7 @@ const JoinGroup = () => {
         await fetch(`http://localhost:8080/join/${groupID}`, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
-        window.location.reload();
+        // window.location.reload();
     }
 
     const handleReject = async (groupID : number) => {
@@ -90,7 +90,18 @@ const JoinGroup = () => {
         await fetch(`http://localhost:8080/join/${groupID}`, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
-        window.location.reload();
+        // window.location.reload();
+    }
+
+    const handleDelete = async (groupID : number) => {
+        const requestOptions = {
+            method: 'DELETE',
+            credentials: 'include' as RequestCredentials
+        }
+        await fetch(`http://localhost:8080/join/${groupID}`, requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data));
+        
     }
 
     useEffect(() => {
@@ -133,6 +144,7 @@ const JoinGroup = () => {
                         <div className="group_category">Group ID</div>
                         <div className="group_button">Approve</div>
                         <div className="group_button">Reject</div>
+                        <div className="group_button">Delete</div>
                     </div>
                     {requests.map((request, id) => {
                         return (
@@ -148,6 +160,9 @@ const JoinGroup = () => {
                                 </div>
                                 <div className="group_button">
                                     <button onClick={() => handleReject(request.group_id)}>Reject</button>
+                                </div>
+                                <div className="group_button">
+                                    <button onClick={() => handleDelete(request.group_id)}>Delete</button>
                                 </div>
                             </div>
                         )
