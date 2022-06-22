@@ -1,6 +1,4 @@
-// var socket = new WebSocket("ws://localhost:8080/ws/1");
-
-const connect = (socket: any) => {
+const connect = (socket: WebSocket) => {
   console.log("Attempting Connection...");
 
   socket.onopen = () => {
@@ -20,7 +18,7 @@ const connect = (socket: any) => {
   };
 };
 
-const sendMsg = (socket: any, msg: any) => {
+const sendMsg = (socket: WebSocket, msg: string) => {
   console.log("sending msg: ", msg);
   socket.send(msg);
 };

@@ -5,7 +5,7 @@ import Navbar from "../../components/navbar/Navbar";
 import Home from "../home/Home";
 import Board from "./Board";
 import "./dashboard.css";
-import { connect, sendMsg } from "../../../api/websocket";
+import { connect, sendMsg } from "../../../api/websocket/websocket";
 
 const Dashboard = () => {
 

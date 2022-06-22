@@ -34,7 +34,7 @@ function App() {
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
-            <Route path="/chat/:group_id" element={<Chat />} />
+            <Route path="/groups/:group_id/chat" element={<Chat />} />
           </Routes>
         </BrowserRouter>
     </Provider>
