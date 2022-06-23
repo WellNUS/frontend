@@ -7,6 +7,7 @@ import "../group.css";
 import GroupDetails from "./GroupDetails";
 import { GroupDetails as GroupDetailsType } from "../../../../types/group/types";
 import Navbar from "../../../components/navbar/Navbar";
+import Chat from "../../chat/Chat";
 
 const Group = () => {
     const [group, setGroup] = useState<GroupDetailsType>();
@@ -38,30 +39,17 @@ const Group = () => {
             <div className="room-left-col">
                 {/* <Channels /> */}
                 <GroupDetails group={group}/>
-            </div>
-            <div className="room-middle-col">
-                <Messages />
-            </div>
-            <div className="room-right-col">
                 <Members />
             </div>
+            <div className="room-middle-col">
+                {/* <Messages /> */}
+                <Chat />
+            </div>
+            {/* <div className="room-right-col">
+                <Members />
+            </div> */}
         </div>
         </div>
-        // <div>
-        //     Group here.
-        //     {/* <div>{group.id}</div> */}
-        //     <div>{group?.group_name}</div>
-        //     <div>{group?.group_description}</div>
-        //     <div>{group?.category}</div>
-        //     <div>{group?.owner_id}</div>
-
-        //     Users here.
-        //     {
-        //         users?.map(user => {
-        //             return <div>{user.first_name}</div>
-        //         })
-        //     }
-        // </div>
     )
 }
 

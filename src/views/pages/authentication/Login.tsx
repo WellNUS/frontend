@@ -10,7 +10,7 @@ import { useCookies } from "react-cookie";
 function Login(): React.ReactElement {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { loggedIn, users } = useSelector((state: any): any => state).user;
+    const { loggedIn } = useSelector((state: any): any => state).user;
     const [ errMsg, setErrMsg ] = useState("");
     const [ cookies, setCookies ] = useCookies(['user']);
 

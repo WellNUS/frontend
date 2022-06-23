@@ -16,14 +16,14 @@ const Members = () => {
         <div>
             Online
             {onlineMembers.map((user, id) => <div key={id} className="room-members-box">
-                {user.profile} {user.name}
+                {user.name}
             </div>)}
         </div>
         <br />
         <div>
             Offline
             {offlineMembers.map((user, id) => <div key={id} className="room-members-box">
-                {user.profile} {user.name}
+                {user.name}
             </div>)}
         </div>
     </div>
