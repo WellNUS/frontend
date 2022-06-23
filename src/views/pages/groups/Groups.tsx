@@ -62,8 +62,7 @@ const Group = () => {
                             <div className="group_category">{group.category}</div>
                             <div className="group_button">
                                 <Link to={`/groups/${group.id}`}>
-                                    {/* <button>View</button> */}
-                                    View
+                                    <Button className="group_view_button">View</Button>
                                 </Link>
                             </div>
                         </div>
