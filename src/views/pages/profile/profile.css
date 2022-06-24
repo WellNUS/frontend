@@ -1,0 +1,44 @@
+:root {
+    --theme-two: #ffb6c1;
+    --theme-one: white;
+    --theme-three: #900C3F;
+}
+
+.profile_button {
+    background-color: var(--theme-two);
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+}
+
+.profile_button:hover,
+.profile_button:focus {
+    background-color: var(--theme-two);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.profile_button:hover {
+    text-decoration: underline;
+}
+
+.profile_container {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 2rem;
+    background-color: var(--theme-two);
+    border-radius: 20px;
+}
+
+.profile_name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--theme-three);
+}
+
+.profile_detail {
+    font-size: 1rem;
+    font-weight: 500;
+}

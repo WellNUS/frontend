@@ -7,6 +7,7 @@ import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
 import { useSelector } from "react-redux";
 import LogoutModal from "../../pages/authentication/Logout";
+import ProfileModal from "../../pages/profile/Profile";
 // import { logout } from "../../pages/authentication/Logout";
 
 const Navbar = (props : { hideTop : boolean }) => {
@@ -40,10 +41,7 @@ const Navbar = (props : { hideTop : boolean }) => {
             </div>
             <div className="navbar-right">
                 <p>AY2021/2022, Semester 2, Week 9</p>
-                <Link to="/profile" className="profile">
-                        <img src={profile} alt="Profile" />
-                        <p>{details.first_name} {details.last_name}</p>
-                </Link>
+                <ProfileModal />
                 <img src={bell} alt="bell"/>
                 <LogoutModal />
             </div>
