@@ -126,9 +126,9 @@ const JoinGroup = () => {
                                     <td>{request.user.first_name}</td>
                                     <td>{request.group.group_name}#{request.join_request.group_id}</td>
                                     <td className="joingroup_buttons">
-                                        <Button onClick={() => handleApprove(request.id)} className="joingroup_button">Approve</Button>
-                                        <Button onClick={() => handleReject(request.group_id)} className="joingroup_button">Reject</Button>
-                                        <Button onClick={() => handleDelete(request.id)} className="joingroup_button">Delete</Button>
+                                        <Button onClick={() => handleApprove(request.join_request.id)} className="joingroup_button">Approve</Button>
+                                        <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button">Reject</Button>
+                                        <Button onClick={() => handleDelete(request.join_request.id)} className="joingroup_button">Delete</Button>
                                     </td>
                                 </tr>
                             )

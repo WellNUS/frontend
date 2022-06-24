@@ -10,7 +10,7 @@ import Register from './views/pages/authentication/Register';
 import Room from './views/pages/room/Room';
 import Profile from './views/pages/profile/Profile';
 import Groups from './views/pages/groups/Groups';
-import Group from './views/pages/groups/group/GroupRoom';
+import Group from './views/pages/group/GroupRoom';
 import JoinGroup from './views/pages/groups/JoinGroup';
 import Chat from './views/pages/chat/Chat';
 

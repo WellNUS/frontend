@@ -3,11 +3,11 @@ import { useParams } from "react-router";
 import Channels from "./Channels";
 import Members from "./Members";
 import Messages from "./Messages";
-import "../group.css";
+import "../groups/group.css";
 import GroupDetails from "./GroupDetails";
-import { GroupDetails as GroupDetailsType } from "../../../../types/group/types";
-import Navbar from "../../../components/navbar/Navbar";
-import Chat from "../../chat/Chat";
+import { GroupDetails as GroupDetailsType } from "../../../types/group/types";
+import Navbar from "../../components/navbar/Navbar";
+import Chat from "../chat/Chat";
 
 const Group = () => {
     const [group, setGroup] = useState<GroupDetailsType>();

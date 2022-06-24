@@ -1,5 +1,5 @@
 import React from "react";
-import { GroupDetails as GroupDetailsType } from "../../../../types/group/types";
+import { GroupDetails as GroupDetailsType } from "../../../types/group/types";
 
 type Props = {
     group: GroupDetailsType | undefined

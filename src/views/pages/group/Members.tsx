@@ -1,5 +1,5 @@
 import React from "react";
-import "../group.css";
+import "../groups/group.css";
 
 const onlineMembers = [
     { profile: "A", name: "Alice" },
