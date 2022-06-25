@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./home.css";
 import logo from "../../../static/icon/navIcons/logo.png"
 
-function HomeNav(props: any): React.ReactElement {
+const HomeNav = () => {
     const { loggedIn } = useSelector((state: any): any => state.user);
     if (loggedIn) {
         return <Link to="/dashboard" className="btn">Go To Dashboard</Link>

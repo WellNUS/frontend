@@ -6,11 +6,10 @@ import { Button, Modal } from "react-bootstrap";
 import exit from "../../../static/icon/navIcons/exit.png";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./group.css";
+import { postRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 
 const CreateGroup = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const user = useSelector((state: any) => state.user);
     const [errMsg, setErrMsg] = useState("");
     const [show, setShow] = useState(false);
 
@@ -25,11 +24,10 @@ const CreateGroup = () => {
             "category": e.target[2].value
         }
         const requestOptions = {
-            method: 'POST',
-            credentials: 'include' as RequestCredentials,
+            ...postRequestOptions,
             body: JSON.stringify(groupDetails)
         }
-        await fetch("http://localhost:8080/group", requestOptions)
+        await fetch(config.API_URL + "/group", requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

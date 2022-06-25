@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { getRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 import "./chat.css";
 
 
@@ -15,11 +17,8 @@ const ChatMessages = ({ id } : { id: string | undefined }) => {
     */
 
     const getChatHistory = async () => {
-        const requestOptions = {
-            method: 'GET',
-            credentials: 'include' as RequestCredentials,
-        }
-        await fetch("http://localhost:8080/message/" + id + "?limit=5", requestOptions)
+        const ext = "/message/" + id + "?limit=5";
+        await fetch(config.API_URL + ext, getRequestOptions)
             .then(response => response.json())
             .then(data => {
                 setMessages(data.message_payloads);

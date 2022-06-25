@@ -7,12 +7,11 @@ import Home from './views/pages/home/Home';
 import Dashboard from './views/pages/dashboard/Dashboard';
 import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
-import Room from './views/pages/room/Room';
 import Profile from './views/pages/profile/Profile';
 import Groups from './views/pages/groups/Groups';
-import Group from './views/pages/group/GroupRoom';
+import Group from './views/pages/groupRoom/GroupRoom';
 import JoinGroup from './views/pages/groups/JoinGroup';
-import Chat from './views/pages/chat/Chat';
+import Chat from './views/components/chat/Chat';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -20,7 +19,7 @@ store.subscribe(
 );
 
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
         <BrowserRouter>
@@ -29,7 +28,6 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/room" element={<Room />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />

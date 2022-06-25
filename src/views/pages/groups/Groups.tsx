@@ -1,31 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { getRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 import Navbar from "../../components/navbar/Navbar";
 import CreateGroup from "./CreateGroup";
 import "./group.css";
-import JoinGroup from "./JoinGroup";
-
-const groupsTestData = [
-    { group_name: "Group Asgard", group_description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vel.", category: "Counselling" },
-    { group_name: "Group B", group_description: "Lorem dolor sit amet consectetur adipisicing elit. Corrupti, vel.", category: "Social" },
-    { group_name: "Group Circe", group_description: "Lorem ipsum sit amet consectetur adipisicing elit. Corrupti, vel.", category: "Counselling" },
-    { group_name: "Group D", group_description: "Lorem ipsum dolor amet consectetur adipisicing elit. Corrupti, vel.", category: "Counselling" },
-    { group_name: "Group E", group_description: "Lorem ipsum dolor sit consectetur adipisicing elit. Corrupti, vel.", category: "Counselling" },
-];
 
 const Group = () => {
     const [groups, setGroups] = useState<any[]>([]);
 
     const handleFetch = async () => {
-        await fetch("http://localhost:8080/group", { 
-            method: 'GET',
-            credentials: 'include' as RequestCredentials,
-        })
-            .then(response => {
-                // console.log(response.json())
-                return response.json()
-            })
+        await fetch(config.API_URL + "/group", getRequestOptions)
+            .then(response => response.json())
             .then(data => {
                 setGroups(data)
             });

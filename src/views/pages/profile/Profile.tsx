@@ -40,19 +40,3 @@ const ProfileModal = () => {
   }
   
 export default ProfileModal;
-
-
-// const Profile = () => {
-//     const { loggedIn, details } = useSelector((state: any) => state.user);
-
-//     return (
-//         <div className="profile_container">
-            // <div className="profile_name">{details.first_name} {details.last_name}</div>
-            // <div className="profile_detail">Gender: {details.gender === "F" ? "Female" : "Male"}</div>
-            // <div className="profile_detail">Faculty: {details.faculty}</div>
-            // <div className="profile_detail">Email: {details.email}</div>
-//         </div>
-//     )
-// }
-
-// export default Profile;

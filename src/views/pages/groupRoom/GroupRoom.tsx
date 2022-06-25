@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Channels from "./Channels";
 import Members from "./Members";
-import Messages from "./Messages";
 import "../groups/group.css";
 import GroupDetails from "./GroupDetails";
 import { GroupDetails as GroupDetailsType } from "../../../types/group/types";
 import Navbar from "../../components/navbar/Navbar";
-import Chat from "../chat/Chat";
-import { connect } from "../../../api/websocket/websocket";
+import Chat from "../../components/chat/Chat";
+import { getRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 
 const Group = () => {
     const [group, setGroup] = useState<GroupDetailsType>();
@@ -16,11 +15,7 @@ const Group = () => {
     const { group_id } = useParams();
     
     const handleFetch = async () => {
-        const requestOptions = {
-            method: 'GET',
-            credentials: 'include' as RequestCredentials,
-        }
-        await fetch(`http://localhost:8080/group/${group_id}`, requestOptions)
+        await fetch(config.API_URL + "/group/" + group_id, getRequestOptions)
             .then(response => response.json())
             .then(data => {
                 setGroup(data.group);
@@ -37,17 +32,12 @@ const Group = () => {
             <Navbar hideTop={true}/>
             <div className="room-wrapper">
                 <div className="room-left-col">
-                    {/* <Channels /> */}
                     <GroupDetails group={group}/>
                     <Members group_id={group_id} users={users}/>
                 </div>
                 <div className="room-middle-col">
-                    {/* <Messages /> */}
                     <Chat/>
                 </div>
-                {/* <div className="room-right-col">
-                    <Members />
-                </div> */}
             </div>
         </div>
     )

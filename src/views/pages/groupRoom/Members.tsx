@@ -1,16 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../groups/group.css";
 
-const onlineMembers = [
-    { profile: "A", name: "Alice" },
-    { profile: "B", name: "Bethany"}
-]
-
-const offlineMembers = [
-    { profile: "C", name: "Carol" },
-    { profile: "D", name: "Delta"}
-]
-
 const Members = ({group_id, users}: {group_id: string | undefined, users: any[] | undefined}) => {
 
     const [inChatMembers, setInChatMembers] = useState<any[]>([]);

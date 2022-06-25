@@ -5,13 +5,14 @@ import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
 import "./authentication.css"
+import { postRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 
 const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loggedIn } = useSelector((state: any): any => state.user);
     const [ errMsg, setErrMsg ] = useState("");
-    const [ status, setStatus ] = useState(0);
 
     const onSubmit = (e: any) => {   
         e.preventDefault(); 
@@ -34,9 +35,7 @@ const Register = () => {
     const registerBE = async (userDetails : UserDetailsType) => {
         const { first_name, last_name, gender, faculty, email, password } = userDetails;
         const requestOptions = {
-            method: 'POST',
-            credentials: 'include' as RequestCredentials,
-            // TODO: Change the body and the form later
+            ...postRequestOptions,
             body: JSON.stringify({
                 "first_name": first_name,
                 "last_name": last_name,
@@ -47,7 +46,7 @@ const Register = () => {
                 "password": password
             })
         }
-        const response = await fetch("http://localhost:8080/user", requestOptions);
+        const response = await fetch(config.API_URL + "/user", requestOptions);
         try {
             if (response.status === 200) {
                 // dispatch(userSlice.actions.add(userDetails)) // TODO: remove this later

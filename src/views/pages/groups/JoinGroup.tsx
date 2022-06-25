@@ -1,23 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router";
-import userSlice from "../../../state/slices/user";
-import { Button, Modal, Table } from "react-bootstrap";
-import exit from "../../../static/icon/navIcons/exit.png";
+import { Button, Table } from "react-bootstrap";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./group.css";
 import Navbar from "../../components/navbar/Navbar";
+import { deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 
 const JoinGroup = () => {
     const [requests, setRequests] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
 
     const handleFetch = async () => {
-        const requestOptions = {
-            method: 'GET',
-            credentials: 'include' as RequestCredentials,
-        }
-        await fetch("http://localhost:8080/join", requestOptions)
+        await fetch(config.API_URL + "/join", getRequestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -28,13 +22,12 @@ const JoinGroup = () => {
     const handleJoin = async (e: any) => {
         e.preventDefault();
         const requestOptions = {
-            method: 'POST',
-            credentials: 'include' as RequestCredentials,
+            ...postRequestOptions,
             body: JSON.stringify({
                 "group_id": parseInt(e.target[0].value, 10),
             })
         }
-        await fetch("http://localhost:8080/join", requestOptions)
+        await fetch(config.API_URL + "/join", requestOptions)
             .then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -44,38 +37,32 @@ const JoinGroup = () => {
 
     const handleApprove = async (requestID : number) => {
         const requestOptions = {
-            method: 'PATCH',
-            credentials: 'include' as RequestCredentials,
+            ...patchRequestOptions,
             body: JSON.stringify({
                 "approve": true
             })
         }
-        await fetch(`http://localhost:8080/join/${requestID}`, requestOptions)
+        await fetch(config.API_URL + "/join/" + requestID, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
-        // window.location.reload();
+        window.location.reload();
     }
 
     const handleReject = async (requestID : number) => {
         const requestOptions = {
-            method: 'PATCH',
-            credentials: 'include' as RequestCredentials,
+            ...patchRequestOptions,
             body: JSON.stringify({
                 "approve": false
             })
         }
-        await fetch(`http://localhost:8080/join/${requestID}`, requestOptions)
+        await fetch(config.API_URL + "/join/" + requestID, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
-        // window.location.reload();
+        window.location.reload();
     }
 
     const handleDelete = async (requestID : string) => {
-        const requestOptions = {
-            method: 'DELETE',
-            credentials: 'include' as RequestCredentials
-        }
-        await fetch(`http://localhost:8080/join/${requestID}`, requestOptions)
+        await fetch(config.API_URL + "/join/" + requestID, deleteRequestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
     }

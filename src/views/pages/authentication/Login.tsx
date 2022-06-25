@@ -5,26 +5,25 @@ import userSlice from "../../../state/slices/user";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./authentication.css"
 import { UserDetails as UserDetailsType } from "../../../types/authentication/types";
-import { useCookies } from "react-cookie";
+import { postRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 
-function Login(): React.ReactElement {
+const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { loggedIn } = useSelector((state: any): any => state).user;
     const [ errMsg, setErrMsg ] = useState("");
-    const [ cookies, setCookies ] = useCookies(['user']);
 
     const handleAuth = async (userDetails : UserDetailsType) => {
         const { email, password } = userDetails;
         const requestOptions = {
-            method: 'POST',
-            credentials: 'include' as RequestCredentials,
+            ...postRequestOptions,
             body: JSON.stringify({
                 "email": email,
                 "password": password
             })
         }
-        const response = await fetch("http://localhost:8080/session", requestOptions);
+        const response = await fetch(config.API_URL + "/session", requestOptions);
         const data = await response.json();
         return data;
     }
@@ -41,11 +40,9 @@ function Login(): React.ReactElement {
             user_role: ""
         }
 
-        // TODO: use a more secured method for storing user data
         // Calling backend API
         handleAuth(userDetails).then((data: any) => {
             if (data.logged_in) {
-                // setCookies('user', { logged_in: true, user: data.user });
                 dispatch(userSlice.actions.authenticate(data.user));
                 navigate("/dashboard");
             } else {

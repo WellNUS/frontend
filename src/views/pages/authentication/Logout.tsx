@@ -4,27 +4,22 @@ import { useNavigate } from "react-router";
 import userSlice from "../../../state/slices/user";
 import { Button, Modal } from "react-bootstrap";
 import exit from "../../../static/icon/navIcons/exit.png";
-import { useCookies } from "react-cookie";
+import { config } from "../../../config";
+import { deleteRequestOptions } from "../../../api/fetch/requestOptions";
 
 const LogoutModal = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const user = useSelector((state: any) => state.user);
     const [show, setShow] = useState(false);
-    const [cookies, setCookies] = useCookies(['user']);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const handleLogout = async () => {
-        await fetch("http://localhost:8080/session", 
-            {
-                method: 'DELETE',
-                credentials: 'include' as RequestCredentials,
-            });
+        await fetch(config.API_URL + "/session", deleteRequestOptions);
         const logout = userSlice.actions.logout;
         dispatch(logout(user));
-        // setCookies('user', { logged_in: false, user: null });
         navigate("/");
     }
 

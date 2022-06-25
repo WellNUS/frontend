@@ -7,9 +7,8 @@ import { Carousel } from "react-bootstrap";
 import "./home.css";
 import nuhImage from "../../../static/icon/homeIcons/nuh-building.png";
 import Footer from "./Footer";
-import { useSelector } from "react-redux";
 
-function Home(): React.ReactElement {
+const Home = () => {
     return <div className="home">
         <div>
             <HomeNav />
