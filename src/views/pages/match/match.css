@@ -1,0 +1,14 @@
+:root {
+    --theme-two: #ffb6c1;
+    --theme-one: white;
+    --theme-three: #900C3F;
+}
+
+.match_col_left {
+    border: 1px red solid;
+    height: 70vh;
+}
+
+.match_col_right {
+    border: 1px red solid;
+}

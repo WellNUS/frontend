@@ -10,8 +10,9 @@ import Register from './views/pages/authentication/Register';
 import Profile from './views/pages/profile/Profile';
 import Groups from './views/pages/groups/Groups';
 import Group from './views/pages/groupRoom/GroupRoom';
-import JoinGroup from './views/pages/groups/JoinGroup';
+import JoinGroup from './views/pages/join/JoinGroup';
 import Chat from './views/components/chat/Chat';
+import Match from './views/pages/match/Match';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -32,7 +33,8 @@ const App = () => {
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
-            <Route path="/groups/:group_id/chat" element={<Chat />} />
+            {/* <Route path="/groups/:group_id/chat" element={<Chat />} /> */}
+            <Route path="/match" element={<Match />} />
           </Routes>
         </BrowserRouter>
     </Provider>

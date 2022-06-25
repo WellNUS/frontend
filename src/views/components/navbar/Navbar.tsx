@@ -23,11 +23,11 @@ const Navbar = (props : { hideTop : boolean }) => {
                 <NavLink to="/groups" className="navlink">
                     GROUPS
                 </NavLink>
-                <NavLink to="" className="navlink">
-                    TALK
+                <NavLink to="/join" className="navlink">
+                    JOIN
                 </NavLink>
                 <NavLink to="" className="navlink">
-                    BECOME
+                    MATCH
                 </NavLink>
             </div>
         )
@@ -40,7 +40,7 @@ const Navbar = (props : { hideTop : boolean }) => {
                 <h1>WellNUS</h1>
             </div>
             <div className="navbar-right">
-                <p>AY2021/2022, Semester 2, Week 9</p>
+                {/* <p>AY2021/2022, Semester 2, Week 9</p> */}
                 <ProfileModal />
                 <img src={bell} alt="bell"/>
                 <LogoutModal />
@@ -53,11 +53,11 @@ const Navbar = (props : { hideTop : boolean }) => {
             <NavLink to="/groups" className="navlink">
                 GROUPS
             </NavLink>
-            <NavLink to="" className="navlink">
-                TALK
+            <NavLink to="/join" className="navlink">
+                JOIN
             </NavLink>
             <NavLink to="" className="navlink">
-                BECOME
+                MATCH
             </NavLink>
         </div>
     </div>
