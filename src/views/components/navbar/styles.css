@@ -8,6 +8,10 @@ img {
     height: 2rem;
 }
 
+.logo {
+    height: 3rem;
+}
+
 .navbar-container-top {
     display: flex;
     flex-direction: row;

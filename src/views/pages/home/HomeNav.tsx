@@ -10,8 +10,8 @@ const HomeNav = () => {
     } 
     return <div className="homenav">
         <div>
-            {/* <img src={logo} className="homenav_logo"/> */}
-            <div className="homenav_logotext">WellNUS</div>
+            <img src={logo} className="homenav_logo"/>
+            {/* <div className="homenav_logotext">WellNUS</div> */}
         </div>
         <div className="homenav_buttons">
             <Link to="/login" className="homenav_btn btn">Login</Link>
