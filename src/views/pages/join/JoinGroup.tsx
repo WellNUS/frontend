@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import GeneralForm from "../../components/form/GeneralForm";
-import "./group.css";
+import "../groups/group.css";
 import Navbar from "../../components/navbar/Navbar";
 import { abortableGetRequestOptions, deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
