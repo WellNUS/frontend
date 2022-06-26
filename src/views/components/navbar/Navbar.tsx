@@ -35,8 +35,8 @@ const Navbar = (props : { hideTop : boolean }) => {
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">
-                <img src={logo} alt="Logo" />
-                <h1>WellNUS</h1>
+                <img src={logo} alt="Logo" className="logo"/>
+                {/* <h1>WellNUS</h1> */}
             </div>
             <div className="navbar-right">
                 {/* <p>AY2021/2022, Semester 2, Week 9</p> */}
