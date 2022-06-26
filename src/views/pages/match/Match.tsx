@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Table, Container, Row, Col, Dropdown } from "react-bootstrap";
+import { Button, Table, Container, Row, Col, Dropdown, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
@@ -13,10 +13,14 @@ const Match = () => {
 
     const [errMsg, setErrMsg] = useState("");
     const [setting, setSetting] = useState<MatchSettingType>();
+    
+    const [preference, setPreference] = useState("");
+    const [mbti, setMbti] = useState("");
     const [selected, setSelected] = useState<any[]>([]);
+
     const [showHobbies, setShowHobbies] = useState<any[]>([]);
 
-    const handleChange = (e: any) => {
+    const handleChangeHobby = (e: any) => {
         e.preventDefault();
         const value = Array.from(e.target.selectedOptions, (option: any) => option.value);
         const set = new Set([...selected, ...value]);
@@ -28,6 +32,16 @@ const Match = () => {
         console.log(selected);
     }
 
+    const handleChangeFaculty = (e: any) => {
+        const value = e.target.options[e.target.selectedIndex].value;
+        setPreference(value);
+    }
+
+    const handleChangeMBTI = (e: any) => {
+        const value = e.target.options[e.target.selectedIndex].value;
+        setMbti(value);
+    }
+
     const getSetting = async () => {
         await fetch(config.API_URL + "/setting", getRequestOptions)
             .then(response => response.json())
@@ -37,21 +51,21 @@ const Match = () => {
     }
 
     const postSetting = async (e: any) => {
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
+        console.log(preference);
+        console.log(mbti);
         console.log(selected);
-        e.preventDefault();
-        const requestOptions = {
-            ...postRequestOptions,
-            body: JSON.stringify({
-                "faculty_preference": e.target[0].value,
-                "hobbies": selected,
-                "mbti": e.target[1].value
-            })
-        }
-        await fetch(config.API_URL + "/setting", requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data));
+        // e.preventDefault();
+        // const requestOptions = {
+        //     ...postRequestOptions,
+        //     body: JSON.stringify({
+        //         "faculty_preference": preference,
+        //         "hobbies": selected,
+        //         "mbti": mbti
+        //     })
+        // }
+        // await fetch(config.API_URL + "/setting", requestOptions)
+        //     .then(response => response.json())
+        //     .then(data => console.log(data));
     }
 
     const removeHobby = (hobbyInput: string) => {
@@ -104,6 +118,26 @@ const Match = () => {
                     </Col>
                     <Col className="match_col_right">
                         <div className="match_field">Update your preferences:</div>
+                        <select
+                            className="match_hobby_dropdown_toggle"
+                            onChange={handleChangeFaculty}
+                            defaultValue={"DEFAULT"}
+                            >
+                            <option value={"DEFAULT"} disabled>Enter your faculty preference...</option>
+                            <option value={"MIX"}>Mixed</option>
+                            <option value={"SAME"}>Same</option>
+                            <option value={"NONE"}>No Preference</option>
+                        </select>
+                        <select
+                            className="match_hobby_dropdown_toggle"
+                            onChange={handleChangeMBTI}
+                            defaultValue={"DEFAULT"}
+                            >
+                            <option value={"DEFAULT"} disabled>Enter your MBTI type...</option>
+                            <option value={"INFJ"}>INFJ</option>
+                            <option value={"ENTJ"}>ENTJ</option>
+                            <option value={"ENFP"}>ENFP</option>
+                        </select>
                         <div className="match_selected_wrapper">
                             {selected.map((hobby, key) => {
                                 return (
@@ -124,7 +158,7 @@ const Match = () => {
                                 <select 
                                 className="match_hobby_dropdown_menu_select"
                                 multiple={true} 
-                                onChange={handleChange}
+                                onChange={handleChangeHobby}
                                 >
                                     <option value={"GAMING"}>Gaming</option>
                                     <option value={"SINGING"}>Singing</option>
@@ -132,11 +166,7 @@ const Match = () => {
                                 </select>
                             </Dropdown.Menu>
                         </Dropdown>
-                        <form onSubmit={postSetting} className="match_setting_form">
-                            <input type="text" placeholder="Enter faculty preference..." />
-                            <input type="text" placeholder="Enter MBTI type..." />
-                            <Button type="submit" className="match_button">Submit</Button>
-                        </form>
+                        <Button onClick={postSetting} className="match_button">Submit</Button>
                     </Col>
                 </Row>
             </Container>

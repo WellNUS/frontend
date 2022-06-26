@@ -25,6 +25,7 @@ function GeneralForm(props: Props): React.ReactElement {
                             label={f.label}
                             placeholder={f.placeholder}
                             notes={f.notes}
+                            choices={f.choices}
                         />
                     ))
                 }

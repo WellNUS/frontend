@@ -7,21 +7,25 @@
 .match_col_right {
     height: 100vh;
     background-color: var(--theme-three);
+    padding: 0 2rem;
 }
 
 .match_hobby_dropdown {
-    margin: 0 2rem;
+    margin: 1.5rem 0;
 }
 
 .match_hobby_dropdown_toggle,
 .match_hobby_dropdown_toggle:focus,
 .match_hobby_dropdown_toggle:hover {
     width: 100%;
-    text-align: right;
+    text-align: center;
     background-color: var(--theme-one);
+    color: var(--theme-two);
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
 .match_hobby_dropdown_menu {
@@ -49,7 +53,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin: 1rem 2rem;
+    margin: 1rem 0rem;
     padding-bottom: 2rem;
 }
 
@@ -65,7 +69,7 @@
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
-    margin: 1rem 2rem;
+    margin: 1rem 0rem;
     margin-top: 0.5rem !important;
 }
 
@@ -107,4 +111,8 @@
     width: fit-content;
     border-radius: 10px;
     margin: 1rem 0;
+ }
+
+ select {
+     margin: 1rem 0;
  }

@@ -64,10 +64,15 @@ const CreateGroup = () => {
                             },
                             {
                                 id: "category",
-                                type: "text",
+                                type: "select",
                                 label: "Category",
                                 placeholder: "Enter group category...",
-                                notes: ""
+                                notes: "",
+                                choices: [
+                                    "Enter group category...",
+                                    "SUPPORT",
+                                    "COUNSEL"
+                                ]
                             },
                         ]}
                         error={errMsg}

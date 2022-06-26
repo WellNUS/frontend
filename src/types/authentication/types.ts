@@ -4,6 +4,7 @@ export type Field = {
     label: string;
     placeholder: string;
     notes: string;
+    choices?: string[];
 }
 
 export type UserDetails = {
