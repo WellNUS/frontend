@@ -24,6 +24,22 @@ const JoinGroup = () => {
         return abortController;
     }
 
+    const handleJoin = async (e: any) => {
+        e.preventDefault();
+        const requestOptions = {
+            ...postRequestOptions,
+            body: JSON.stringify({
+                "group_id": parseInt(e.target[0].value, 10),
+            })
+        }
+        await fetch(config.API_URL + "/join", requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            });
+        window.location.reload();
+    }
+
     const handleApprove = async (requestID : number) => {
         const requestOptions = {
             ...patchRequestOptions,
@@ -99,7 +115,6 @@ const JoinGroup = () => {
                                                 <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button reject_button">Reject</Button>
                                             </div>
                                         }
-                                        
                                     </td>
                                 </tr>
                             )

@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
-import { sendMsg } from "../../../api/websocket/websocket";
+import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 
-const ChatInput = ({ socket } : { socket: any }) => {
+type Props = {
+    socket: WebSocketUnit;
+}
 
+const ChatInput = (props: Props) => {
+    const { socket } = props;
     const [message, setMessage] = useState("");
 
-    const handleChange = (e: any) => {
-        setMessage(e.target.value);
-    }
+    const handleChange = (e: any) => setMessage(e.target.value);
 
-    const send = (socket: any) => {
-        sendMsg(socket, message);
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        socket.sendMsg(message);
+        setMessage("");
     }
-
+    
     return (
         <div>
-            <form onSubmit={() => send(socket)} className="chatinput_wrapper">
+            <form onSubmit={handleSubmit} className="chatinput_wrapper">
                 <input type="text" value={message} onChange={handleChange} className="chatinput_input" />
                 <Button type="submit" className="chatinput_send">Send</Button>
             </form>
