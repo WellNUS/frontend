@@ -138,6 +138,18 @@ const Match = () => {
                             <option value={"ENTJ"}>ENTJ</option>
                             <option value={"ENFP"}>ENFP</option>
                         </select>
+                        <div className="match_selected_wrapper">
+                            {selected.map((hobby, key) => {
+                                return (
+                                    <div key={key}>
+                                        <Button 
+                                            hidden={!showHobbies.find(hobbyObject => hobbyObject.hobby === hobby).show} 
+                                            onClick={() => removeHobby(hobby)}
+                                            className="match_button">{hobby}</Button>
+                                    </div>
+                                )
+                            })}
+                        </div>
                         <Dropdown className="match_hobby_dropdown">
                             <Dropdown.Toggle variant="success" id="dropdown-basic" className="match_hobby_dropdown_toggle">
                                 Select your hobbies...
@@ -154,18 +166,6 @@ const Match = () => {
                                 </select>
                             </Dropdown.Menu>
                         </Dropdown>
-                        <div className="match_selected_wrapper">
-                            {selected.map((hobby, key) => {
-                                return (
-                                    <div key={key}>
-                                        <Button 
-                                            hidden={!showHobbies.find(hobbyObject => hobbyObject.hobby === hobby).show} 
-                                            onClick={() => removeHobby(hobby)}
-                                            className="match_button">{hobby}</Button>
-                                    </div>
-                                )
-                            })}
-                        </div>
                         <Button onClick={postSetting} className="match_button">Submit</Button>
                     </Col>
                 </Row>

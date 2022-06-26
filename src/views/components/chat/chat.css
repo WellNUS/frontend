@@ -1,9 +1,3 @@
-:root {
-    --theme-two: #ffb6c1;
-    --theme-one: white;
-    --theme-three: #900C3F;
-}
-
 .messages_wrapper {
     margin: 1rem 2rem;
     display: flex;
@@ -18,7 +12,7 @@
 .message_wrapper {
     background-color: pink;
     align-self: flex-start;
-    width: 30em;
+    width: 30rem;
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 10px;
@@ -44,7 +38,7 @@
 .message_wrapper_self {
     align-self: flex-end;
     background-color: var(--theme-three);
-    width: 40rem;
+    width: 30rem;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-radius: 10px;
@@ -68,21 +62,26 @@
 /* Chat Input */
 
 .chatinput_wrapper {
-    margin: 2em;
+    margin: 2rem;
 }
 
 .chatinput_input {
     height: 3rem;
     padding: 0.5rem 2rem;
-    width: 38em;
+    width: 43rem;
     margin-right: 2rem;
     background-color: #DCDCDC;
     border: none;
     border-radius: 40px;
 }
 
+.chatinput_input:hover {
+    outline: none !important;
+}
+
 .chatinput_input:focus {
     border: none !important;
+    outline: none !important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
@@ -90,7 +89,20 @@
     background-color: var(--theme-three);
     color: var(--theme-one);
     border: none;
-    padding: 0.4rem 0.8rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+}
+
+.chatinput_send:hover {
+    background-color: var(--theme-two);
+}
+
+.chatinput_send:focus {
+    background-color: var(--theme-three);
+    outline: none;
+    box-shadow: none;
+    border: none;
 }
 
 /* Chat Notification */

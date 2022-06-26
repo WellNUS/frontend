@@ -27,7 +27,7 @@ const Members = (props: Props) => {
              <div>In Chat</div>
             {inChatMembers?.map((member, key) => {
                 return (
-                    <div key={key}>{member.first_name}</div>
+                    <div key={key} className="group_member">{member.first_name}</div>
                 )
             })}
         </div>
@@ -35,7 +35,7 @@ const Members = (props: Props) => {
             <div>Online</div>
             {onlineMembers?.map((member, key) => {
                 return (
-                    <div key={key}>{member.first_name}</div>
+                    <div key={key} className="group_member">{member.first_name}</div>
                 )
             })}
         </div>
@@ -43,7 +43,7 @@ const Members = (props: Props) => {
             <div>Offline</div>
             {offlineMembers?.map((member, key) => {
                 return (
-                    <div key={key}>{member.first_name}</div>
+                    <div key={key} className="group_member">{member.first_name}</div>
                 )
             })}
         </div>

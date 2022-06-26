@@ -25,7 +25,7 @@ const Navbar = (props : { hideTop : boolean }) => {
                 <NavLink to="/join" className="navlink">
                     JOIN
                 </NavLink>
-                <NavLink to="" className="navlink">
+                <NavLink to="/match" className="navlink">
                     MATCH
                 </NavLink>
             </div>

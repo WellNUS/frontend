@@ -42,7 +42,7 @@
     font-weight: 800;
     background-color: var(--theme-one);
     color: var(--theme-one);
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .table_head .group_name,
@@ -145,11 +145,9 @@ button {
 }
 
 .room-middle-col {
+    padding-top: 2rem;
     width: 60vw;
     background-color: var(--theme-one);
-    /* border-left: 1px var(--theme-one) solid; */
-    border-right: 1px var(--theme-one) solid;
-
 }
 
 .room-right-col {
@@ -242,6 +240,7 @@ button {
 }
 
 .group_details_description {
+    color: var(--theme-three);
     font-size: 1rem;
     font-weight: 500;
 }
@@ -325,4 +324,20 @@ button {
 .joingroup_request_table_head {
     background-color: var(--theme-one);
     color: var(--theme-two);
+    border-bottom: 1px solid var(--theme-one);
+}
+
+.joingroup_request_table_row {
+    font-weight: 600;
+    color: var(--theme-one);
+    border-bottom: 2px solid var(--theme-one);
+    padding: 0 2rem;
+}
+
+.group_member {
+    background-color: var(--theme-three);
+    color: var(--theme-one);
+    width: fit-content;
+    border-radius: 10px;
+    padding: 0.1rem 1rem;
 }
