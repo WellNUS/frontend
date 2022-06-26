@@ -340,4 +340,5 @@ button {
     width: fit-content;
     border-radius: 10px;
     padding: 0.1rem 1rem;
+    margin: 1rem 0;
 }

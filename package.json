@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.4.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.1.0",
+    "react-multi-select-component": "^4.2.9",
     "react-redux": "^8.0.1",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",

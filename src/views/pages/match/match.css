@@ -105,8 +105,8 @@
  .match_field_value {
     font-size: 1.2rem;
     font-weight: 500;
-    background-color: var(--theme-one);
-    color: var(--theme-two);
+    background-color: var(--theme-three);
+    color: var(--theme-one);
     padding: 0.5rem 1rem;
     width: fit-content;
     border-radius: 10px;

@@ -8,29 +8,31 @@ import CreateGroup from "../groups/CreateGroup";
 import "./match.css";
 import { MatchSetting as MatchSettingType } from "../../../types/match/types";
 import GeneralForm from "../../components/form/GeneralForm";
+import { MultiSelect } from "react-multi-select-component";
 
 const Match = () => {
-
+    const mbtiList = ["ISTJ", "ISFJ", "INFJ", "INTJ", "ISTP", "ISFP", "INFP", "INTP", "ESTP", "ESFP", "ENFP", "ENTP", "ESTJ", "ESFJ", "ENFJ", "ENTJ"];
+    const hobbies = [
+        { label: "Gaming", value: "GAMING" },
+        { label: "Singing", value: "SINGING" },
+        { label: "Dancing", value: "DANCING" },
+        { label: "Music", value: "MUSIC" },
+        { label: "Sports", value: "SPORTS" },
+        { label: "Outdoor", value: "OUTDOOR" },
+        { label: "Book", value: "BOOK" },
+        { label: "Anime", value: "ANIME" },
+        { label: "Movies", value: "MOVIES" },
+        { label: "TV", value: "TV" },
+        { label: "Art", value: "ART" },
+        { label: "Study", value: "STUDY" }
+    ];
     const [errMsg, setErrMsg] = useState("");
     const [setting, setSetting] = useState<MatchSettingType>();
     
     const [preference, setPreference] = useState("");
     const [mbti, setMbti] = useState("");
-    const [selected, setSelected] = useState<any[]>([]);
-
-    const [showHobbies, setShowHobbies] = useState<any[]>([]);
-
-    const handleChangeHobby = (e: any) => {
-        e.preventDefault();
-        const value = Array.from(e.target.selectedOptions, (option: any) => option.value);
-        const set = new Set([...selected, ...value]);
-        const uniqueArray = Array.from(set);
-        setSelected(uniqueArray);
-        setShowHobbies(uniqueArray.map(hobby => {
-            return {"hobby": hobby, "show": true};
-        }));
-        console.log(selected);
-    }
+    // hobbies selected
+    const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
 
     const handleChangeFaculty = (e: any) => {
         const value = e.target.options[e.target.selectedIndex].value;
@@ -44,35 +46,31 @@ const Match = () => {
 
     const getSetting = async () => {
         await fetch(config.API_URL + "/setting", getRequestOptions)
-            .then(response => response.json())
+            .then(response => {
+                return response.json();
+            })
             .then(data => {
-                setSetting(data)
+                setSetting(data);
+            })
+            .catch(err => {
+                console.log(err);
             });
     }
 
     const postSetting = async (e: any) => {
-        console.log(preference);
-        console.log(mbti);
-        console.log(selected);
-        // e.preventDefault();
-        // const requestOptions = {
-        //     ...postRequestOptions,
-        //     body: JSON.stringify({
-        //         "faculty_preference": preference,
-        //         "hobbies": selected,
-        //         "mbti": mbti
-        //     })
-        // }
-        // await fetch(config.API_URL + "/setting", requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => console.log(data));
-    }
-
-    const removeHobby = (hobbyInput: string) => {
-        selected.filter(hobby => hobby !== hobbyInput);
-        showHobbies.map(hobbyObject => {
-            hobbyObject.show = false;
-        })
+        e.preventDefault();
+        const requestOptions = {
+            ...postRequestOptions,
+            body: JSON.stringify({
+                "faculty_preference": preference,
+                "hobbies": selectedOptions.map(item => item.value),
+                "mbti": mbti
+            })
+        }
+        await fetch(config.API_URL + "/setting", requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data));
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -85,9 +83,6 @@ const Match = () => {
             <div className="group_heading_row">
                 <div className="group_title">Match</div>
                 <div className="group_heading_buttons">
-                    {/* <Link to="/join">            
-                        <Button variant="primary" className="group_heading_button">Join Group</Button>
-                    </Link> */}
                 </div>
             </div>
             <Container fluid>
@@ -134,38 +129,21 @@ const Match = () => {
                             defaultValue={"DEFAULT"}
                             >
                             <option value={"DEFAULT"} disabled>Enter your MBTI type...</option>
-                            <option value={"INFJ"}>INFJ</option>
-                            <option value={"ENTJ"}>ENTJ</option>
-                            <option value={"ENFP"}>ENFP</option>
+                            {
+                                mbtiList.map((mbti, key) => {
+                                    return (
+                                        <option key={key} value={mbti}>{mbti}</option>
+                                    )
+                                })
+                            }
                         </select>
-                        <div className="match_selected_wrapper">
-                            {selected.map((hobby, key) => {
-                                return (
-                                    <div key={key}>
-                                        <Button 
-                                            hidden={!showHobbies.find(hobbyObject => hobbyObject.hobby === hobby).show} 
-                                            onClick={() => removeHobby(hobby)}
-                                            className="match_button">{hobby}</Button>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <Dropdown className="match_hobby_dropdown">
-                            <Dropdown.Toggle variant="success" id="dropdown-basic" className="match_hobby_dropdown_toggle">
-                                Select your hobbies...
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu className="match_hobby_dropdown_menu">
-                                <select 
-                                className="match_hobby_dropdown_menu_select"
-                                multiple={true} 
-                                onChange={handleChangeHobby}
-                                >
-                                    <option value={"GAMING"}>Gaming</option>
-                                    <option value={"SINGING"}>Singing</option>
-                                    <option value={"DANCING"}>Dancing</option>
-                                </select>
-                            </Dropdown.Menu>
-                        </Dropdown>
+                        <MultiSelect
+                            options={hobbies}
+                            value={selectedOptions}
+                            onChange={setSelectedOptions}
+                            labelledBy="Select"
+                        />
+                        <br/>
                         <Button onClick={postSetting} className="match_button">Submit</Button>
                     </Col>
                 </Row>

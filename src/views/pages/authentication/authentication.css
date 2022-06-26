@@ -72,7 +72,8 @@
     
 }
 
-.link-button:hover {
+.link-button:hover,
+.link-button:focus {
     background-color: var(--theme-three);
     color: var(--theme-two);
 }
