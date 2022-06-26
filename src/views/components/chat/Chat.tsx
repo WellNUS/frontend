@@ -1,21 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { connect } from "../../../api/websocket/websocket";
+import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 import ChatInput from "./ChatInput";
-import ChatMessages from "./ChatMessages";
+import ChatLog from "./ChatLog";
+import { ChatNotification } from "./ChatNotification";
 
-const Chat = () => {
-    const { group_id } = useParams();
-    let socket;
+type Props = {
+    socket: WebSocketUnit;
+    groupId: number;
+}
 
-    useEffect(() => {
-        socket = new WebSocket("ws://localhost:8080/ws/" + group_id);
-        connect(socket);
-    }, []);
+const Chat = (props: Props) => {    
+    const { socket, groupId } = props;
 
     return (
         <div>
-            <ChatMessages id={group_id} />
+            <ChatNotification 
+                socket={socket}
+                groupId={groupId} 
+            />
+            <ChatLog 
+                socket={socket}
+                groupId={groupId}
+            />
             <ChatInput socket={socket}/>
         </div>
     )

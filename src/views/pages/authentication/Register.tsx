@@ -49,8 +49,9 @@ const Register = () => {
         const response = await fetch(config.API_URL + "/user", requestOptions);
         try {
             if (response.status === 200) {
+                const user = await response.json();
                 // dispatch(userSlice.actions.add(userDetails)) // TODO: remove this later
-                dispatch(userSlice.actions.authenticate(userDetails)) // update redux loggedIn state
+                dispatch(userSlice.actions.authenticate(user)) // update redux loggedIn state
                 navigate("/dashboard")
             } else {
                 // TODO: Create an alert to indicate invalid input(s).

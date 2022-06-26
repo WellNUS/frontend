@@ -3,20 +3,22 @@ import { Button, Table } from "react-bootstrap";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./group.css";
 import Navbar from "../../components/navbar/Navbar";
-import { deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
+import { abortableGetRequestOptions, deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 
 const JoinGroup = () => {
     const [requests, setRequests] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
 
-    const handleFetch = async () => {
-        await fetch(config.API_URL + "/join", getRequestOptions)
+    const handleFetch = (): AbortController => {
+        const abortController = new AbortController();
+        fetch(config.API_URL + "/join", abortableGetRequestOptions(abortController.signal))
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 setRequests(data);
             });
+        return abortController;
     }
 
     const handleJoin = async (e: any) => {
@@ -68,7 +70,10 @@ const JoinGroup = () => {
     }
 
     useEffect(() => {
-        handleFetch();
+        const abortController = handleFetch();
+        return () => {
+            abortController.abort();
+        }
     }, []);
 
     return (
