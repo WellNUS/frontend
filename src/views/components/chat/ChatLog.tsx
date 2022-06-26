@@ -65,11 +65,12 @@ const ChatLog = (props: Props) => {
                             action: ScrollAction.Hold
                         });
                     } else {
+                        clearInterval(messageLoader);
                         throw new Error(data.toString());
                     }
                 } catch (err) {
-                    console.error(err);
                     clearInterval(messageLoader);
+                    console.error(err);
                 }
             }
         }, 100);
