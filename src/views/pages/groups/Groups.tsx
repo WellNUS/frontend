@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getRequestOptions } from "../../../api/fetch/requestOptions";
+import { abortableGetRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import Navbar from "../../components/navbar/Navbar";
 import CreateGroup from "./CreateGroup";
@@ -10,16 +10,21 @@ import "./group.css";
 const Group = () => {
     const [groups, setGroups] = useState<any[]>([]);
 
-    const handleFetch = async () => {
-        await fetch(config.API_URL + "/group", getRequestOptions)
+    const handleFetch = (): AbortController => {
+        const abortController = new AbortController();
+        fetch(config.API_URL + "/group", abortableGetRequestOptions(abortController.signal))
             .then(response => response.json())
             .then(data => {
                 setGroups(data)
             });
+        return abortController;
     }
 
     useEffect(() => {
-        handleFetch();
+        const abortController = handleFetch();
+        return () => {
+            abortController.abort();
+        }
     }, []);
 
     return (

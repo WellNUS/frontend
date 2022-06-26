@@ -1,22 +1,33 @@
 import React, { useEffect, useState } from "react";
+import { ChatStatusPayload, User, WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 import "../groups/group.css";
 
-const Members = ({group_id, users}: {group_id: string | undefined, users: any[] | undefined}) => {
+type Props = {
+    socket: WebSocketUnit;
+}
 
-    const [inChatMembers, setInChatMembers] = useState<any[]>([]);
-    const [onlineMembers, setOnlineMembers] = useState<any[]>([]);
-    const [offlineMembers, setOfflineMembers] = useState<any[]>([]);
+const Members = (props: Props) => {
+    const { socket } = props;
+    const [inChatMembers, setInChatMembers] = useState<User[]>();
+    const [onlineMembers, setOnlineMembers] = useState<User[]>();
+    const [offlineMembers, setOfflineMembers] = useState<User[]>();
 
     useEffect(() => {
-        // socket = new WebSocket("ws://localhost:8080/ws/" + group_id);
-    }, []);
+        socket.addChatStatusHandler("chatStatusHandler", (payload: ChatStatusPayload): void => {
+            const { sorted_in_chat_members, sorted_online_members, sorted_offline_members } = payload;
+            setInChatMembers(sorted_in_chat_members);
+            setOnlineMembers(sorted_online_members);
+            setOfflineMembers(sorted_offline_members);
+        });
+    }, [inChatMembers, onlineMembers, offlineMembers]);
 
+    if (inChatMembers === undefined || onlineMembers === undefined || offlineMembers === undefined) return null;
     return <div className="room-members-wrapper">
-        {/* <div>
+        <div>
              <div>In Chat</div>
             {inChatMembers?.map((member, key) => {
                 return (
-                    <div key={key}></div>
+                    <div key={key}>{member.first_name}</div>
                 )
             })}
         </div>
@@ -24,7 +35,7 @@ const Members = ({group_id, users}: {group_id: string | undefined, users: any[] 
             <div>Online</div>
             {onlineMembers?.map((member, key) => {
                 return (
-                    <div key={key}></div>
+                    <div key={key}>{member.first_name}</div>
                 )
             })}
         </div>
@@ -32,15 +43,9 @@ const Members = ({group_id, users}: {group_id: string | undefined, users: any[] 
             <div>Offline</div>
             {offlineMembers?.map((member, key) => {
                 return (
-                    <div key={key}></div>
+                    <div key={key}>{member.first_name}</div>
                 )
             })}
-        </div> */}
-        <div>
-            Members
-            {users?.map((user, id) => <div key={id} className="room-members-box">
-                {user.first_name}
-            </div>)}
         </div>
     </div>
 }

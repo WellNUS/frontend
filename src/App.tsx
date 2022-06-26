@@ -12,6 +12,7 @@ import Groups from './views/pages/groups/Groups';
 import Group from './views/pages/groupRoom/GroupRoom';
 import JoinGroup from './views/pages/join/JoinGroup';
 import Chat from './views/components/chat/Chat';
+import { useEffect } from 'react';
 import Match from './views/pages/match/Match';
 
 import "./global.css";
