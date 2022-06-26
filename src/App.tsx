@@ -14,6 +14,8 @@ import JoinGroup from './views/pages/join/JoinGroup';
 import Chat from './views/components/chat/Chat';
 import Match from './views/pages/match/Match';
 
+import "./global.css";
+
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
   () => {saveState(store.getState());}

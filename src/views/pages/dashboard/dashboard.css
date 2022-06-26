@@ -1,14 +1,10 @@
-:root {
-    --theme-two: #ffb6c1;
-    --theme-one: white;
-}
-
 /* Dashboard.tsx */
 
 .dashboard_title {
     padding: 1rem 2rem;
     font-size: 2rem;
     font-weight: bold;
+    background-color: var(--theme-three);
 }
 
 .dashboard_boards {
@@ -16,8 +12,9 @@
     flex-direction: row;
     padding: 1rem;
     gap: 1rem;
-    border-radius: 10px;
     flex-grow: 1;
+    background-color: var(--theme-three);
+    height: 100vh;
 }
 
 .upcoming_appointments {
@@ -28,16 +25,17 @@
 /* Board.tsx */
 
 .board {
-    background-color: var(--theme-two);
-    padding: 1rem;
+    background-color: var(--theme-one);
+    padding: 1.5rem;
     border-radius: 10px;
     flex-grow: 1;
+    height: fit-content;
 }
 
 .board_title {
     font-weight: bold;
     font-size: 1.2rem;
-    color: white;
+    color: var(--theme-two);
 }
 
 .board_cards_column {
@@ -58,10 +56,10 @@
 .board_card {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: var(--theme-two);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-bottom: 0.5rem;
     font-size: 0.7rem;
 }

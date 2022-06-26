@@ -41,7 +41,7 @@ const CreateGroup = () => {
                 Create Group
             </Button>
             <Modal show={show} onHide={handleClose} className="create_group_modal">
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className="create_group_modal_header">
                 <Modal.Title>Create Group</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="create_group_modal_body">

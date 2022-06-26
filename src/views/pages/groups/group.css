@@ -1,18 +1,14 @@
-:root {
-    --theme-two: #ffb6c1;
-    --theme-one: white;
-    --theme-three: #900C3F;
-}
-
 .group_title {
     font-size: 2rem;
     font-weight: bold;
+    color: var(--theme-one);
 }
 
 .group_heading_row {
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
+    background-color: var(--theme-three);
 }
 
 .group_heading_buttons {
@@ -26,6 +22,8 @@
     display: flex;
     flex-direction: column;
     padding: 1rem 2rem;
+    background-color: var(--theme-three);
+    height: 100vh;
 }
 
 .group {
@@ -33,7 +31,7 @@
     flex-direction: row;
     justify-content: space-between;
     font-weight: 420;
-    border-bottom: 2px var(--theme-two) solid;
+    border-bottom: 2px var(--theme-one) solid;
     padding: 1rem 2rem;
     align-items: center;
 }
@@ -41,11 +39,26 @@
 
 
 .table_head {
-    border-top: 2px var(--theme-two) solid;
     font-weight: 800;
-    background-color: var(--theme-two);
+    background-color: var(--theme-one);
     color: var(--theme-one);
     border-radius: 10px;
+}
+
+.table_head .group_name,
+.table_head .group_description,
+.table_head .group_category,
+.table_head .group_button {
+    color: var(--theme-two);
+    font-weight: 800;
+}
+
+.group_name,
+.group_description,
+.group_category,
+.group_button {
+    color: var(--theme-one);
+    font-weight: 700;
 }
 
 .group_name {
@@ -72,23 +85,41 @@ button {
 }
 
 .group_view_button {
-    background-color: var(--theme-two);
-    color: var(--theme-one);
+    background-color: var(--theme-one);
+    color: var(--theme-two);
+    font-weight: 500;
     border: none;
 }
 
 .group_heading_button {
-    background-color: var(--theme-two);
-    color: var(--theme-one);
+    background-color: var(--theme-one);
+    color: var(--theme-two);
     padding: 0.5rem 1rem;
     font-weight: 800;
     border: none;
+}
+
+.group_heading_button:hover,
+.group_heading_button:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+    background-color: var(--theme-one);
 }
 
 /* CreateGroup.tsx */
 
 .create_group_modal {
     padding: 4rem;
+}
+
+.create_group_modal_header {
+    background-color: var(--theme-three);
+
+}
+
+.create_group_modal_body {
+    background-color: var(--theme-one);
 }
 
 /* Group.tsx */

@@ -1,14 +1,110 @@
-:root {
-    --theme-two: #ffb6c1;
-    --theme-one: white;
-    --theme-three: #900C3F;
-}
-
 .match_col_left {
-    border: 1px red solid;
-    height: 70vh;
+    background-color: var(--theme-three);
+    height: 100vh;
+    padding: 0 2rem;
 }
 
 .match_col_right {
-    border: 1px red solid;
+    height: 100vh;
+    background-color: var(--theme-three);
 }
+
+.match_hobby_dropdown {
+    margin: 0 2rem;
+}
+
+.match_hobby_dropdown_toggle,
+.match_hobby_dropdown_toggle:focus,
+.match_hobby_dropdown_toggle:hover {
+    width: 100%;
+    text-align: right;
+    background-color: var(--theme-one);
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.match_hobby_dropdown_menu {
+    width: 100%;
+}
+
+.match_hobby_dropdown_menu_select {
+    width: 100%;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.match_hobby_dropdown_menu_select option {
+    padding: 1rem 0;
+}
+.match_hobby_dropdown_menu_select option:hover,
+.match_hobby_dropdown_menu_select option:focus {
+    background-color: var(--theme-three) !important;
+    color: var(--theme-two) !important;
+    padding: 1rem 0;
+}
+
+.match_setting_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 2rem;
+    padding-bottom: 2rem;
+}
+
+.match_setting_form input {
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid var(--theme-one);
+    padding: 0.5rem 1rem;
+}
+
+.match_selected_wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin: 1rem 2rem;
+    margin-top: 0.5rem !important;
+}
+
+.match_button {
+    background-color: var(--theme-one);
+}
+
+.match_button,
+.match_button:focus,
+.match_button:hover {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.match_button:focus,
+.match_button:hover {
+    background-color: var(--theme-two);
+    color: var(--theme-three);
+ }
+
+ .match_field {
+     font-size: 1.5rem;
+     font-weight: 700;
+ }
+
+ .match_field_values_grid {
+     display: flex;
+     flex-direction: row;
+     gap: 1rem;
+ }
+
+ .match_field_value {
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: var(--theme-one);
+    color: var(--theme-two);
+    padding: 0.5rem 1rem;
+    width: fit-content;
+    border-radius: 10px;
+    margin: 1rem 0;
+ }
