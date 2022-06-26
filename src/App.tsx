@@ -35,7 +35,6 @@ const App = () => {
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
-            {/* <Route path="/groups/:group_id/chat" element={<Chat />} /> */}
             <Route path="/match" element={<Match />} />
           </Routes>
         </BrowserRouter>
