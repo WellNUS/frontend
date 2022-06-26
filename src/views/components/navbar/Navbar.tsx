@@ -1,14 +1,13 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./styles.css";
-// import logo from "../../../static/icon/navIcons/logo.png"
+import logo from "../../../static/icon/navIcons/logo.png"
 import bell from "../../../static/icon/navIcons/bell.png";
 import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
 import { useSelector } from "react-redux";
 import LogoutModal from "../../pages/authentication/Logout";
 import ProfileModal from "../../pages/profile/Profile";
-// import { logout } from "../../pages/authentication/Logout";
 
 const Navbar = (props : { hideTop : boolean }) => {
     const { hideTop } = props;
@@ -36,13 +35,13 @@ const Navbar = (props : { hideTop : boolean }) => {
     return <div>
         <div className="navbar-container-top">
             <div className="navbar-left">
-                {/* <img src={logo} alt="Logo" /> */}
+                <img src={logo} alt="Logo" />
                 <h1>WellNUS</h1>
             </div>
             <div className="navbar-right">
                 {/* <p>AY2021/2022, Semester 2, Week 9</p> */}
                 <ProfileModal />
-                <img src={bell} alt="bell"/>
+                {/* <img src={bell} alt="bell"/> */}
                 <LogoutModal />
             </div>
         </div>
