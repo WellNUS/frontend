@@ -127,7 +127,8 @@ button {
 .room-wrapper {
     display: flex;
     flex-direction: row;
-    margin-top: 2rem;
+    height: 100vh;
+    background-color: var(--theme-one);
 }
 
 .room-left-col,
