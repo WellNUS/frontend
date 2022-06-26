@@ -15,16 +15,20 @@ export const ChatNotification = (props: Props) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        let chatNotifTimeOut;
+        let chatNotifTimeOut: NodeJS.Timeout;
         socket.addMessageHandler("otherGroupMessages", (payload: MessagePayload) => {
             const { group_id } = payload.message;
             if (group_id !== groupId) {
+                clearTimeout(chatNotifTimeOut);
                 setMessagePayload(payload);
                 setRedirect(`/groups/${group_id}`);
                 setDisplay(true);
-                setTimeout(() => setDisplay(false), 3000);
+                chatNotifTimeOut = setTimeout(() => setDisplay(false), 3000);
             }
         })
+        return () => {
+            clearTimeout(chatNotifTimeOut);
+        }
     }, [])
 
     const handleDimiss = ()=>{

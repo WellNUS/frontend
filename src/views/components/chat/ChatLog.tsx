@@ -100,7 +100,7 @@ const ChatLog = (props: Props) => {
         const { action, scrollTop, scrollHeight, clientHeight } = scrollAdjustment
         switch (action) {
             case ScrollAction.ToEnd:
-                if (scrollTop < scrollHeight - clientHeight) return;
+                if (scrollTop < scrollHeight - clientHeight - 2) return;
                 log.scrollTop = log.scrollHeight;
                 return;
             case ScrollAction.Hold:
