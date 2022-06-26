@@ -1,11 +1,5 @@
-:root {
-    --theme-two: #ffb6c1;
-    --theme-one: white;
-    --theme-three: #900C3F;
-}
-
 .profile_button {
-    background-color: var(--theme-two);
+    background-color: var(--theme-one);
     padding: 0;
     border: none;
     border-radius: 0px;
@@ -13,7 +7,7 @@
 
 .profile_button:hover,
 .profile_button:focus {
-    background-color: var(--theme-two);
+    background-color: var(--theme-one);
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
@@ -35,7 +29,7 @@
 .profile_name {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--theme-three);
+    color: var(--theme-one);
 }
 
 .profile_detail {

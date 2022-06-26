@@ -6,6 +6,7 @@ import { Button, Modal } from "react-bootstrap";
 import exit from "../../../static/icon/navIcons/exit.png";
 import { config } from "../../../config";
 import { deleteRequestOptions } from "../../../api/fetch/requestOptions";
+import "./authentication.css";
 
 const LogoutModal = () => {
     const navigate = useNavigate();

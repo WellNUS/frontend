@@ -13,6 +13,9 @@ import Group from './views/pages/groupRoom/GroupRoom';
 import JoinGroup from './views/pages/join/JoinGroup';
 import Chat from './views/components/chat/Chat';
 import { useEffect } from 'react';
+import Match from './views/pages/match/Match';
+
+import "./global.css";
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -33,6 +36,7 @@ const App = () => {
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
+            <Route path="/match" element={<Match />} />
           </Routes>
         </BrowserRouter>
     </Provider>

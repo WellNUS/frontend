@@ -104,17 +104,26 @@ const Register = () => {
                         },
                         {
                             id: "gender",
-                            type: "text",
+                            type: "select",
                             label: "Gender",
                             placeholder: "Enter your gender...",
-                            notes: "options: M / F"
+                            notes: "",
+                            choices: [
+                                "Enter your gender...",
+                                "M",
+                                "F",
+                            ]
                         },
                         {
                             id: "faculty",
-                            type: "text",
+                            type: "select",
                             label: "Faculty",
                             placeholder: "Enter your faculty...",
-                            notes: "e.g. COMPUTING"
+                            notes: "",
+                            choices: [
+                                "Enter your faculty...",
+                                "COMPUTING"
+                            ]
                         },
                         {
                             id: "email",

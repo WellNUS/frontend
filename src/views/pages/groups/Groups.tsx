@@ -33,9 +33,6 @@ const Group = () => {
             <div className="group_heading_row">
                 <div className="group_title">Groups</div>
                 <div className="group_heading_buttons">
-                    <Link to="/join">            
-                        <Button variant="primary" className="group_heading_button">Join Group</Button>
-                    </Link>
                     <CreateGroup />
                 </div>
             </div>

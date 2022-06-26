@@ -5,8 +5,11 @@ import "../groups/group.css";
 import Navbar from "../../components/navbar/Navbar";
 import { abortableGetRequestOptions, deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
+import JoinModal from "./JoinModal";
+import { useSelector } from "react-redux";
 
 const JoinGroup = () => {
+    const { details } = useSelector((state: any) => state.user);
     const [requests, setRequests] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
 
@@ -67,6 +70,7 @@ const JoinGroup = () => {
         await fetch(config.API_URL + "/join/" + requestID, deleteRequestOptions)
             .then(response => response.json())
             .then(data => console.log(data));
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -81,29 +85,14 @@ const JoinGroup = () => {
             <Navbar hideTop={false}/>
             <div className="group_heading_row">
                 <div className="group_title">Join a group today!</div>
-            </div>
-            <div className="join_group_main">
-                <div className="join_group_left_column">
-                    <GeneralForm 
-                        onSubmit={handleJoin}
-                        fields={[
-                            {
-                                id: "id",
-                                type: "text",
-                                label: "id",
-                                placeholder: "Enter the group id...",
-                                notes: ""
-                            }
-                        ]}
-                        error={errMsg}
-                        displayError={errMsg !== ""}
-                        closeError={() => setErrMsg("")}
-                        hideSubmit={true}
-                    />
+                <div className="group_heading_buttons">
+                    <JoinModal />
                 </div>
+            </div>
+            <div className="groups">
                 <Table className="joingroup_request_table">
                     <thead>
-                        <tr>
+                        <tr className="joingroup_request_table_head">
                             <th>ID</th>
                             <th>User</th>
                             <th>Group#ID</th>
@@ -113,14 +102,19 @@ const JoinGroup = () => {
                     <tbody>
                         {requests.map((request, id) => {
                             return (
-                                <tr key={id}>
+                                <tr key={id} className="joingroup_request_table_row">
                                     <td>{request.join_request.id}</td>
                                     <td>{request.user.first_name}</td>
                                     <td>{request.group.group_name}#{request.join_request.group_id}</td>
                                     <td className="joingroup_buttons">
-                                        <Button onClick={() => handleApprove(request.join_request.id)} className="joingroup_button">Approve</Button>
-                                        <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button">Reject</Button>
-                                        <Button onClick={() => handleDelete(request.join_request.id)} className="joingroup_button">Delete</Button>
+                                        {
+                                            request.user.email === details.email
+                                            ? <Button onClick={() => handleDelete(request.join_request.id)} className="joingroup_button delete_button">Delete</Button>
+                                            : <div>
+                                                <Button onClick={() => handleApprove(request.join_request.id)} className="joingroup_button approve_button">Approve</Button>
+                                                <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button reject_button">Reject</Button>
+                                            </div>
+                                        }
                                     </td>
                                 </tr>
                             )

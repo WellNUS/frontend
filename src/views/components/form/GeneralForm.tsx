@@ -25,6 +25,7 @@ function GeneralForm(props: Props): React.ReactElement {
                             label={f.label}
                             placeholder={f.placeholder}
                             notes={f.notes}
+                            choices={f.choices}
                         />
                     ))
                 }
@@ -33,7 +34,7 @@ function GeneralForm(props: Props): React.ReactElement {
                     display={displayError}
                     onClose={closeError}
                 />
-                <button type="submit" className="btn link-button">
+                <button type="submit" className="btn link-button" style={{"border": "1px gray solid", "color": "var(--theme-one)"}}>
                     Submit
                 </button>
             </form>
