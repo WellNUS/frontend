@@ -34,7 +34,7 @@ function GeneralForm(props: Props): React.ReactElement {
                     display={displayError}
                     onClose={closeError}
                 />
-                <button type="submit" className="btn link-button" style={{"color": "var(--theme-one)"}}>
+                <button type="submit" className="btn link-button" style={{"border": "1px gray solid", "color": "var(--theme-one)"}}>
                     Submit
                 </button>
             </form>

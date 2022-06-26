@@ -113,14 +113,14 @@ button {
     padding: 4rem;
 }
 
-.create_group_modal_header {
+/* .create_group_modal_header {
     background-color: var(--theme-three);
 
 }
 
 .create_group_modal_body {
     background-color: var(--theme-one);
-}
+} */
 
 /* Group.tsx */
 
@@ -261,6 +261,8 @@ button {
     display: flex;
     flex-direction: row;
     padding: 1rem 2rem;
+    height: 100vh;
+    background-color: var(--theme-three);
 }
 
 .join_group_left_column {
@@ -287,8 +289,39 @@ button {
 
 .joingroup_button {
     margin-right: 1rem;
+    background-color: var(--theme-one);
+    color: var(--theme-two);
+}
+
+.joingroup_button,
+.joingroup_button:hover,
+.joingroup_button:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.approve_button:hover {
+    background-color: green;
+}
+
+.reject_button:hover {
+    background-color: red;
+}
+
+.delete_button:hover {
+    background-color: red;
 }
 
 .joingroup_buttons {
     width: 20rem;
+}
+
+.table_head_label {
+    color: var(--theme-two);
+}
+
+.joingroup_request_table_head {
+    background-color: var(--theme-one);
+    color: var(--theme-two);
 }

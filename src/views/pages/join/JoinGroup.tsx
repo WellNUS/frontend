@@ -68,10 +68,10 @@ const JoinGroup = () => {
                     <JoinModal />
                 </div>
             </div>
-            <div className="join_group_main">
+            <div className="groups">
                 <Table className="joingroup_request_table">
                     <thead>
-                        <tr>
+                        <tr className="joingroup_request_table_head">
                             <th>ID</th>
                             <th>User</th>
                             <th>Group#ID</th>
@@ -81,17 +81,17 @@ const JoinGroup = () => {
                     <tbody>
                         {requests.map((request, id) => {
                             return (
-                                <tr key={id}>
+                                <tr key={id} className="joingroup_request_table_row">
                                     <td>{request.join_request.id}</td>
                                     <td>{request.user.first_name}</td>
                                     <td>{request.group.group_name}#{request.join_request.group_id}</td>
                                     <td className="joingroup_buttons">
                                         {
-                                            request.join_request.user_id === details.id
-                                            ? <Button onClick={() => handleDelete(request.join_request.id)} className="joingroup_button">Delete</Button>
+                                            request.user.email === details.email
+                                            ? <Button onClick={() => handleDelete(request.join_request.id)} className="joingroup_button delete_button">Delete</Button>
                                             : <div>
-                                                <Button onClick={() => handleApprove(request.join_request.id)} className="joingroup_button">Approve</Button>
-                                                <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button">Reject</Button>
+                                                <Button onClick={() => handleApprove(request.join_request.id)} className="joingroup_button approve_button">Approve</Button>
+                                                <Button onClick={() => handleReject(request.join_request.id)} className="joingroup_button reject_button">Reject</Button>
                                             </div>
                                         }
                                         
