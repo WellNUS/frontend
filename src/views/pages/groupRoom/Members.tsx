@@ -8,9 +8,9 @@ type Props = {
 
 const Members = (props: Props) => {
     const { socket } = props;
-    const [inChatMembers, setInChatMembers] = useState<User[]>();
-    const [onlineMembers, setOnlineMembers] = useState<User[]>();
-    const [offlineMembers, setOfflineMembers] = useState<User[]>();
+    const [inChatMembers, setInChatMembers] = useState<User[]>([]);
+    const [onlineMembers, setOnlineMembers] = useState<User[]>([]);
+    const [offlineMembers, setOfflineMembers] = useState<User[]>([]);
 
     useEffect(() => {
         socket.addChatStatusHandler("chatStatusHandler", (payload: ChatStatusPayload): void => {
@@ -21,7 +21,6 @@ const Members = (props: Props) => {
         });
     }, [inChatMembers, onlineMembers, offlineMembers]);
 
-    if (inChatMembers === undefined || onlineMembers === undefined || offlineMembers === undefined) return null;
     return <div className="room-members-wrapper">
         <div>
              <div>In Chat</div>

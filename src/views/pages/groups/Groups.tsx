@@ -46,7 +46,7 @@ const Group = () => {
                 {groups.map((group, id) => {
                     return (
                         <div className="group" key={id}>
-                            <div className="group_name">{group.group_name}</div>
+                            <div className="group_name">{group.group_name}#{group.id}</div>
                             <div className="group_description">{group.group_description}</div>
                             <div className="group_category">{group.category}</div>
                             <div className="group_button">
