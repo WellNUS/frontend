@@ -106,3 +106,17 @@
 }
 
 /* Chat Notification */
+.chat-notif {
+    background: none;
+    color: var(--theme-two);
+}
+
+.chat-notif-bold {
+    font-weight: bold;
+    color: var(--theme-three);
+}
+
+.chat-notif-close {
+    background: none;
+    color: var(--theme-four);
+}

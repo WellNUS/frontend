@@ -21,7 +21,7 @@ function FormField(props: Field): React.ReactElement {
     return  <Form.Group className="mb-3" controlId={id}>
                 {/* <Form.Label>{label}</Form.Label> */}
                 <Form.Control type={type} placeholder={placeholder} />
-                <Form.Text>{notes}</Form.Text>
+                <small>{notes}</small>
             </Form.Group>
 }
 

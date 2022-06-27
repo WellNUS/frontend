@@ -37,6 +37,7 @@
 
 .register-container {
     background-color: var(--theme-one);
+    color: var(--theme-two);
     height: 90vh;
     width: 30vw;
     margin-top: 5vh;

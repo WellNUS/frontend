@@ -43,8 +43,8 @@ export const ChatNotification = (props: Props) => {
 
     const { sender_name, group_name } = messagePayload;
     return (
-        <div className="chat-notif" >
-            <button onClick={handleNav}>
+        <div>
+            <button className="chat-notif" onClick={handleNav}>
                 New message from <span className="chat-notif-bold">{sender_name}</span> in <span className="chat-notif-bold">{group_name}</span>
             </button>
             <button className="chat-notif-close" onClick={handleDimiss}> [X] </button>

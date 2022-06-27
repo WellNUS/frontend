@@ -143,6 +143,7 @@ const Match = () => {
                             onChange={setSelectedOptions}
                             labelledBy="Select"
                         />
+                        <small>Select at most 4 hobbies.</small>
                         <br/>
                         <Button onClick={postSetting} className="match_button">Submit</Button>
                     </Col>

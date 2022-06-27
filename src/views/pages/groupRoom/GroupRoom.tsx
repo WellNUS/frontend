@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router";
 import Members from "./Members";
 import "../groups/group.css";
@@ -13,7 +13,7 @@ import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 const Group = () => {
     const { group_id } = useParams();
     const [group, setGroup] = useState<GroupDetailsType>();
-    const [socket, setSocket] = useState<WebSocketUnit>();
+    const socket = useRef<WebSocketUnit>();
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -26,31 +26,31 @@ const Group = () => {
             console.error("group_id param is not a number");
             return;
         }
-        
-        setSocket(new WebSocketUnit("ws://localhost:8080/ws/" + group_id));
+
+        if (socket.current !== undefined) socket.current.close();
+        socket.current = new WebSocketUnit("ws://localhost:8080/ws/" + group_id);
         fetch(config.API_URL + `/group/${groupId}`, abortableGetRequestOptions(abortController.signal))
             .then(response => response.json())
             .then(data => setGroup(data.group));
-            
-        if (socket === undefined) return;
+
         return () => {
-            socket.close()
+            if (socket.current !== undefined) socket.current.close();
             abortController.abort();
         };
     }, []);
 
-    if (socket === undefined || group === undefined) return null;
+    if (socket.current === undefined || group === undefined) return null;
     return (
         <div>
             <Navbar hideTop={true}/>
             <div className="room-wrapper">
                 <div className="room-left-col">
                     <GroupDetails group={group}/>
-                    <Members socket={socket} />
+                    <Members socket={socket.current} />
                 </div>
                 <div className="room-middle-col">
                     <Chat
-                        socket={socket}
+                        socket={socket.current}
                         groupId={group.id}
                     />
                 </div>
