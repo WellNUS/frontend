@@ -99,8 +99,6 @@ export class WebSocketUnit {
     }
 
     close(): void {
-        if (this.socket.readyState === 1) {
-            this.socket.close()
-        }
+        this.socket.close()
     }
 }
