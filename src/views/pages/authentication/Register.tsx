@@ -122,7 +122,16 @@ const Register = () => {
                             notes: "",
                             choices: [
                                 "Enter your faculty...",
-                                "COMPUTING"
+                                "CHS", 
+                                "BUSINESS", 
+                                "COMPUTING", 
+                                "DENTISTRY", 
+                                "CDE", 
+                                "LAW", 
+                                "MEDICINE", 
+                                "NURSING",
+                                "PHARMACY", 
+                                "MUSIC"
                             ]
                         },
                         {
