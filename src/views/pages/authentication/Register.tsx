@@ -7,6 +7,9 @@ import { UserDetails as UserDetailsType } from "../../../types/authentication/ty
 import "./authentication.css"
 import { postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
+import logo from "../../../static/icon/navIcons/logo.png";
+import { Button } from "react-bootstrap";
+
 
 const Register = () => {
     const dispatch = useDispatch();
@@ -67,24 +70,20 @@ const Register = () => {
         return <div>You are already logged in.</div>;
     }
 
-    return <div className="background flex-wrapper">
-        <div className="register-container">
-            <div className="register-header">
-                <div className="auth-title">Sign up</div>
-                <div className="auth-links">
-                    <Link to="/login" className="no-decoration">
-                        <button className="link-button">
-                            Login
-                        </button>
-                    </Link>
-                    <Link to="/" className="no-decoration">
-                        <button className="link-button">
-                            Home
-                        </button>
-                    </Link>
+    return (
+        <div className="auth_container auth_register">
+            <div className="auth_left_col">
+                <div className="auth_logo_row">
+                    <img src={logo} alt="Logo"/>
+                </div>
+                <div className="auth_content_row">
+                    <h1>Welcome Back!</h1>
+                    <p>Click here to log in to an existing account.</p>
+                    <Button className="auth_btn">Login</Button>
                 </div>
             </div>
-            <div className="form-register">
+            <div className="auth_right_col">
+                <h1>Create a new account.</h1>
                 <GeneralForm
                     onSubmit={onSubmit}
                     fields={[
@@ -92,24 +91,24 @@ const Register = () => {
                             id: "first_name",
                             type: "text",
                             label: "First name",
-                            placeholder: "Enter your first name...",
+                            placeholder: "First Name",
                             notes: ""
                         },
                         {
                             id: "last_name",
                             type: "text",
                             label: "Last name",
-                            placeholder: "Enter your last name...",
+                            placeholder: "Last Name",
                             notes: ""
                         },
                         {
                             id: "gender",
                             type: "select",
                             label: "Gender",
-                            placeholder: "Enter your gender...",
+                            placeholder: "Gender",
                             notes: "",
                             choices: [
-                                "Enter your gender...",
+                                "Gender",
                                 "M",
                                 "F",
                             ]
@@ -118,10 +117,10 @@ const Register = () => {
                             id: "faculty",
                             type: "select",
                             label: "Faculty",
-                            placeholder: "Enter your faculty...",
+                            placeholder: "Faculty",
                             notes: "",
                             choices: [
-                                "Enter your faculty...",
+                                "Faculty",
                                 "CHS", 
                                 "BUSINESS", 
                                 "COMPUTING", 
@@ -138,21 +137,21 @@ const Register = () => {
                             id: "email",
                             type: "email",
                             label: "Email",
-                            placeholder: "Enter your email...",
+                            placeholder: "Email",
                             notes: "must be a valid NUS email (e.g. e1234567@u.nus.edu)"
                         },
                         {
                             id: "password",
                             type: "password",
                             label: "Password",
-                            placeholder: "Enter your password...",
+                            placeholder: "Password",
                             notes: ""
                         },
                         {
                             id: "password_confirmation",
                             type: "password",
                             label: "Password confirmation",
-                            placeholder: "Confirm your password...",
+                            placeholder: "Password Confirmation",
                             notes: ""
                         }
                         
@@ -164,7 +163,97 @@ const Register = () => {
                 />
             </div>
         </div>
-    </div>
+    )
+
+    // return <div className="background flex-wrapper">
+    //     <div className="register-container">
+    //         <div className="register-header">
+    //             <div className="auth-title">Sign up</div>
+    //             <div className="auth-links">
+    //                 <Link to="/login" className="no-decoration">
+    //                     <button className="link-button">
+    //                         Login
+    //                     </button>
+    //                 </Link>
+    //                 <Link to="/" className="no-decoration">
+    //                     <button className="link-button">
+    //                         Home
+    //                     </button>
+    //                 </Link>
+    //             </div>
+    //         </div>
+    //         <div className="form-register">
+                // <GeneralForm
+                //     onSubmit={onSubmit}
+                //     fields={[
+                //         {
+                //             id: "first_name",
+                //             type: "text",
+                //             label: "First name",
+                //             placeholder: "Enter your first name...",
+                //             notes: ""
+                //         },
+                //         {
+                //             id: "last_name",
+                //             type: "text",
+                //             label: "Last name",
+                //             placeholder: "Enter your last name...",
+                //             notes: ""
+                //         },
+                //         {
+                //             id: "gender",
+                //             type: "select",
+                //             label: "Gender",
+                //             placeholder: "Enter your gender...",
+                //             notes: "",
+                //             choices: [
+                //                 "Enter your gender...",
+                //                 "M",
+                //                 "F",
+                //             ]
+                //         },
+                //         {
+                //             id: "faculty",
+                //             type: "select",
+                //             label: "Faculty",
+                //             placeholder: "Enter your faculty...",
+                //             notes: "",
+                //             choices: [
+                //                 "Enter your faculty...",
+                //                 "COMPUTING"
+                //             ]
+                //         },
+                //         {
+                //             id: "email",
+                //             type: "email",
+                //             label: "Email",
+                //             placeholder: "Enter your email...",
+                //             notes: "must be a valid NUS email (e.g. e1234567@u.nus.edu)"
+                //         },
+                //         {
+                //             id: "password",
+                //             type: "password",
+                //             label: "Password",
+                //             placeholder: "Enter your password...",
+                //             notes: ""
+                //         },
+                //         {
+                //             id: "password_confirmation",
+                //             type: "password",
+                //             label: "Password confirmation",
+                //             placeholder: "Confirm your password...",
+                //             notes: ""
+                //         }
+                        
+                //     ]}
+                //     error={errMsg}
+                //     displayError={errMsg !== ""}
+                //     closeError={() => setErrMsg("")}
+                //     hideSubmit={false}
+                // />
+    //         </div>
+    //     </div>
+    // </div>
 }
 
 export default Register;
