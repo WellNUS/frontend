@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import "./styles.css";
-import logo from "../../../static/icon/navIcons/logo2.png"
+import "./navbar.css";
+// import logo from "../../../static/icon/navIcons/logo2.png";
+import logo from "../../../static/icon/navIcons/logo.png";
 import bell from "../../../static/icon/navIcons/bell.png";
 import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
@@ -13,9 +14,13 @@ const Navbar = (props : { hideTop : boolean }) => {
     const { hideTop } = props;
     const { details, loggedIn } = useSelector((state: any) => state.user);
 
-    if (hideTop) {
-        return (
-            <div className="navbar-container-bot">
+    return (
+        <div className="navbar-container">
+            <div className="navbar-left">
+                <div className="navbar-logo-container">
+                    <img src={logo} alt="Logo" className="logo"/>
+                    {/* <h1>WellNUS</h1> */}
+                </div>
                 <NavLink to="/dashboard" className="navlink">
                     DASHBOARD
                 </NavLink>
@@ -29,15 +34,6 @@ const Navbar = (props : { hideTop : boolean }) => {
                     MATCH
                 </NavLink>
             </div>
-        )
-    }
-
-    return <div>
-        <div className="navbar-container-top">
-            <div className="navbar-left">
-                <img src={logo} alt="Logo" className="logo"/>
-                <h1>WellNUS</h1>
-            </div>
             <div className="navbar-right">
                 {/* <p>AY2021/2022, Semester 2, Week 9</p> */}
                 <ProfileModal />
@@ -45,21 +41,7 @@ const Navbar = (props : { hideTop : boolean }) => {
                 <LogoutModal />
             </div>
         </div>
-        <div className="navbar-container-bot">
-            <NavLink to="/dashboard" className="navlink">
-                DASHBOARD
-            </NavLink>
-            <NavLink to="/groups" className="navlink">
-                GROUPS
-            </NavLink>
-            <NavLink to="/join" className="navlink">
-                JOIN
-            </NavLink>
-            <NavLink to="/match" className="navlink">
-                MATCH
-            </NavLink>
-        </div>
-    </div>
+    )
 }
 
 export default Navbar;

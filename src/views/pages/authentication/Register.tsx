@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../state/slices/user";
@@ -66,20 +66,24 @@ const Register = () => {
         }
     }
 
-    if (loggedIn) {
-        return <div>You are already logged in.</div>;
-    }
+    useEffect(() => {
+        if (loggedIn) navigate("/dashboard");
+    }, []);
 
     return (
         <div className="auth_container auth_register">
             <div className="auth_left_col">
                 <div className="auth_logo_row">
-                    <img src={logo} alt="Logo"/>
+                    <Link to="/" className="no-decoration">
+                        <img src={logo} alt="Logo"/>
+                    </Link>
                 </div>
                 <div className="auth_content_row">
                     <h1>Welcome Back!</h1>
                     <p>Click here to log in to an existing account.</p>
-                    <Button className="auth_btn">Login</Button>
+                    <Link to="/login" className="no-decoration">
+                        <Button className="auth_btn">Login</Button>
+                    </Link>
                 </div>
             </div>
             <div className="auth_right_col">
@@ -170,12 +174,12 @@ const Register = () => {
     //         <div className="register-header">
     //             <div className="auth-title">Sign up</div>
     //             <div className="auth-links">
-    //                 <Link to="/login" className="no-decoration">
+                    // <Link to="/login" className="no-decoration">
     //                     <button className="link-button">
     //                         Login
     //                     </button>
     //                 </Link>
-    //                 <Link to="/" className="no-decoration">
+                    // <Link to="/" className="no-decoration">
     //                     <button className="link-button">
     //                         Home
     //                     </button>

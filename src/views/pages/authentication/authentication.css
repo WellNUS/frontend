@@ -1,3 +1,8 @@
+.no-decoration {
+    text-decoration: none;
+    color: black;
+}
+
 .auth_container {
     min-height: 100vh;
     width: 100%;
@@ -81,114 +86,11 @@ form .login_btn:focus {
     color: var(--theme-two);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* original styles */
-
-.background {
-    background-color: var(--theme-four);
-    height: 100vh;
-    width: 100vw;
-    border: 1px var(--theme-four) solid;
-}
-
-.flex-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.container {
-    background-color: var(--theme-one);
-    height: 80vh;
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-    width: 30vw;
-    padding: 3rem 0;
-    border-radius: 10px;
-}
-
-.auth-title {
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: left;
-    margin-left: 2rem;
-    color: var(--theme-two);
-}
-
-.auth-links {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
-
-.register-container {
-    background-color: var(--theme-one);
-    color: var(--theme-two);
-    height: 90vh;
-    width: 30vw;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    padding: 3rem 0;
-    border-radius: 10px;
-}
-
-.register-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-right: 2rem;
-}
-
-.form-register {
-    display: flex;
-    flex-direction: row;
-    margin: 2rem;
-}
-
-.form-login {
-    margin: 2rem;
-}
-
-.link-button {
-    background-color: var(--theme-two);
-    margin-top: 0.2rem;
-    width: 100%;
-    color: var(--theme-one);
-    border-radius: 5px;
-    padding: 0.4rem;
-    
-}
-
-.link-button:hover,
-.link-button:focus {
-    background-color: var(--theme-three);
-    color: var(--theme-two);
-}
-
-.no-decoration {
-    text-decoration: none;
-    color: black;
-}
-
 .logout_button {
-    background-color: var(--theme-one);
+    background-color: var(--theme-three);
+    margin-right: 1rem;
+    padding: 0.8rem 1rem;
     border: none;
-    transform: translateY(-0.4rem);
 }
 
 .logout_button:hover,
@@ -196,5 +98,5 @@ form .login_btn:focus {
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
-    background-color: var(--theme-one);
+    background-color: var(--theme-four);
 }

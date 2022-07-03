@@ -30,13 +30,41 @@ const Group = () => {
     return (
         <div>
             <Navbar hideTop={false}/>
-            <div className="group_heading_row">
-                <div className="group_title">Groups</div>
-                <div className="group_heading_buttons">
+            <div className="layout_heading_container">
+                <div className="layout_heading_title">Meet your friends!</div>
+                <div className="layout_heading_buttons">
                     <CreateGroup />
                 </div>
             </div>
-            <div className="groups">
+            <div className="layout_content_container_grid">
+                {
+                    groups.map((group, key) => {
+                        return (
+                            <div key={key} className="groups_group_card">
+                                <div className="groups_group_card_heading">
+                                    <div className="group_card_name">{group.group_name}</div>
+                                    <div className="group_card_id">{group.id}</div>
+                                </div>
+                                <div className="groups_group_card_body">
+                                    <div>{group.group_description}</div>
+                                </div>
+                                <div className="groups_group_card_footing">
+                                    <Link to={`/groups/${group.id}`}>
+                                        <Button className="group_card_view_button">MEET</Button>
+                                    </Link>
+
+                                    {
+                                        group.category === "SUPPORT"
+                                        ? <div className="group_card_category_support">{group.category}</div>
+                                        : <div className="group_card_category_counsel">{group.category}</div>
+                                    }
+                                </div>
+                            </div>
+                        )
+                    })
+                }
+            </div>
+            {/* <div className="layout_content_container_columns">
                 <div className="group table_head">
                     <div className="group_name">Your Groups</div>
                     <div className="group_description">Description</div>
@@ -57,7 +85,7 @@ const Group = () => {
                         </div>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     );
 }

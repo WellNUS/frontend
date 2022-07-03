@@ -16,7 +16,7 @@ const ProfileModal = () => {
         <Button variant="primary" onClick={handleShow} className="profile_button">
             <div className="profile">
                 <img src={profile} alt="Profile" />
-                <p>{details.first_name} {details.last_name}</p>
+                <p className="profile_button_name">{details.first_name} {details.last_name}</p>
             </div>
         </Button>
         <Modal show={show} onHide={handleClose}>

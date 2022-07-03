@@ -1,29 +1,29 @@
 .profile_button {
-    background-color: var(--theme-one);
-    padding: 0;
+    background-color: var(--theme-three);
     border: none;
-    border-radius: 0px;
+    padding: 0 1rem !important;
+    border-radius: 10px;
 }
 
 .profile_button:hover,
 .profile_button:focus {
-    background-color: var(--theme-one);
+    background-color: var(--theme-four);
     border: none !important;
     outline: none !important;
     box-shadow: none !important;
+    border-radius: 10px;
 }
 
-.profile_button:hover {
-    text-decoration: underline;
+.profile_button_name {
+    margin-top: 1rem;
 }
 
-.profile_container {
-    width: fit-content;
-    margin: auto;
-    margin-top: 10vh;
-    padding: 2rem;
-    background-color: var(--theme-two);
-    border-radius: 20px;
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    text-decoration: none;
+    align-items: center;
 }
 
 .profile_name {

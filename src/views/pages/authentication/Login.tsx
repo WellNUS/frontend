@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import userSlice from "../../../state/slices/user";
@@ -52,21 +52,25 @@ const Login = () => {
             }
         });
     }
-
-    if (loggedIn) {
-        return <div>You are already Logged In</div>;
-    }
+    
+    useEffect(() => {
+        if (loggedIn) navigate("/dashboard");
+    }, []);
 
     return (
         <div className="auth_container">
             <div className="auth_left_col">
                 <div className="auth_logo_row">
+                <Link to="/" className="no-decoration">
                     <img src={logo} alt="Logo"/>
+                </Link>
                 </div>
                 <div className="auth_content_row">
                     <h1>Are you new here?</h1>
                     <p>Click here to create a new account.</p>
-                    <Button className="auth_btn">Register</Button>
+                    <Link to="/register" className="no-decoration">
+                        <Button className="auth_btn">Register</Button>
+                    </Link>
                 </div>
             </div>
             <div className="auth_right_col">
@@ -97,48 +101,6 @@ const Login = () => {
             </div>
         </div>
     )
-    
-    // return  <div className="background">
-    //     <div className="container">
-    //         <div className="auth-title">Log in</div>   
-    //         <div className="form-login">
-                // <GeneralForm
-                //     onSubmit={onSubmit}
-                //     fields={[
-                //         {
-                //             id: "email",
-                //             type: "email",
-                //             label: "Email",
-                //             placeholder: "Enter your email...",
-                //             notes: ""
-                //         },
-                //         {
-                //             id: "password",
-                //             type: "password",
-                //             label: "Password",
-                //             placeholder: "Enter your password...",
-                //             notes: ""
-                //         }
-                //     ]}
-                //     error={errMsg}
-                //     displayError={errMsg !== ""}
-                //     closeError={() => setErrMsg("")}
-                //     hideSubmit={false}
-                // />
-    //             <br />
-    //             <Link to="/register" className="no-decoration">
-    //                 <button className="link-button">
-    //                     Don't have an account? Click here!
-    //                 </button>
-    //             </Link>
-    //             <Link to="/" className="no-decoration">
-    //                 <button className="link-button">
-    //                     Go back to home page.
-    //                 </button>
-    //             </Link>
-    //         </div>
-    //     </div>    
-    // </div>
 }
 
 export default Login;
