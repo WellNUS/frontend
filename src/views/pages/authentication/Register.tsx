@@ -73,11 +73,6 @@ const Register = () => {
     return (
         <div className="auth_container auth_register">
             <div className="auth_left_col">
-                <div className="auth_logo_row">
-                    <Link to="/" className="no-decoration">
-                        <img src={logo} alt="Logo"/>
-                    </Link>
-                </div>
                 <div className="auth_content_row">
                     <h1>Welcome Back!</h1>
                     <p>Click here to log in to an existing account.</p>
@@ -87,6 +82,11 @@ const Register = () => {
                 </div>
             </div>
             <div className="auth_right_col">
+                <div className="auth_logo_row">
+                    <Link to="/" className="no-decoration">
+                        <img src={logo} alt="Logo"/>
+                    </Link>
+                </div>
                 <h1>Create a new account.</h1>
                 <GeneralForm
                     onSubmit={onSubmit}

@@ -7,6 +7,7 @@ import { Carousel } from "react-bootstrap";
 import "./home.css";
 import nuhImage from "../../../static/icon/homeIcons/nuh-building.png";
 import Footer from "./Footer";
+import { Link } from "react-router-dom";
 
 const Home = () => {
     return <div className="home">
@@ -16,7 +17,10 @@ const Home = () => {
         <div className="home_top_row">
             <div className="home_top_row_left_col">
                 <p>Managing mental wellness for a happier NUS.</p>
-                <p className="home_top_row_left_col_subheading">Founded by the community for the community.</p>
+                {/* <p className="home_top_row_left_col_subheading">Founded by the community for the community.</p> */}
+                <div className="homenav_buttons">
+                    <Link to="/register" className="homenav_btn btn hero_btn">Join now</Link>
+                </div>
             </div>
             <div className="home_top_row_right_col">
                 <Carousel className="home_carousel">

@@ -4,7 +4,6 @@
     display: flex;
     padding: 0.5rem;
     flex-direction: row;
-    /* border: 1px red solid; */
     justify-content: space-between;
     background-color: var(--theme-two);
     padding: 1rem 2rem;
@@ -22,14 +21,43 @@
     font-weight: bold;
 }
 
+.homenav_buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
 .homenav_btn {
-    background-color: #ffb6c1;
+    background-color: var(--theme-three);
     text-align: center;
     font-size: 1rem;
-    color: white;
-    border-radius: 7px;
+    font-weight: 700;
+    color: var(--theme-two);
+    border-radius: 50px;
     text-decoration: none;
-    margin-left: 1rem;
+    padding: 8px 24px;
+    border: 1px solid var(--theme-three);
+}
+
+.homenav_btn:hover {
+    background-color: var(--theme-three);
+    color: var(--theme-two);
+    border: 1px solid var(--theme-three);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.hero_btn {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: 50px;
+    background-color: var(--theme-two) !important;
+    color: var(--theme-three) !important;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.hero_btn:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 /* Home.tsx */
@@ -42,7 +70,7 @@
 }
 
 .home_top_row {
-    background-color: #ffb6c1;
+    background-color: var(--theme-three);
     height: 100vh;
     display: flex;
 }
@@ -52,8 +80,9 @@
     color: var(--theme-two);
     font-weight: 700;
     text-align: left;
-    padding: 30vh 5vw;
+    padding: 25vh 5vw;
     width: 60vw;
+    line-height: 60px;
 }
 
 .home_top_row_left_col p {
@@ -69,10 +98,15 @@
     width: 40vw;
 }
 
+h3 {
+    margin: 2rem 0;
+    font-weight: 700;
+}
+
 .home_carousel {
     padding: 3vh 3vw;
     margin: 3vh 3vw;
-    margin-top: 10vh !important;
+    margin-top: 12vh !important;
     text-align: center;
     color: white;
 }

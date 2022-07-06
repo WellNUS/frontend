@@ -60,11 +60,7 @@ const Login = () => {
     return (
         <div className="auth_container">
             <div className="auth_left_col">
-                <div className="auth_logo_row">
-                <Link to="/" className="no-decoration">
-                    <img src={logo} alt="Logo"/>
-                </Link>
-                </div>
+                
                 <div className="auth_content_row">
                     <h1>Are you new here?</h1>
                     <p>Click here to create a new account.</p>
@@ -74,6 +70,11 @@ const Login = () => {
                 </div>
             </div>
             <div className="auth_right_col">
+                <div className="auth_logo_row">
+                    <Link to="/" className="no-decoration">
+                        <img src={logo} alt="Logo"/>
+                    </Link>
+                </div>
                 <h1>Login to an existing account.</h1>
                 <GeneralForm
                     onSubmit={onSubmit}

@@ -15,7 +15,6 @@ const HomeNav = () => {
         </div>
         <div className="homenav_buttons">
             <Link to="/login" className="homenav_btn btn">Login</Link>
-            <Link to="/register" className="homenav_btn btn">Register</Link>
         </div>
     </div>
 }
