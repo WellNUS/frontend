@@ -21,17 +21,14 @@ const Navbar = (props : { hideTop : boolean }) => {
                     <img src={logo} alt="Logo" className="logo"/>
                     {/* <h1>WellNUS</h1> */}
                 </div>
-                <NavLink to="/dashboard" className="navlink">
+                {/* <NavLink to="/dashboard" className="navlink">
                     DASHBOARD
-                </NavLink>
+                </NavLink> */}
                 <NavLink to="/groups" className="navlink">
-                    GROUPS
+                    MEET
                 </NavLink>
                 <NavLink to="/join" className="navlink">
                     JOIN
-                </NavLink>
-                <NavLink to="/match" className="navlink">
-                    MATCH
                 </NavLink>
             </div>
             <div className="navbar-right">

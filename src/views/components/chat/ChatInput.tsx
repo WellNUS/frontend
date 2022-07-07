@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 import sendIcon from "../../../static/icon/send.png";
@@ -22,7 +22,7 @@ const ChatInput = (props: Props) => {
     return (
         <div>
             <form onSubmit={handleSubmit} className="chatinput_wrapper">
-                <input type="text" value={message} onChange={handleChange} className="chatinput_input" />
+                <input placeholder="Write your message..." type="text" value={message} onChange={handleChange} className="chatinput_input" />
                 <Button type="submit" className="chatinput_send"><img src={sendIcon} alt={"send"}/></Button>
             </form>
         </div>

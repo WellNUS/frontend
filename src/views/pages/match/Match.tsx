@@ -79,56 +79,18 @@ const Match = () => {
 
     return (
         <div>
-            <Navbar hideTop={false}/>
-            <div className="group_heading_row">
-                <div className="group_title">Match</div>
-                <div className="group_heading_buttons">
-                </div>
-            </div>
-            <Container fluid>
+            <Container fluid className="match_container">
                 <Row>
-                    <Col className="match_col_left" lg={5}>
-                        <div>
-                            <div className="match_field">Faculty Preference:</div> 
-                            <div className="match_field_value">{setting?.faculty_preference}</div>
-                        </div>
-                        <div>
-                            <div className="match_field">MBTI Type:</div>
-                            <div className="match_field_value">{setting?.mbti}</div>
-                        </div>
-                        <div>
-                            <div className="match_field">Hobbies:</div>
-                            <div className="match_field_values_grid">
-                                {
-                                    setting?.hobbies?.map((hobby, key) => {
-                                        return (
-                                            <div key={key} className="match_field_value">
-                                                {hobby}
-                                            </div>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </div>
-                    </Col>
-                    <Col className="match_col_right">
-                        <div className="match_field">Update your preferences:</div>
-                        <select
-                            className="match_hobby_dropdown_toggle"
-                            onChange={handleChangeFaculty}
-                            defaultValue={"DEFAULT"}
-                            >
-                            <option value={"DEFAULT"} disabled>Enter your faculty preference...</option>
+                    <Col>
+                        <h2>Match Preferences</h2>
+                        <Form.Select onChange={handleChangeFaculty} className="match_form">
+                            <option value={"NONE"}>Enter your faculty preference...</option>
                             <option value={"MIX"}>Mixed</option>
                             <option value={"SAME"}>Same</option>
                             <option value={"NONE"}>No Preference</option>
-                        </select>
-                        <select
-                            className="match_hobby_dropdown_toggle"
-                            onChange={handleChangeMBTI}
-                            defaultValue={"DEFAULT"}
-                            >
-                            <option value={"DEFAULT"} disabled>Enter your MBTI type...</option>
+                        </Form.Select>
+                        <Form.Select onChange={handleChangeMBTI} className="match_form">
+                            <option value={""}>Enter your MBTI type...</option>
                             {
                                 mbtiList.map((mbti, key) => {
                                     return (
@@ -136,16 +98,18 @@ const Match = () => {
                                     )
                                 })
                             }
-                        </select>
+                        </Form.Select>
                         <MultiSelect
                             options={hobbies}
                             value={selectedOptions}
                             onChange={setSelectedOptions}
                             labelledBy="Select"
+                            hasSelectAll={false}
+                            className="match_form"
                         />
                         <small>Select at most 4 hobbies.</small>
                         <br/>
-                        <Button onClick={postSetting} className="match_button">Submit</Button>
+                        <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Submit</Button>
                     </Col>
                 </Row>
             </Container>

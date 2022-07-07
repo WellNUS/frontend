@@ -11,6 +11,7 @@ function AlertDismissible(props: Props): React.ReactElement {
     const { msg, display, onClose } = props
     if(display) {
         return  <Alert 
+                    className="alert_dismissable"
                     variant="danger"
                     onClose={onClose}
                     dismissible

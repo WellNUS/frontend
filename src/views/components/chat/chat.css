@@ -1,18 +1,17 @@
 .messages_wrapper {
-    margin: 1rem 2rem;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    height: 30em;
-    width: 50em;
+    height: 75vh;
+    width: 100%;
 }
 
 /* Message from others */
 
 .message_wrapper {
-    background-color: pink;
+    background-color: #D3D3D3;
     align-self: flex-start;
-    width: 30rem;
+    width: 70%;
     margin-bottom: 0.5em;
     padding: 0.5em;
     border-radius: 10px;
@@ -38,7 +37,7 @@
 .message_wrapper_self {
     align-self: flex-end;
     background-color: var(--theme-three);
-    width: 30rem;
+    width: 70%;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     border-radius: 10px;
@@ -62,17 +61,20 @@
 /* Chat Input */
 
 .chatinput_wrapper {
-    margin: 2rem;
+    margin: 2rem 0;
+    /* border: 1px red solid; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .chatinput_input {
     height: 3rem;
-    padding: 0.5rem 2rem;
-    width: 43rem;
-    margin-right: 2rem;
-    background-color: #DCDCDC;
-    border: none;
+    width: 90%;
+    background-color: var(--theme-two);
+    border: 1px solid #D3D3D3;
     border-radius: 40px;
+    padding-left: 2rem;
 }
 
 .chatinput_input:hover {
@@ -80,15 +82,15 @@
 }
 
 .chatinput_input:focus {
-    border: none !important;
     outline: none !important;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .chatinput_send {
+    padding-top: 10px;
+    padding-right: 14px;
     background-color: var(--theme-three);
     color: var(--theme-one);
-    border: none;
+    border: 1px solid var(--theme-three);
     width: 60px;
     height: 60px;
     border-radius: 50px;
@@ -96,6 +98,7 @@
 
 .chatinput_send:hover {
     background-color: var(--theme-two);
+    border: 1px solid var(--theme-one);
 }
 
 .chatinput_send:focus {

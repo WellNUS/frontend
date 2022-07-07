@@ -23,7 +23,7 @@ const Home = () => {
                 </div>
             </div>
             <div className="home_top_row_right_col">
-                <Carousel className="home_carousel">
+                <Carousel className="home_carousel" indicators={false}>
                     <Carousel.Item>
                         <img
                         className="home_carousel_img"

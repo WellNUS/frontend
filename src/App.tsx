@@ -27,14 +27,13 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Groups />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
-            <Route path="/match" element={<Match />} />
           </Routes>
         </BrowserRouter>
     </Provider>

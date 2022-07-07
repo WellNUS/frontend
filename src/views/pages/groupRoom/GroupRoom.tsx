@@ -9,6 +9,9 @@ import Chat from "../../components/chat/Chat";
 import { abortableGetRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
+import "./groupRoom.css";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 const Group = () => {
     const { group_id } = useParams();
@@ -42,13 +45,15 @@ const Group = () => {
     if (socket.current === undefined || group === undefined) return null;
     return (
         <div>
-            <Navbar hideTop={true}/>
-            <div className="room-wrapper">
-                <div className="room-left-col">
+            <div className="groupRoom">
+                <div className="groupRoom_left">
+                    <Link to="/groups">
+                        <Button className="groupRoom_button_exit">Back to Groups</Button>
+                    </Link>
                     <GroupDetails group={group}/>
                     <Members socket={socket.current} />
                 </div>
-                <div className="room-middle-col">
+                <div className="groupRoom_right">
                     <Chat
                         socket={socket.current}
                         groupId={group.id}

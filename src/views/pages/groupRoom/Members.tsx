@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ChatStatusPayload, User, WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 import "../groups/group.css";
+import "./members.css";
 
 type Props = {
     socket: WebSocketUnit;
@@ -21,12 +22,12 @@ const Members = (props: Props) => {
         });
     }, [inChatMembers, onlineMembers, offlineMembers]);
 
-    return <div className="room-members-wrapper">
+    return <div className="members">
         <div>
              <div>In Chat</div>
             {inChatMembers?.map((member, key) => {
                 return (
-                    <div key={key} className="group_member">{member.first_name}</div>
+                    <div key={key} className="member">{member.first_name}</div>
                 )
             })}
         </div>
@@ -34,7 +35,7 @@ const Members = (props: Props) => {
             <div>Online</div>
             {onlineMembers?.map((member, key) => {
                 return (
-                    <div key={key} className="group_member">{member.first_name}</div>
+                    <div key={key} className="member">{member.first_name}</div>
                 )
             })}
         </div>
@@ -42,7 +43,7 @@ const Members = (props: Props) => {
             <div>Offline</div>
             {offlineMembers?.map((member, key) => {
                 return (
-                    <div key={key} className="group_member">{member.first_name}</div>
+                    <div key={key} className="member">{member.first_name}</div>
                 )
             })}
         </div>

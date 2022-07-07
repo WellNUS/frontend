@@ -1,0 +1,57 @@
+.groupRoom {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: 100%;
+}
+
+.groupRoom_left {
+    padding: 2rem;
+    background-color: var(--theme-one);
+    width: 20vw;
+}
+
+.groupRoom_right {
+    background-color: var(--theme-two);
+    width: 80vw;
+    padding-left: 4rem;
+    padding-right: 8rem;
+    padding-top: 4rem;
+}
+
+.groupRoom_title {
+    color: var(--theme-three);
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.groupRoom_detail {
+    color: var(--theme-three);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.groupRoom_category {
+    background-color: var(--theme-three);
+    color: var(--theme-one);
+    font-weight: 600;
+    margin: 1rem 0;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 0.2rem 1rem;
+}
+
+.groupRoom_button_exit {
+    margin-bottom: 2rem;
+    background-color: var(--theme-three);
+    color: var(--theme-one);
+    border: 1px solid var(--theme-three);
+    font-weight: 600;
+}
+
+.groupRoom_button_exit:hover,
+.groupRoom_button_exit:focus {
+    background-color: var(--theme-two);
+    color: var(--theme-three);
+    border: 1px solid var(--theme-three);
+}

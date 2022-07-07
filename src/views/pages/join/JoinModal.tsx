@@ -30,7 +30,7 @@ const JoinModal = () => {
 
     return (
         <div>
-            <Button variant="primary" onClick={handleShow} className="group_heading_button">
+            <Button variant="primary" onClick={handleShow} className="layout_heading_button">
                 Join Group
             </Button>
             <Modal show={show} onHide={handleClose} className="create_group_modal">

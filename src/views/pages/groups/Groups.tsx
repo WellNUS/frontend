@@ -7,7 +7,7 @@ import Navbar from "../../components/navbar/Navbar";
 import CreateGroup from "./CreateGroup";
 import "./group.css";
 
-const Group = () => {
+const Groups = () => {
     const [groups, setGroups] = useState<any[]>([]);
 
     const handleFetch = (): AbortController => {
@@ -90,4 +90,4 @@ const Group = () => {
     );
 }
 
-export default Group;
+export default Groups;

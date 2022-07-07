@@ -42,8 +42,8 @@ img {
 
 .navlink:hover,
 .navlink:focus {
-    color: var(--theme-two);
-    background-color: var(--theme-three);
+    color: var(--theme-three);
+    background-color: var(--theme-two);
     border-radius: 10px;
 }
 

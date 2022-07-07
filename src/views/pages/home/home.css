@@ -51,8 +51,8 @@
     font-weight: 700;
     padding: 16px 32px;
     border-radius: 50px;
-    background-color: var(--theme-two) !important;
-    color: var(--theme-three) !important;
+    background-color: var(--theme-three) !important;
+    color: var(--theme-two) !important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
@@ -70,14 +70,13 @@
 }
 
 .home_top_row {
-    background-color: var(--theme-three);
+    background-color: var(--theme-two);
     height: 100vh;
     display: flex;
 }
 
 .home_top_row_left_col {
     font-size: 3rem;
-    color: var(--theme-two);
     font-weight: 700;
     text-align: left;
     padding: 25vh 5vw;
@@ -86,7 +85,7 @@
 }
 
 .home_top_row_left_col p {
-    color: var(--theme-two);
+    color: var(--theme-three);
 }
 
 .home_top_row_left_col_subheading {
@@ -104,11 +103,14 @@ h3 {
 }
 
 .home_carousel {
-    padding: 3vh 3vw;
-    margin: 3vh 3vw;
-    margin-top: 12vh !important;
+    padding: 6vh 8vw;
+    margin-top: 5vh !important;
     text-align: center;
-    color: white;
+    color: var(--theme-two);
+    background-color: var(--theme-three);
+    border-top-left-radius: 240px;
+    border-bottom-left-radius: 240px;
+    height: 500px;
 }
 
 .home_carousel_img {
@@ -119,6 +121,10 @@ h3 {
 
 .home_carousel_caption {
     position: static;
+}
+
+.home_carousel_caption p {
+    color: var(--theme-two);
 }
 
 .home_second_row {
