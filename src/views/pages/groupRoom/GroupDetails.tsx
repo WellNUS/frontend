@@ -8,6 +8,7 @@ type Props = {
 
 const GroupDetails = (props : Props) => {
     const { group } = props;
+    // console.log(group)
     return (
         <div className="">
             <div className="groupRoom_title">{group.group_name}</div>

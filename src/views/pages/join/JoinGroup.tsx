@@ -9,11 +9,13 @@ import JoinModal from "./JoinModal";
 import { useSelector } from "react-redux";
 import "./join.css";
 import Match from "../match/Match";
+import AlertDismissible from "../../components/form/AlertDismissible";
 
 const JoinGroup = () => {
     const { details } = useSelector((state: any) => state.user);
     const [requests, setRequests] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
+    const [showErr, setShowErr] = useState(false);
 
     const handleFetch = (): AbortController => {
         const abortController = new AbortController();
@@ -74,6 +76,18 @@ const JoinGroup = () => {
         window.location.reload();
     }
 
+    const handleMatching = async () => {
+        await fetch(config.API_URL + "/match", postRequestOptions)
+        .then(response => {
+            if (!response.ok) {
+                setErrMsg("You have already made a match request. You will be informed of the group you are matched to once the system finishes its allocation.");
+                setShowErr(true);
+                throw new Error("You have already made a match request.");
+            }
+            response.json()
+        });
+    }
+
     useEffect(() => {
         const abortController = handleFetch();
         return () => {
@@ -93,6 +107,12 @@ const JoinGroup = () => {
             <div className="layout_content_container_rows">
                 <div className="join_content_container_left">
                     <Match />
+                    <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
+                    {
+                        showErr
+                        ? <AlertDismissible msg={errMsg} display={showErr} onClose={() => setShowErr(false)}/>
+                        : <div></div>
+                    }
                 </div>
                 <div className="join_content_container_right">
                     <h2>Group Requests</h2>

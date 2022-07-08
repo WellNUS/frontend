@@ -23,6 +23,7 @@
     color: var(--theme-three);
     font-size: 2rem;
     font-weight: 800;
+    line-height: 35px;
 }
 
 .groupRoom_detail {
@@ -54,4 +55,19 @@
     background-color: var(--theme-two);
     color: var(--theme-three);
     border: 1px solid var(--theme-three);
+}
+
+.groupRoom_button_delete {
+    margin-bottom: 2rem;
+    background-color: var(--theme-three);
+    color: var(--theme-one);
+    border: 1px solid var(--theme-three);
+    font-weight: 600;
+}
+
+.groupRoom_button_delete:hover,
+.groupRoom_button_delete:focus {
+    background-color: red;
+    color: var(--theme-two);
+    border: 1px solid red;
 }

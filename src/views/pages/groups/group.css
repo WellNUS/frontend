@@ -4,7 +4,7 @@
     border-radius: 10px;
     padding: 1rem;
     position: relative; /* to keep groups_group_card_footing fixed at the bottom */
-    height: 400px;
+    height: 200px;
     min-width: 300px;
 }
 

@@ -16,10 +16,10 @@ const Home = () => {
         </div>
         <div className="home_top_row">
             <div className="home_top_row_left_col">
-                <p>Managing mental wellness for a happier NUS.</p>
+                <p>Managing <span>mental wellness</span> for a <span>happier NUS.</span></p>
                 {/* <p className="home_top_row_left_col_subheading">Founded by the community for the community.</p> */}
                 <div className="homenav_buttons">
-                    <Link to="/register" className="homenav_btn btn hero_btn">Join now</Link>
+                    <Link to="/register" className="homenav_btn btn hero_btn">Join Us Now!</Link>
                 </div>
             </div>
             <div className="home_top_row_right_col">
@@ -72,14 +72,14 @@ const Home = () => {
             </div>
         </div>
         <div className="home_second_row">
-            <div>
+            <div className="home_second_row_container">
                 <div className="home_second_row_header">About WellNUS</div>
-                <div>
+                <div className="home_second_row_content">
                     In 2022, researchers at NUHS Mind Science Centre found that 3 in 4 NUS students are at risk of depression due to the pandemic and restrictions imposed to curb the spread of Covid-19. These restrictions hampered opportunities for students to meet new people of common interests that can share their hardships they might face. One can argue that NUS has many CCAs and holds many events that offer great opportunities to make new friends. However, many of these events are shared through word of mouth and students who do participate in these events do so with their friends. The result is that it is easier to make friends when you have friends to begin with.
                     WellNUS jump starts the friend making process and provide on-demand mental health support provided by student volunteers and mental health professionals.
                 </div>
             </div>
-            <img src={nuhImage} className="home_second_row_img" alt="NUH"/>
+            {/* <img src={nuhImage} className="home_second_row_img" alt="NUH"/> */}
         </div>
         <div className="home_third_row">
             <div className="home_third_row_header">Core Features</div>

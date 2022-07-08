@@ -1,22 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Members from "./Members";
 import "../groups/group.css";
 import GroupDetails from "./GroupDetails";
 import { GroupDetails as GroupDetailsType } from "../../../types/group/types";
 import Navbar from "../../components/navbar/Navbar";
 import Chat from "../../components/chat/Chat";
-import { abortableGetRequestOptions } from "../../../api/fetch/requestOptions";
+import { abortableGetRequestOptions, deleteRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import { WebSocketUnit } from "../../../api/websocketunit/websocketunit";
 import "./groupRoom.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const Group = () => {
+    const navigate = useNavigate();
+    const { details } = useSelector((state: any) => state.user);
     const { group_id } = useParams();
     const [group, setGroup] = useState<GroupDetailsType>();
     const socket = useRef<WebSocketUnit>();
+
+    const handleDeleteGroup = async () => {
+        await fetch(config.API_URL + "/group/" + group_id, deleteRequestOptions)
+            .then(response => response.json())
+            .then(data => {
+                navigate("/groups");
+            });
+    }
 
     useEffect(() => {
         const abortController = new AbortController();
@@ -52,6 +63,12 @@ const Group = () => {
                     </Link>
                     <GroupDetails group={group}/>
                     <Members socket={socket.current} />
+                    <br /><br />
+                    {/* {
+                        group.owner_id === details.id
+                        ? <Button className="groupRoom_button_delete" onClick={handleDeleteGroup}>Delete Group</Button>
+                        : <div></div>
+                    } */}
                 </div>
                 <div className="groupRoom_right">
                     <Chat

@@ -80,13 +80,15 @@ form .login_btn {
     padding: 0.4rem;
     font-size: 1.2rem;
     font-weight: 600;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
 
 form .login_btn:hover,
 form .login_btn:focus {
-    background-color: var(--theme-three);
-    color: var(--theme-two);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    color: var(--theme-three);
+    background-color: var(--theme-two);
+    border: 1px solid var(--theme-three) !important;
+    box-shadow: none;
 }
 
 .logout_button {

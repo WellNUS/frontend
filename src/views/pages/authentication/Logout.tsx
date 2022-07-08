@@ -35,10 +35,7 @@ const LogoutModal = () => {
                 </Modal.Header>
                 <Modal.Body>Click on the Log out button below.</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button variant="primary" onClick={handleLogout}>
+                    <Button variant="primary" onClick={handleLogout} className="layout_heading_button">
                         Log out
                     </Button>
                 </Modal.Footer>
