@@ -52,7 +52,7 @@
 
 .groupRoom_button_exit:hover,
 .groupRoom_button_exit:focus {
-    background-color: var(--theme-two);
+    background-color: var(--theme-one);
     color: var(--theme-three);
     border: 1px solid var(--theme-three);
 }
