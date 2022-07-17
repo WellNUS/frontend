@@ -105,3 +105,30 @@ form .login_btn:focus {
     box-shadow: none !important;
     background-color: var(--theme-three);
 }
+
+@media (max-width: 1000px) {
+    .auth_right_col {
+        width: 70%;
+        padding: 5% 10%;
+        border: 1px red solid;
+    }
+}
+
+@media (max-width: 850px) {
+    .auth_container {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .auth_left_col {
+        width: 100%;
+        background-color: var(--theme-three); 
+    }
+
+    .auth_right_col {
+        width: 100%;
+        padding: 5% 20%;
+    }
+}
