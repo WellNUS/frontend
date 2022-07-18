@@ -96,7 +96,7 @@ const JoinGroup = () => {
     }, []);
 
     return (
-        <div>
+        <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
                 <div className="layout_heading_title">Join a group!</div>
@@ -116,10 +116,10 @@ const JoinGroup = () => {
                 </div>
                 <div className="join_content_container_right">
                     <h2>Group Requests</h2>
-                    <Table className="" hover>
+                    <Table className="joinGroup_table" size="lg" width={100} hover>
                         <thead>
                             <tr className="">
-                                <th>Request ID</th>
+                                <th className="display-none">Request ID</th>
                                 <th>Applicant</th>
                                 <th>Group#ID</th>
                                 <th>Actions</th>
@@ -129,7 +129,7 @@ const JoinGroup = () => {
                             {requests.map((request, id) => {
                                 return (
                                     <tr key={id} className="">
-                                        <td>{request.join_request.id}</td>
+                                        <td className="display-none">{request.join_request.id}</td>
                                         {
                                             request.user.id === details.id
                                             ? <td>You</td>

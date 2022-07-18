@@ -5,7 +5,7 @@ import "./group.css";
 
 const Groups = () => {
     return (
-        <div>
+        <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
                 <div className="layout_heading_title">Meet your friends!</div>

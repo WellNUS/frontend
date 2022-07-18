@@ -95,12 +95,15 @@ form .login_btn:focus {
     background-color: var(--theme-three);
     margin-right: 1rem;
     padding: 0.8rem 1rem;
-    border: none;
+    border: 1px var(--theme-three) solid;
+}
+
+.logout_button:hover {
+    border: 1px var(--theme-two) solid !important;
 }
 
 .logout_button:hover,
 .logout_button:focus {
-    border: none !important;
     outline: none !important;
     box-shadow: none !important;
     background-color: var(--theme-three);
@@ -110,7 +113,6 @@ form .login_btn:focus {
     .auth_right_col {
         width: 70%;
         padding: 5% 10%;
-        border: 1px red solid;
     }
 }
 

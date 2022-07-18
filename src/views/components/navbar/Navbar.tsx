@@ -9,36 +9,12 @@ import profile from "../../../static/icon/navIcons/profile.png";
 import { useSelector } from "react-redux";
 import LogoutModal from "../../pages/authentication/Logout";
 import ProfileModal from "../../pages/profile/Profile";
+import NavbarCollapsed from "./NavbarCollapsed";
 
 const Navbar = (props : { hideTop : boolean }) => {
     const { hideTop } = props;
     const { details, loggedIn } = useSelector((state: any) => state.user);
-
-    return (
-        <div className="navbar-container">
-            <div className="navbar-left">
-                <div className="navbar-logo-container">
-                    <img src={logo} alt="Logo" className="logo"/>
-                    {/* <h1>WellNUS</h1> */}
-                </div>
-                {/* <NavLink to="/dashboard" className="navlink">
-                    DASHBOARD
-                </NavLink> */}
-                <NavLink to="/groups" className="navlink">
-                    MEET
-                </NavLink>
-                <NavLink to="/join" className="navlink">
-                    JOIN
-                </NavLink>
-            </div>
-            <div className="navbar-right">
-                {/* <p>AY2021/2022, Semester 2, Week 9</p> */}
-                <ProfileModal />
-                {/* <img src={bell} alt="bell"/> */}
-                <LogoutModal />
-            </div>
-        </div>
-    )
+    return <NavbarCollapsed />;
 }
 
 export default Navbar;

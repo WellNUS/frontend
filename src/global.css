@@ -12,7 +12,6 @@
     max-height: max(15vh, fit-content);
     background-color: var(--theme-two);
     width: 100vw;
-    border: 1px red solid;
 }
 
 .layout_heading_title {
@@ -72,8 +71,24 @@
 }
 
 @media (max-width: 1100px) {
+    .layout_container {
+        position: absolute;
+        width: 100vw;
+    }
+    .layout_heading_container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw !important;
+    }
     .layout_content_container_grid {
         display: flex;
         flex-direction: column;
+        width: 100vw;
+    }
+    .layout_content_container_rows {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        width: 100vw;
     }
 }
