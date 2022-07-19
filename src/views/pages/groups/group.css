@@ -88,7 +88,6 @@
         padding: 1rem;
         position: relative; /* to keep groups_group_card_footing fixed at the bottom */
         height: 200px;
-        border: 1px red solid;
         /* width: 50vw; */
     }
 }

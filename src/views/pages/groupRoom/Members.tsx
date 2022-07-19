@@ -22,7 +22,7 @@ const Members = (props: Props) => {
         });
     }, [inChatMembers, onlineMembers, offlineMembers]);
 
-    return <div className="members">
+    return <div className="members no-display">
         <div>
              <div>In Chat</div>
             {inChatMembers?.map((member, key) => {

@@ -58,9 +58,6 @@ const Group = () => {
         <div>
             <div className="groupRoom">
                 <div className="groupRoom_left">
-                    <Link to="/groups">
-                        <Button className="groupRoom_button_exit">Back to Groups</Button>
-                    </Link>
                     <GroupDetails group={group}/>
                     <Members socket={socket.current} />
                     <br /><br />

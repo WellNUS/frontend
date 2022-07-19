@@ -12,7 +12,7 @@ const Chat = (props: Props) => {
     const { socket, groupId } = props;
 
     return (
-        <div>
+        <div className="chat-wrapper">
             <ChatNotification 
                 socket={socket}
                 groupId={groupId} 

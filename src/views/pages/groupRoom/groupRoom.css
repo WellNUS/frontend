@@ -43,7 +43,7 @@
 }
 
 .groupRoom_button_exit {
-    margin-bottom: 2rem;
+    margin-top: 1rem;
     background-color: var(--theme-three);
     color: var(--theme-one);
     border: 1px solid var(--theme-three);
@@ -70,4 +70,47 @@
     background-color: red;
     color: var(--theme-two);
     border: 1px solid red;
+}
+
+@media (max-width: 1100px) {
+    .groupRoom {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+
+    .groupRoom_left {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 0.8rem 0.5rem;
+        padding-right: 0 !important;
+    }
+
+    .groupRoom_right {
+        height: auto;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .no-display {
+        display: none;
+    }
+
+    .groupRoom_title {
+        font-size: 1.5rem;
+        line-height: 35px;
+    }
+
+    .groupDetails {
+        max-height: 20vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between !important;
+        width: 100%;
+    }
 }
