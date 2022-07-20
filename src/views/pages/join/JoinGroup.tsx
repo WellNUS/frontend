@@ -99,7 +99,7 @@ const JoinGroup = () => {
         <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
-                <div className="layout_heading_title">Join a group!</div>
+                <div className="layout_heading_title">Join a group</div>
                 <div className="layout_heading_buttons">
                     <JoinModal />
                 </div>

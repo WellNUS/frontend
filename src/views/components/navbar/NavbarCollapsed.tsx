@@ -36,6 +36,9 @@ function NavbarCollapsed() {
                     <NavLink to="/join" className="navlink">
                         JOIN
                     </NavLink>
+                    <NavLink to="/counsel" className="navlink">
+                      COUNSEL
+                    </NavLink>
                     <div className='modal-container'>
                         <ProfileModal />
                         <LogoutModal />
