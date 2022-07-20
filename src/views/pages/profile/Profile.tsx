@@ -61,7 +61,7 @@ const ProfileModal = () => {
                   <div className="profile_detail">Hobbies:</div>
                   <div className="profile_hobbies">
                       {
-                        matchDetails.hobbies.map((hobby, key) => {
+                        matchDetails.hobbies && matchDetails.hobbies.map((hobby, key) => {
                           return (
                             <div className="profile_value" key={key}>
                               {hobby}
