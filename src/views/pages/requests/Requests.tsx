@@ -6,27 +6,32 @@ import BookingModal from "../booking/BookingModal";
 import BookingRequests from "./BookingRequests";
 import CounselGrid from "../booking/CounselGrid";
 import CounselModal from "../booking/CounselModal";
+import ProviderBookingRequests from "./ProviderBookingRequests";
 
 const Requests = () => {
     const { details } = useSelector((state: any) => state.user);
 
-    if (details.user_role !== "MEMBER") {
-        // navigate("/");
-        return <Navigate to="/dashboard" />
-    }
+    // if (details.user_role !== "MEMBER") {
+    //     // navigate("/");
+    //     return <Navigate to="/dashboard" />
+    // }
 
     return (
         <div className="layout_container">
             <Navbar hideTop={false} />
             <div className="layout_heading_container">
                 {/* <div className="layout_heading_title">Form a counselling group with a counsellor</div> */}
-                <div className="layout_heading_title">Your Booking Requests</div>
+                <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Sent Requests" : "Inbox"}</div>
                 <div className="layout_heading_buttons">
                     {/* <CounselModal /> */}
                     {/* <BookingModal /> */}
                 </div>
             </div>
-            <BookingRequests />
+            {
+                details.user_role === "MEMBER"
+                ? <BookingRequests />
+                : <ProviderBookingRequests />
+            }
             {/* <CounselGrid /> */}
             {/* <BookingRequests /> */}
         </div>

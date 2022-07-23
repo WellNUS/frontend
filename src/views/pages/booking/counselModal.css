@@ -12,6 +12,7 @@
 }
 
 .counselRequest_topic {
+    overflow: hidden;
     border: 1px solid var(--theme-three);
     font-size: 12px;
     text-align: center;

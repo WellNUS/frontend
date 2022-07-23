@@ -74,4 +74,25 @@
     font-size: 12px;
     text-align: center;
     border-radius: 5px;
+    overflow: hidden;
+}
+
+.bookingModal_request_button,
+.bookingModal_request_button:hover,
+.bookingModal_request_button:focus {
+    outline: none !important;
+    border: 1px solid var(--theme-three);
+    box-shadow: none !important;
+}
+
+.bookingModal_request_button {
+    margin-top: 1rem;
+    background-color: var(--theme-three);
+}
+
+.bookingModal_request_button:hover,
+.bookingModal_request_button:focus {
+    background-color: var(--theme-two);
+    border: 1px solid var(--theme-three);
+    color: var(--theme-three)
 }

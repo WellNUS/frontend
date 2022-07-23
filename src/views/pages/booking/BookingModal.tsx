@@ -4,6 +4,7 @@ import { MultiSelect } from "react-multi-select-component";
 import { postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import GeneralForm from "../../components/form/GeneralForm";
+import "./counselGrid.css";
 
 const BookingModal = ({ provider_id } : { provider_id: string }) => {
     const [errMsg, setErrMsg] = useState("");
@@ -38,7 +39,7 @@ const BookingModal = ({ provider_id } : { provider_id: string }) => {
     return (
         <div>
             {/* Request Counselling Session */}
-            <Button variant="primary" onClick={handleShow} className="layout_heading_button">
+            <Button variant="primary" onClick={handleShow} className="bookingModal_request_button">
                 Request Session
             </Button>
             {/* <Button onClick={() => handleBooking(counsellor.user.id)}>Request Session</Button> */}

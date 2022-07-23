@@ -48,7 +48,7 @@ function NavbarCollapsed() {
                       </NavLink>
                     }
                     {
-                      user_role === "MEMBER" &&
+                      // user_role === "MEMBER" &&
                       <NavLink to="/requests" className="navlink">
                         REQUESTS
                       </NavLink>
