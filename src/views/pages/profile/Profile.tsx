@@ -29,7 +29,7 @@ const ProfileModal = () => {
     }
 
     useEffect(() => {
-      getSetting();
+      details.user_role === "MEMBER" && getSetting();
     }, []);
     
     return (
@@ -51,23 +51,24 @@ const ProfileModal = () => {
             <div className="profile_content_right">
               <div className="profile_name">{details.first_name} {details.last_name}</div>
               <div className="profile_detail">Gender: <div className="profile_value">{details.gender === "F" ? "Female" : "Male"}</div></div>
-              <div className="profile_detail">Faculty: <div className="profile_value">{details.faculty}</div></div>
               <div className="profile_detail">Email: <div className="profile_value">{details.email}</div></div>
+              <div className="profile_detail">Faculty: <div className="profile_value">{details.faculty}</div></div>
               {
+                details.user_role === "MEMBER" &&
                 matchDetails &&
                 <div>
-                  <div className="profile_detail">Faculty Preference: <div className="profile_value">{matchDetails.faculty_preference}</div></div>
-                  <div className="profile_detail">MBTI Type: <div className="profile_value">{matchDetails.mbti}</div></div>
+                  <div className="profile_detail">Faculty Preference: <div className="profile_value">{matchDetails.faculty_preference || "NA"}</div></div>
+                  <div className="profile_detail">MBTI Type: <div className="profile_value">{matchDetails.mbti || "NA"}</div></div>
                   <div className="profile_detail">Hobbies:</div>
                   <div className="profile_hobbies">
                       {
-                        matchDetails.hobbies && matchDetails.hobbies.map((hobby, key) => {
+                        (matchDetails.hobbies && matchDetails.hobbies.map((hobby, key) => {
                           return (
                             <div className="profile_value" key={key}>
                               {hobby}
                             </div>
                           )
-                        })
+                        })) || <div className="profile_value">NA</div>
                       }
                     </div>
                 </div>

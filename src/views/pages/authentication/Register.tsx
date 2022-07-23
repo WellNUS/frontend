@@ -27,8 +27,9 @@ const Register = () => {
             email: e.target[4].value,
             password: String(e.target[5].value),
             passwordConfirmation: e.target[6].value,
-            user_role: "MEMBER" // default
+            user_role: e.target[7].value
         }
+        console.log(userDetails)
         if (userDetails.passwordConfirmation !== userDetails.password) {
             return setErrMsg("Password and password confirmation does not match.")
         }
@@ -36,7 +37,7 @@ const Register = () => {
     }
 
     const registerBE = async (userDetails : UserDetailsType) => {
-        const { first_name, last_name, gender, faculty, email, password } = userDetails;
+        const { first_name, last_name, gender, faculty, email, password, user_role } = userDetails;
         const requestOptions = {
             ...postRequestOptions,
             body: JSON.stringify({
@@ -45,7 +46,7 @@ const Register = () => {
                 "gender": gender,
                 "faculty": faculty,
                 "email": email,
-                "user_role": "MEMBER", // default user role is member
+                "user_role": user_role, // default user role is member
                 "password": password
             })
         }
@@ -157,6 +158,19 @@ const Register = () => {
                             label: "Password confirmation",
                             placeholder: "Password Confirmation",
                             notes: ""
+                        },
+                        {
+                            id: "user_role",
+                            type: "select",
+                            label: "User Role",
+                            placeholder: "User Role",
+                            notes: "",
+                            choices: [
+                                "User Role",
+                                "MEMBER",
+                                "COUNSELLOR",
+                                "VOLUNTEER"
+                            ]
                         }
                         
                     ]}

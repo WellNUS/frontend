@@ -9,6 +9,7 @@ import "./match.css";
 import { MatchSetting as MatchSettingType } from "../../../types/match/types";
 import GeneralForm from "../../components/form/GeneralForm";
 import { MultiSelect } from "react-multi-select-component";
+import { useSelector } from "react-redux";
 
 const Match = () => {
     const mbtiList = ["ISTJ", "ISFJ", "INFJ", "INTJ", "ISTP", "ISFP", "INFP", "INTP", "ESTP", "ESFP", "ENFP", "ENTP", "ESTJ", "ESFJ", "ENFJ", "ENTJ"];
@@ -28,6 +29,8 @@ const Match = () => {
     ];
     const [errMsg, setErrMsg] = useState("");
     const [setting, setSetting] = useState<MatchSettingType>();
+
+    const { details } = useSelector((state: any) => state.user);
     
     const [preference, setPreference] = useState("");
     const [mbti, setMbti] = useState("");
@@ -47,12 +50,26 @@ const Match = () => {
     const getSetting = async () => {
         await fetch(config.API_URL + "/setting", getRequestOptions)
             .then(response => {
+                if (response.status === 404) return null;
                 return response.json();
             })
             .then(data => {
-                setSetting(data);
+                if (data !== null) {
+                    setSetting(data);
+                }
+                // if (data === null) {
+                //     setSetting({
+                //         user_id: details.user_id,
+                //         faculty_preference: "NA",
+                //         hobbies: [],
+                //         mbti: "NA"
+                //     })
+                // } else {
+                //     setSetting(data);
+                // }
             })
             .catch(err => {
+                console.log("Match settings have not been filled in for this user.");
                 console.log(err);
             });
     }

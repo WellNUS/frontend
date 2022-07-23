@@ -5,12 +5,14 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import logo from "../../../static/icon/navIcons/logo.png";
 import LogoutModal from '../../pages/authentication/Logout';
 import ProfileModal from '../../pages/profile/Profile';
 
 function NavbarCollapsed() {
+  const { user_role } = useSelector((state: any) => state.user.details);
   return (
     <>
       {["md"].map((expand : any) => (
@@ -34,7 +36,7 @@ function NavbarCollapsed() {
                         MEET
                     </NavLink>
                     <NavLink to="/join" className="navlink">
-                        JOIN
+                        {user_role === "MEMBER" ? "JOIN" : "ADMIN"}
                     </NavLink>
                     <NavLink to="/counsel" className="navlink">
                       COUNSEL

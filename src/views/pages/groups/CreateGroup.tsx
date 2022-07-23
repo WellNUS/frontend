@@ -21,7 +21,7 @@ const CreateGroup = () => {
         const groupDetails = {
             "group_name": e.target[0].value,
             "group_description": e.target[1].value,
-            "category": e.target[2].value
+            // "category": e.target[2].value
         }
         const requestOptions = {
             ...postRequestOptions,
@@ -63,18 +63,18 @@ const CreateGroup = () => {
                                 placeholder: "Enter group description...",
                                 notes: "This field is optional."
                             },
-                            {
-                                id: "category",
-                                type: "select",
-                                label: "Category",
-                                placeholder: "Enter group category...",
-                                notes: "",
-                                choices: [
-                                    "Enter group category...",
-                                    "SUPPORT",
-                                    "COUNSEL"
-                                ]
-                            },
+                            // {
+                            //     id: "category",
+                            //     type: "select",
+                            //     label: "Category",
+                            //     placeholder: "Enter group category...",
+                            //     notes: "",
+                            //     choices: [
+                            //         "Enter group category...",
+                            //         "SUPPORT",
+                            //         "COUNSEL"
+                            //     ]
+                            // },
                         ]}
                         error={errMsg}
                         displayError={errMsg !== ""}

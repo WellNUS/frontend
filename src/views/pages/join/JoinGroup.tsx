@@ -10,6 +10,8 @@ import { useSelector } from "react-redux";
 import "./join.css";
 import Match from "../match/Match";
 import AlertDismissible from "../../components/form/AlertDismissible";
+import ProviderSettings from "./ProviderSettings";
+import CounselRequests from "./CounselRequests";
 
 const JoinGroup = () => {
     const { details } = useSelector((state: any) => state.user);
@@ -99,15 +101,26 @@ const JoinGroup = () => {
         <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
-                <div className="layout_heading_title">Join a group</div>
+                <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Join a group" : "Provider Admin Panel"}</div>
                 <div className="layout_heading_buttons">
                     <JoinModal />
                 </div>
             </div>
             <div className="layout_content_container_rows">
                 <div className="join_content_container_left">
-                    <Match />
-                    <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
+                    {
+                        details.user_role === "MEMBER" &&
+                        <div>
+                            <Match />
+                            <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
+                        </div>
+                    }
+                    {
+                        (details.user_role === "COUNSELLOR" || details.user_role === "VOLUNTEER") &&
+                        <div>
+                            <ProviderSettings />
+                        </div>
+                    }
                     {
                         showErr
                         ? <AlertDismissible msg={errMsg} display={showErr} onClose={() => setShowErr(false)}/>
@@ -115,42 +128,48 @@ const JoinGroup = () => {
                     }
                 </div>
                 <div className="join_content_container_right">
-                    <h2>Group Requests</h2>
-                    <Table className="joinGroup_table" size="lg" width={100} hover>
-                        <thead>
-                            <tr className="">
-                                <th className="display-none">Request ID</th>
-                                <th>Applicant</th>
-                                <th>Group#ID</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {requests.map((request, id) => {
-                                return (
-                                    <tr key={id} className="">
-                                        <td className="display-none">{request.join_request.id}</td>
-                                        {
-                                            request.user.id === details.id
-                                            ? <td>You</td>
-                                            : <td>{request.user.first_name}</td>
-                                        }
-                                        <td>{request.group.group_name}#{request.join_request.group_id}</td>
-                                        <td className="request_action_buttons">
-                                            {
-                                                request.user.email === details.email
-                                                ? <Button onClick={() => handleDelete(request.join_request.id)} className="request_delete">Delete</Button>
-                                                : <div>
-                                                    <Button onClick={() => handleApprove(request.join_request.id)} className="request_approve">Approve</Button>
-                                                    <Button onClick={() => handleReject(request.join_request.id)} className="request_reject">Reject</Button>
-                                                </div>
-                                            }
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
+                        {
+                            details.user_role === "MEMBER" ?
+                            <div>
+                            <h2>Group Requests</h2>
+                                <Table className="joinGroup_table" size="lg" width={100} hover>
+                                    <thead>
+                                        <tr className="">
+                                            <th className="display-none">Request ID</th>
+                                            <th>Applicant</th>
+                                            <th>Group#ID</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {requests.map((request, id) => {
+                                            return (
+                                                <tr key={id} className="">
+                                                    <td className="display-none">{request.join_request.id}</td>
+                                                    {
+                                                        request.user.id === details.id
+                                                        ? <td>You</td>
+                                                        : <td>{request.user.first_name}</td>
+                                                    }
+                                                    <td>{request.group.group_name}#{request.join_request.group_id}</td>
+                                                    <td className="request_action_buttons">
+                                                        {
+                                                            request.user.email === details.email
+                                                            ? <Button onClick={() => handleDelete(request.join_request.id)} className="request_delete">Delete</Button>
+                                                            : <div>
+                                                                <Button onClick={() => handleApprove(request.join_request.id)} className="request_approve">Approve</Button>
+                                                                <Button onClick={() => handleReject(request.join_request.id)} className="request_reject">Reject</Button>
+                                                            </div>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                    </tbody>
+                                </Table>
+                            </div>
+                            : <CounselRequests />
+                        }
                 </div>
             </div>
         </div>

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { MultiSelect } from "react-multi-select-component";
 import { useSelector } from "react-redux";
+import { deleteRequestOptions, getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
+import { config } from "../../../config";
 import GeneralForm from "../../components/form/GeneralForm";
 import "./counselModal.css";
 
@@ -22,10 +24,13 @@ const CounselModal = () => {
     
     const { details, loggedIn } = useSelector((state: any) => state.user);
     // CounselRequest = { user_id, details, topics[], last_updated }
-    const [counselRequest, setCounselRequest] = useState({ user_id: details.id, details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ab.", topics: [
-        'Anxiety', 'OffMyChest', 'SelfHarm', 'Depression', 'SelfEsteem', 'Stress', 'Casual', 'Therapy', 'BadHabits', 'Rehabilitation'
-    ], last_updated: "1/1/2022" });
+    const [counselRequest, setCounselRequest] = useState({ details: "not yet added", last_updated: "never", topics: ["not yet added"] });
+    // useState({ user_id: details.id, details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ab.", topics: [
+    //     'Anxiety', 'OffMyChest', 'SelfHarm', 'Depression', 'SelfEsteem', 'Stress', 'Casual', 'Therapy', 'BadHabits', 'Rehabilitation'
+    // ], last_updated: "1/1/2022" });
 
+    const [requestDetails, setRequestDetails] = useState("");
+    // const [nickname, setNickname] = useState();
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
 
     const [errMsg, setErrMsg] = useState("");
@@ -34,80 +39,133 @@ const CounselModal = () => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleJoin = async (e: any) => {
-        // e.preventDefault();
-        // const requestOptions = {
-        //     ...postRequestOptions,
-        //     body: JSON.stringify({
-        //         "group_id": parseInt(e.target[0].value, 10),
-        //     })
-        // }
-        // await fetch(config.API_URL + "/join", requestOptions)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data);
-        //     });
-        // window.location.reload();
+    const handleDetailsChange = (e: any) => {
+        setRequestDetails(e.target.value);
     }
 
     const getCounselRequest = async () => {
+        await fetch(config.API_URL + "/counsel/" + details.id, getRequestOptions)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Counsel Request has not been initialised before.");
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                setCounselRequest(data);
+            })
+            .catch(err => console.log(err));
+    }
 
+    useEffect(() => {
+        getCounselRequest();
+    }, []);
+
+    const handleSetRequest = async () => {
+        const topics = selectedOptions.map((option) => option.value);
+        const requestOptions = {
+            ...postRequestOptions,
+            body: JSON.stringify({
+                // nickname: nickname,
+                details: requestDetails,
+                topics: topics
+            })
+        }
+        await fetch(config.API_URL + "/counsel", requestOptions)
+            .then(response => {
+                // if (!response.ok) {
+                //     throw new Error("Counsel Request has not been initialised before.");
+                // }
+                return response.json();
+            })
+            .then(data => {
+                setCounselRequest(data);
+                window.location.reload();
+            })
+            .catch(err => console.log(err));
+    }
+
+    const handleClearRequest = async () => {
+        await fetch(config.API_URL + "/counsel", deleteRequestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                window.location.reload();
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     return (
         <div>
-            <Button variant="primary" onClick={handleShow} className="layout_heading_button">
-                Request Counsellor
-            </Button>
-            <Modal show={show} onHide={handleClose} className="create_group_modal">
-                <Modal.Header closeButton>
-                <Modal.Title>Counsel Request Status</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                {/* Request Body : { details, topics[] } */}
-                    <div>
-                        <b>Details</b><br />
-                        {counselRequest.details}
-                        <br /><br />
-                        <b>Last Updated</b><br />
-                        {counselRequest.last_updated}
-                    </div>
-                    <hr />
-                        <b>Topics</b><br />
-                    <div className="counselRequest_topics">
-                        {
-                            counselRequest.topics.map((topic, id) => {
-                                return (
-                                    <div key={id} className="counselRequest_topic">
-                                        {topic}
-                                    </div>
-                                )
-                            })
-                        }
-                    </div>
-                    <br />
-                    <hr />
-                    <Form>
-                        <Form.Group className="mb-3 counselModal_textarea">
-                            <Form.Control as="textarea" rows={3} placeholder="Enter some details for the counsellor to know..."/>
-                        </Form.Group>
-                    </Form>
-                    <MultiSelect
-                            options={availableTopics}
-                            value={selectedOptions}
-                            onChange={setSelectedOptions}
-                            labelledBy="Select"
-                            hasSelectAll={false}
-                            className=""
-                    />
-                    <div className="centre_div">
-                        <button className="modal_btn">Set Request</button>
-                    </div>
-                    <div className="centre_div">
-                        <Button className="modal_btn">Clear Request</Button>
-                    </div>
-                </Modal.Body>
-            </Modal>
+        {
+            counselRequest &&
+            <div>
+                <Button variant="primary" onClick={handleShow} className="layout_heading_button">
+                    Request Counsellor
+                </Button>
+                <Modal show={show} onHide={handleClose} className="create_group_modal">
+                    <Modal.Header closeButton>
+                    <Modal.Title>Counsel Request Status</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    {/* Request Body : { details, topics[] } */}
+                        <div>
+                            <b>Details</b><br />
+                            {counselRequest.details}
+                            <br /><br />
+                            <b>Last Updated</b><br />
+                            {new Date(counselRequest.last_updated).toLocaleDateString()}
+                        </div>
+                        <hr />
+                            <b>Topics</b><br />
+                        <div className="counselRequest_topics">
+                            {
+                                counselRequest.topics.map((topic, id) => {
+                                    return (
+                                        <div key={id} className="counselRequest_topic">
+                                            {topic}
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <br />
+                        <hr />
+                        <Form>
+                            {/* <Form.Group className="mb-3 counselModal_textarea">
+                                <Form.Control
+                                    placeholder="Enter your nickname..."
+                                    onChange={(e: any) => setNickname(e.target.value)}/>
+                            </Form.Group> */}
+                            <Form.Group className="mb-3 counselModal_textarea">
+                                <Form.Control 
+                                    as="textarea" 
+                                    rows={3} 
+                                    placeholder="Enter some details for the counsellor to know..."
+                                    onChange={handleDetailsChange}/>
+                            </Form.Group>
+                        </Form>
+                        <MultiSelect
+                                options={availableTopics}
+                                value={selectedOptions}
+                                onChange={setSelectedOptions}
+                                labelledBy="Select"
+                                hasSelectAll={false}
+                                className=""
+                        />
+                        <div className="centre_div">
+                            <button className="modal_btn" onClick={handleSetRequest}>Set Request</button>
+                        </div>
+                        <div className="centre_div">
+                            <Button className="modal_btn" onClick={handleClearRequest}>Clear Request</Button>
+                        </div>
+                    </Modal.Body>
+                </Modal>
+            </div>
+        }
         </div>
     );
 }
