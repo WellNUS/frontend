@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import Navbar from "../../components/navbar/Navbar";
 import CounselGrid from "./CounselGrid";
 import CounselModal from "./CounselModal";
@@ -10,7 +10,8 @@ const Counsel = () => {
     const { details } = useSelector((state: any) => state.user);
 
     if (details.user_role !== "MEMBER") {
-        navigate("/");
+        // navigate("/");
+        return <Navigate to="/dashboard" />
     }
 
     return (

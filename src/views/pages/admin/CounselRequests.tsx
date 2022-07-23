@@ -39,7 +39,7 @@ const CounselRequests = () => {
 
     return (
         <div>
-            <h2>Counsel Requests</h2>
+            <h2>Group Counsel Requests</h2>
             <Table className="joinGroup_table" size="lg" width={100} hover>
                 <thead>
                     <tr className="">

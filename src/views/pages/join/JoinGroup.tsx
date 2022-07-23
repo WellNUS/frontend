@@ -10,8 +10,8 @@ import { useSelector } from "react-redux";
 import "./join.css";
 import Match from "../match/Match";
 import AlertDismissible from "../../components/form/AlertDismissible";
-import ProviderSettings from "./ProviderSettings";
-import CounselRequests from "./CounselRequests";
+// import ProviderSettings from "./ProviderSettings";
+import CounselRequests from "../admin/CounselRequests";
 
 const JoinGroup = () => {
     const { details } = useSelector((state: any) => state.user);
@@ -115,12 +115,12 @@ const JoinGroup = () => {
                             <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
                         </div>
                     }
-                    {
+                    {/* {
                         (details.user_role === "COUNSELLOR" || details.user_role === "VOLUNTEER") &&
                         <div>
                             <ProviderSettings />
                         </div>
-                    }
+                    } */}
                     {
                         showErr
                         ? <AlertDismissible msg={errMsg} display={showErr} onClose={() => setShowErr(false)}/>
@@ -129,7 +129,7 @@ const JoinGroup = () => {
                 </div>
                 <div className="join_content_container_right">
                         {
-                            details.user_role === "MEMBER" ?
+                            // details.user_role === "MEMBER" ?
                             <div>
                             <h2>Group Requests</h2>
                                 <Table className="joinGroup_table" size="lg" width={100} hover>
@@ -168,7 +168,7 @@ const JoinGroup = () => {
                                     </tbody>
                                 </Table>
                             </div>
-                            : <CounselRequests />
+                            // : <CounselRequests />
                         }
                 </div>
             </div>

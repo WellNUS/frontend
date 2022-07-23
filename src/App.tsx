@@ -15,6 +15,7 @@ import Match from './views/pages/match/Match';
 
 import "./global.css";
 import Counsel from './views/pages/counsel/Counsel';
+import Admin from './views/pages/admin/Admin';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/groups" element={<Groups />} />
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/counsel" element={<Counsel />} />
           </Routes>
         </BrowserRouter>

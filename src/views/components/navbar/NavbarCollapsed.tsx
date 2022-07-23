@@ -35,12 +35,24 @@ function NavbarCollapsed() {
                     <NavLink to="/groups" className="navlink">
                         MEET
                     </NavLink>
-                    <NavLink to="/join" className="navlink">
-                        {user_role === "MEMBER" ? "JOIN" : "ADMIN"}
-                    </NavLink>
-                    <NavLink to="/counsel" className="navlink">
-                      COUNSEL
-                    </NavLink>
+                    {
+                      user_role === "MEMBER" &&
+                      <NavLink to="/join" className="navlink">
+                          JOIN
+                      </NavLink>
+                    }
+                    {
+                      user_role !== "MEMBER" &&
+                      <NavLink to="/admin" className="navlink">
+                        ADMIN
+                      </NavLink>
+                    }
+                    {
+                      user_role === "MEMBER" &&
+                      <NavLink to="/counsel" className="navlink">
+                        COUNSEL
+                      </NavLink>
+                    }
                     <div className='modal-container'>
                         <ProfileModal />
                         <LogoutModal />
