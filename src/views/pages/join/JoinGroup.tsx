@@ -8,7 +8,7 @@ import { config } from "../../../config";
 import JoinModal from "./JoinModal";
 import { useSelector } from "react-redux";
 import "./join.css";
-import Match from "../match/Match";
+import Match from "./match/Match";
 import AlertDismissible from "../../components/form/AlertDismissible";
 // import ProviderSettings from "./ProviderSettings";
 import CounselRequests from "../admin/CounselRequests";
@@ -101,7 +101,7 @@ const JoinGroup = () => {
         <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
-                <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Join a group" : "Provider Admin Panel"}</div>
+                <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Join an existing counselling group" : "Provider Admin Panel"}</div>
                 <div className="layout_heading_buttons">
                     <JoinModal />
                 </div>

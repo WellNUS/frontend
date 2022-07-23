@@ -8,7 +8,7 @@ import exit from "../../../static/icon/navIcons/exit.png";
 import profile from "../../../static/icon/navIcons/profile.png";
 import { useSelector } from "react-redux";
 import LogoutModal from "../../pages/authentication/Logout";
-import ProfileModal from "../../pages/profile/Profile";
+import ProfileModal from "../profile/Profile";
 import NavbarCollapsed from "./NavbarCollapsed";
 
 const Navbar = (props : { hideTop : boolean }) => {

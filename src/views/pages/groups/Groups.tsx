@@ -10,7 +10,7 @@ const Groups = () => {
         <div className="layout_container">
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
-                <div className="layout_heading_title">{user_role === "MEMBER" ? "Meet your friends" : "Meet your students" }</div>
+                <div className="layout_heading_title">{user_role === "MEMBER" ? "Meet your friends in your counselling groups" : "Meet your students" }</div>
                 <div className="layout_heading_buttons">
                     <CreateGroup />
                 </div>

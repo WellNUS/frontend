@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table, Container, Row, Col, Dropdown, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
-import { config } from "../../../config";
-import Navbar from "../../components/navbar/Navbar";
-import CreateGroup from "../groups/CreateGroup";
+import { getRequestOptions, postRequestOptions } from "../../../../api/fetch/requestOptions";
+import { config } from "../../../../config";
+import Navbar from "../../../components/navbar/Navbar";
+import CreateGroup from "../../groups/CreateGroup";
 import "./match.css";
-import { MatchSetting as MatchSettingType } from "../../../types/match/types";
-import GeneralForm from "../../components/form/GeneralForm";
+import { MatchSetting as MatchSettingType } from "../../../../types/match/types";
+import GeneralForm from "../../../components/form/GeneralForm";
 import { MultiSelect } from "react-multi-select-component";
 import { useSelector } from "react-redux";
 

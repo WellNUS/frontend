@@ -2,7 +2,9 @@ import "./counselGrid.css";
 import { FiUserCheck, FiUserPlus, FiUserX } from "react-icons/fi";
 import { useEffect, useState } from "react";
 import { config } from "../../../config";
-import { getRequestOptions } from "../../../api/fetch/requestOptions";
+import { getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
+import { Button } from "react-bootstrap";
+import BookingModal from "./BookingModal";
 
 const CounselGrid = () => {
 
@@ -17,7 +19,8 @@ const CounselGrid = () => {
             first_name: "",
             last_name: "",
             user_role: "",
-            gender: ""
+            gender: "",
+            id: ""
         }
         // first_name: "Minerva",
         // last_name: "McGonagall",
@@ -39,6 +42,25 @@ const CounselGrid = () => {
     useEffect(() => {
         getCounsellors();
     }, []);
+
+    // const [details, setDetails] = useState();
+    // const [startTime, setStartTime] = useState();
+    // const [endTime, setEndTime] = useState();
+
+    // const handleBooking = async (provider_id: string) => {
+    //     const requestOptions = {
+    //         ...postRequestOptions,
+    //         body: JSON.stringify({
+    //             provider_id: provider_id,
+    //             details: details,
+    //             start_time: startTime,
+    //             end_time: endTime
+    //         })
+    //     }
+    //     await fetch(config.API_URL + "/booking", requestOptions)
+    //         .then(response => response.json())
+    //         .then(data => console.log(data));
+    // }
 
     // const counsellors = [
         // {
@@ -108,6 +130,7 @@ const CounselGrid = () => {
                                     })
                                 }
                             </div>
+                            <BookingModal provider_id={counsellor.user.id}/>
                         </div>
                     )
                 })

@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import logo from "../../../static/icon/navIcons/logo.png";
 import LogoutModal from '../../pages/authentication/Logout';
-import ProfileModal from '../../pages/profile/Profile';
+import ProfileModal from '../profile/Profile';
 
 function NavbarCollapsed() {
   const { user_role } = useSelector((state: any) => state.user.details);
@@ -49,8 +49,14 @@ function NavbarCollapsed() {
                     }
                     {
                       user_role === "MEMBER" &&
-                      <NavLink to="/counsel" className="navlink">
-                        COUNSEL
+                      <NavLink to="/requests" className="navlink">
+                        REQUESTS
+                      </NavLink>
+                    }
+                    {
+                      user_role === "MEMBER" &&
+                      <NavLink to="/booking" className="navlink">
+                        BOOK
                       </NavLink>
                     }
                     <div className='modal-container'>

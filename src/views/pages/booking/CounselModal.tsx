@@ -104,13 +104,15 @@ const CounselModal = () => {
             counselRequest &&
             <div>
                 <Button variant="primary" onClick={handleShow} className="layout_heading_button">
-                    Request Counsellor
+                    Request Group Counsellor
                 </Button>
                 <Modal show={show} onHide={handleClose} className="create_group_modal">
                     <Modal.Header closeButton>
                     <Modal.Title>Counsel Request Status</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
+                    <div>Your request will be sent to all counsellors. Once accepted by a counsellor, you will be put in a group with the counsellor.</div>
+                    <br/>
                     {/* Request Body : { details, topics[] } */}
                         <div>
                             <b>Details</b><br />

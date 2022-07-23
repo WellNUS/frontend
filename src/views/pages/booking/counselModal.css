@@ -21,3 +21,8 @@
 .counselModal_textarea {
     width: 100%;
 }
+
+.button_text_wrapper {
+    width: 250px;
+    font-size: 10px;
+}

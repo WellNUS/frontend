@@ -7,15 +7,16 @@ import Home from './views/pages/home/Home';
 import Dashboard from './views/pages/dashboard/Dashboard';
 import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
-import Profile from './views/pages/profile/Profile';
+import Profile from './views/components/profile/Profile';
 import Groups from './views/pages/groups/Groups';
 import Group from './views/pages/groupRoom/GroupRoom';
 import JoinGroup from './views/pages/join/JoinGroup';
-import Match from './views/pages/match/Match';
+import Match from './views/pages/join/match/Match';
 
 import "./global.css";
-import Counsel from './views/pages/counsel/Counsel';
+import Requests from './views/pages/requests/Requests';
 import Admin from './views/pages/admin/Admin';
+import Booking from './views/pages/booking/Booking';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -37,7 +38,8 @@ const App = () => {
             <Route path="/groups/:group_id" element={<Group />} />
             <Route path="/join" element={<JoinGroup />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/counsel" element={<Counsel />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/booking" element={<Booking />} />
           </Routes>
         </BrowserRouter>
     </Provider>
