@@ -18,6 +18,9 @@ const ProfileModal = () => {
     const getSetting = async () => {
       await fetch(config.API_URL + "/setting", getRequestOptions)
           .then(response => {
+              if (!response.ok) {
+                throw new Error("Setting has not been initialised by the user.");
+              }
               return response.json();
           })
           .then(data => {

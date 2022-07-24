@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import GeneralForm from "../../components/form/GeneralForm";
-import "../groups/group.css";
+import "../meet/group.css";
 import { postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 

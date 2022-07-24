@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { deleteRequestOptions, getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import GeneralForm from "../../components/form/GeneralForm";
+import "./providerSettings.css";
 
 const availableTopics = [
     { label: "Anxiety", value: "Anxiety" },
@@ -78,21 +79,26 @@ const ProviderSettings = () => {
     }
     
     return (
-        <div>
+        <div className="providerSettings">
             <h2>Provider Settings</h2>
             <div>
-                <div>Intro: {provider?.setting.intro}</div>
+                <b>Introduction: </b>
+                <div>{provider?.setting.intro}</div>
+                <br />
                 <div>
-                    Topics:
+                    <b>Topics:</b>
+                    <ol>
                     {
                         provider?.setting.topics.map((topic, id) => {
-                            return <div key={id}>
+                            return <li key={id}>
                                 {topic}
-                            </div>
+                            </li>
                         })
                     }
+                    </ol>
                 </div>
             </div>
+            <br />
             <Form.Group className="mb-3" onChange={handleIntroChange}>
                 <Form.Control type="text" placeholder="Enter a brief intro about yourself..." />
             </Form.Group>
@@ -111,8 +117,10 @@ const ProviderSettings = () => {
             />
             <small>Select at most 4 hobbies.</small>
             <br/>
-            <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Submit</Button>
-            <Button onClick={clearSetting} className="layout_heading_button match_submit_btn">Remove</Button>
+            <div className="providerSettings_buttons">
+                <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Submit</Button>
+                <Button onClick={clearSetting} className="layout_heading_button match_submit_btn">Remove</Button>
+            </div>
         </div>
     )
 }

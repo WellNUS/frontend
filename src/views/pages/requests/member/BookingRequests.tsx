@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getRequestOptions } from "../../../api/fetch/requestOptions";
-import { config } from "../../../config";
+import { getRequestOptions } from "../../../../api/fetch/requestOptions";
+import { config } from "../../../../config";
+import Empty from "../../error/Empty";
 import "./bookingRequests.css";
 
 const BookingRequests = () => {
@@ -24,6 +25,10 @@ const BookingRequests = () => {
         <div className="">
             <h2 className="bookingRequest_subheading">Pending requests you sent</h2>
             <div className="layout_content_container_grid">
+                {
+                    bookings.length === 0 &&
+                    <Empty message={"You have no pending requests!"}/>
+                }
                 {
                     bookings.map((obj, id) => {
                         return (

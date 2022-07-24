@@ -18,9 +18,9 @@ const LogoutModal = () => {
     const handleShow = () => setShow(true);
 
     const handleLogout = async () => {
-        await fetch(config.API_URL + "/session", deleteRequestOptions);
         const logout = userSlice.actions.logout;
         dispatch(logout(user));
+        await fetch(config.API_URL + "/session", deleteRequestOptions);
         navigate("/");
     }
 

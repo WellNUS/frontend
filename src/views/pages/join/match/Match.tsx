@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getRequestOptions, postRequestOptions } from "../../../../api/fetch/requestOptions";
 import { config } from "../../../../config";
 import Navbar from "../../../components/navbar/Navbar";
-import CreateGroup from "../../groups/CreateGroup";
+import CreateGroup from "../../meet/CreateGroup";
 import "./match.css";
 import { MatchSetting as MatchSettingType } from "../../../../types/match/types";
 import GeneralForm from "../../../components/form/GeneralForm";
@@ -57,16 +57,6 @@ const Match = () => {
                 if (data !== null) {
                     setSetting(data);
                 }
-                // if (data === null) {
-                //     setSetting({
-                //         user_id: details.user_id,
-                //         faculty_preference: "NA",
-                //         hobbies: [],
-                //         mbti: "NA"
-                //     })
-                // } else {
-                //     setSetting(data);
-                // }
             })
             .catch(err => {
                 console.log("Match settings have not been filled in for this user.");
@@ -95,7 +85,7 @@ const Match = () => {
     }, []);
 
     return (
-        <div>
+        <div className="match">
             <Container fluid className="match_container">
                 <Row>
                     <Col>
@@ -126,7 +116,7 @@ const Match = () => {
                         />
                         <small>Select at most 4 hobbies.</small>
                         <br/>
-                        <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Submit</Button>
+                        <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Save Preferences</Button>
                     </Col>
                 </Row>
             </Container>

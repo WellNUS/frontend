@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import Members from "./Members";
-import "../groups/group.css";
+import "../meet/group.css";
 import GroupDetails from "./GroupDetails";
 import { GroupDetails as GroupDetailsType } from "../../../types/group/types";
 import Navbar from "../../components/navbar/Navbar";

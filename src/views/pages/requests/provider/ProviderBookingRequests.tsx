@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getRequestOptions } from "../../../api/fetch/requestOptions";
-import { config } from "../../../config";
-import { Applicant, BookingUser } from "./types";
+import { getRequestOptions } from "../../../../api/fetch/requestOptions";
+import { config } from "../../../../config";
+import { Applicant, BookingUser } from "../types";
 import ApplicantProfile from "./ApplicantProfile";
 import "./providerBookingRequests.css";
 

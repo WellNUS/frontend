@@ -8,8 +8,8 @@ import Dashboard from './views/pages/dashboard/Dashboard';
 import Login from './views/pages/authentication/Login';
 import Register from './views/pages/authentication/Register';
 import Profile from './views/components/profile/Profile';
-import Groups from './views/pages/groups/Groups';
-import Group from './views/pages/groupRoom/GroupRoom';
+import Groups from './views/pages/meet/Groups';
+import Group from './views/pages/room/GroupRoom';
 import JoinGroup from './views/pages/join/JoinGroup';
 import Match from './views/pages/join/match/Match';
 

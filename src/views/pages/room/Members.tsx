@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ChatStatusPayload, User, WebSocketUnit } from "../../../api/websocketunit/websocketunit";
-import "../groups/group.css";
+import "../meet/group.css";
 import "./members.css";
 
 type Props = {

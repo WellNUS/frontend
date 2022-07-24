@@ -5,14 +5,15 @@ type Props = {
     msg: string;
     display: boolean;
     onClose: () => void;
+    success: boolean;
 }
 
 function AlertDismissible(props: Props): React.ReactElement {
-    const { msg, display, onClose } = props
-    if(display) {
+    const { msg, display, onClose, success } = props
+    if (display) {
         return  <Alert 
                     className="alert_dismissable"
-                    variant="danger"
+                    variant={success ? "success" : "danger"}
                     onClose={onClose}
                     dismissible
                 >

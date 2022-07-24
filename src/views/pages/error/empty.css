@@ -1,0 +1,31 @@
+.empty-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90vw;
+    height: 60vh;
+    border: 1px solid black;
+    padding: 2rem;
+    border-radius: 10px;
+    opacity: 50%;
+}
+
+.empty-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20%;
+    text-align: center;
+}
+
+.empty-message {
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.empty-container img {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    opacity: 10%;
+}

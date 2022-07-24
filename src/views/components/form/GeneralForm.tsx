@@ -33,6 +33,7 @@ function GeneralForm(props: Props): React.ReactElement {
                     msg={error}
                     display={displayError}
                     onClose={closeError}
+                    success={false}
                 />
                 <button type="submit" className="login_btn">
                     Submit

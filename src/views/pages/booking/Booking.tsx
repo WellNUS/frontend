@@ -1,6 +1,6 @@
 import Navbar from "../../components/navbar/Navbar";
 import CounselGrid from "./CounselGrid";
-import GroupsGrid from "../groups/GroupsGrid";
+import GroupsGrid from "../meet/GroupsGrid";
 import CounselModal from "./CounselModal";
 
 const Booking = () => {

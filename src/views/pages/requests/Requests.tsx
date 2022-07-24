@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router";
 import Navbar from "../../components/navbar/Navbar";
 import BookingModal from "../booking/BookingModal";
-import BookingRequests from "./BookingRequests";
+import BookingRequests from "./member/BookingRequests";
 import CounselGrid from "../booking/CounselGrid";
 import CounselModal from "../booking/CounselModal";
-import ProviderBookingRequests from "./ProviderBookingRequests";
+import ProviderBookingRequests from "./provider/ProviderBookingRequests";
 
 const Requests = () => {
     const { details } = useSelector((state: any) => state.user);

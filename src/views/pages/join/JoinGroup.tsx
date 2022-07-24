@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import GeneralForm from "../../components/form/GeneralForm";
-import "../groups/group.css";
+import "../meet/group.css";
 import Navbar from "../../components/navbar/Navbar";
 import { abortableGetRequestOptions, deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
@@ -18,6 +18,8 @@ const JoinGroup = () => {
     const [requests, setRequests] = useState<any[]>([]);
     const [errMsg, setErrMsg] = useState("");
     const [showErr, setShowErr] = useState(false);
+    const [successMsg, setSuccessMsg] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const handleFetch = (): AbortController => {
         const abortController = new AbortController();
@@ -86,8 +88,13 @@ const JoinGroup = () => {
                 setShowErr(true);
                 throw new Error("You have already made a match request.");
             }
-            response.json()
-        });
+            return response.json()
+        })
+        .then(data => {
+            setSuccessMsg("Matching process started. The system will inform you once you have been matched to a suitable group.");
+            setShowSuccess(true);
+        })
+        .catch(err => console.log(err));
     }
 
     useEffect(() => {
@@ -104,6 +111,7 @@ const JoinGroup = () => {
                 <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Join an existing counselling group" : "Provider Admin Panel"}</div>
                 <div className="layout_heading_buttons">
                     <JoinModal />
+                    <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
                 </div>
             </div>
             <div className="layout_content_container_rows">
@@ -112,24 +120,18 @@ const JoinGroup = () => {
                         details.user_role === "MEMBER" &&
                         <div>
                             <Match />
-                            <Button className="layout_heading_button" onClick={handleMatching}>Get Matched</Button>
                         </div>
                     }
-                    {/* {
-                        (details.user_role === "COUNSELLOR" || details.user_role === "VOLUNTEER") &&
-                        <div>
-                            <ProviderSettings />
-                        </div>
-                    } */}
                     {
-                        showErr
-                        ? <AlertDismissible msg={errMsg} display={showErr} onClose={() => setShowErr(false)}/>
-                        : <div></div>
+                        showErr && <AlertDismissible msg={errMsg} display={showErr} onClose={() => setShowErr(false)} success={false}/>
+                    }
+                    {
+                        showSuccess && <AlertDismissible msg={successMsg} display={showSuccess} onClose={() => setShowSuccess(false)} success={true} />
                     }
                 </div>
                 <div className="join_content_container_right">
                         {
-                            // details.user_role === "MEMBER" ?
+                            details.user_role === "MEMBER" &&
                             <div>
                             <h2>Group Requests</h2>
                                 <Table className="joinGroup_table" size="lg" width={100} hover>
@@ -168,7 +170,6 @@ const JoinGroup = () => {
                                     </tbody>
                                 </Table>
                             </div>
-                            // : <CounselRequests />
                         }
                 </div>
             </div>
