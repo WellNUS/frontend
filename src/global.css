@@ -114,3 +114,10 @@
     border: 1px solid var(--theme-three) !important;
     box-shadow: none;
 }
+
+.button-centralised {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+}

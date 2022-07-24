@@ -13,6 +13,7 @@ import "./groupRoom.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import UpdateGroup from "./UpdateGroup";
 
 const Group = () => {
     const navigate = useNavigate();
@@ -64,6 +65,10 @@ const Group = () => {
                     <Link to="/groups">
                         <Button className="groupRoom_button_exit">Back</Button>
                     </Link>
+                    {
+                        group.owner_id === details.id &&
+                        <UpdateGroup group_id={group_id} group_name={group.group_name} group_description={group.group_description} />
+                    }
                     {
                         group.owner_id === details.id &&
                         <Button className="groupRoom_button_delete" onClick={handleDeleteGroup}>Leave Group</Button>

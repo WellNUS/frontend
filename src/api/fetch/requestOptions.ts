@@ -18,6 +18,11 @@ export const patchRequestOptions = {
     credentials: 'include' as RequestCredentials,
 }
 
+export const updateRequestOptions = {
+    method: 'UPDATE',
+    credentials: 'include' as RequestCredentials,
+}
+
 export const abortableGetRequestOptions = (signal: AbortSignal) => ({
     ...getRequestOptions,
     signal
