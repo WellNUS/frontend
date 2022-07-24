@@ -61,11 +61,13 @@ const Group = () => {
                     <GroupDetails group={group}/>
                     <Members socket={socket.current} />
                     <br /><br />
-                    {/* {
-                        group.owner_id === details.id
-                        ? <Button className="groupRoom_button_delete" onClick={handleDeleteGroup}>Delete Group</Button>
-                        : <div></div>
-                    } */}
+                    <Link to="/groups">
+                        <Button className="groupRoom_button_exit">Back</Button>
+                    </Link>
+                    {
+                        group.owner_id === details.id &&
+                        <Button className="groupRoom_button_delete" onClick={handleDeleteGroup}>Leave Group</Button>
+                    }
                 </div>
                 <div className="groupRoom_right">
                     <Chat

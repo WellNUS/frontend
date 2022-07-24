@@ -27,7 +27,8 @@ const JoinGroup = () => {
             .then(response => response.json())
             .then(data => {
                 setRequests(data);
-            });
+            })
+            .catch(err => console.log(err));
         return abortController;
     }
 

@@ -14,7 +14,8 @@ const GroupsGrid = () => {
             .then(response => response.json())
             .then(data => {
                 setGroups(data)
-            });
+            })
+            .catch(err => console.log(err));
         return abortController;
     }
 

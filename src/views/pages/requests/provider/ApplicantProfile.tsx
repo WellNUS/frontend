@@ -17,6 +17,8 @@ const ApplicantProfile = ({ applicant, booking } : { applicant: Applicant, booki
                 </Modal.Header>
                 <Modal.Body>
                     <div>
+                        <div>{booking?.details}</div>
+                        <hr />
                         <div><b>Name: </b>{applicant?.user.first_name} {applicant?.user.last_name}</div>
                         <div><b>Email: </b>{applicant?.user.email}</div>
                         <div><b>Faculty: </b>{applicant?.user.faculty}</div>

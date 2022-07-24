@@ -22,19 +22,12 @@ const CounselGrid = () => {
             gender: "",
             id: ""
         }
-        // first_name: "Minerva",
-        // last_name: "McGonagall",
-        // gender: "F",
-        // user_role: "COUNSELLOR",
-        // available: false,
-        // specialities: ['Anxiety', 'OffMyChest', 'SelfHarm']
     }]);
 
     const getCounsellors = async () => {
         await fetch(config.API_URL + "/provider", getRequestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setCounsellors(data);
             });
     }
@@ -61,47 +54,6 @@ const CounselGrid = () => {
     //         .then(response => response.json())
     //         .then(data => console.log(data));
     // }
-
-    // const counsellors = [
-        // {
-        //     first_name: "Minerva",
-        //     last_name: "McGonagall",
-        //     gender: "F",
-        //     user_role: "COUNSELLOR",
-        //     available: false,
-        //     specialities: ['Anxiety', 'OffMyChest', 'SelfHarm']
-        // },
-    //     {
-    //         first_name: "Albus",
-    //         last_name: "Dumbledore",
-    //         gender: "M",
-    //         user_role: "VOLUNTEER",
-    //         available: true,
-    //         specialities: ['Anxiety', 'OffMyChest', 'SelfHarm', 'Depression', 'SelfEsteem', 'Stress', 'Casual', 'Therapy', 'BadHabits', 'Rehabilitation', ]
-    //     },
-    //     {
-    //         first_name: "Albus",
-    //         last_name: "Dumbledore",
-    //         gender: "M",
-    //         user_role: "VOLUNTEER",
-    //         available: true,
-    //         specialities: ['Therapy', 'BadHabits', 'Rehabilitation']
-    //     },        {
-    //         first_name: "Albus",
-    //         last_name: "Dumbledore",
-    //         gender: "M",
-    //         user_role: "VOLUNTEER",
-    //         available: true,
-    //         specialities: ['Therapy', 'BadHabits', 'Rehabilitation']
-    //     },        {
-    //         first_name: "Albus",
-    //         last_name: "Dumbledore",
-    //         gender: "M",
-    //         user_role: "VOLUNTEER",
-    //         available: true,
-    //         specialities: ['Therapy', 'BadHabits', 'Rehabilitation']
-    //     },
-    // ]
 
     return (
         <div className="layout_content_container_grid">

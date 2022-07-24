@@ -58,11 +58,13 @@
 }
 
 .groupRoom_button_delete {
-    margin-bottom: 2rem;
     background-color: var(--theme-three);
     color: var(--theme-one);
     border: 1px solid var(--theme-three);
     font-weight: 600;
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
 }
 
 .groupRoom_button_delete:hover,

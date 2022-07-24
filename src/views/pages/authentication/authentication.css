@@ -88,7 +88,6 @@ form .login_btn:focus {
     color: var(--theme-three);
     background-color: var(--theme-two);
     border: 1px solid var(--theme-three) !important;
-    box-shadow: none;
 }
 
 .logout_button {
@@ -106,6 +105,7 @@ form .login_btn:focus {
 .logout_button:focus {
     outline: none !important;
     box-shadow: none !important;
+    border: 1px var(--theme-two) solid !important;
     background-color: var(--theme-three);
 }
 

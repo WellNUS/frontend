@@ -12,7 +12,7 @@ const BookingRequests = () => {
         await fetch(config.API_URL + "/booking", getRequestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setBookings(data);
             })
     }
@@ -23,7 +23,7 @@ const BookingRequests = () => {
     
     return (
         <div className="">
-            <h2 className="bookingRequest_subheading">Pending requests you sent</h2>
+            <h2 className="bookingRequest_subheading">Pending booking requests you sent</h2>
             <div className="layout_content_container_grid">
                 {
                     bookings.length === 0 &&

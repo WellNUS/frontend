@@ -23,11 +23,7 @@ const availableTopics = [
 const CounselModal = () => {
     
     const { details, loggedIn } = useSelector((state: any) => state.user);
-    // CounselRequest = { user_id, details, topics[], last_updated }
     const [counselRequest, setCounselRequest] = useState({ details: "not yet added", last_updated: "never", topics: ["not yet added"] });
-    // useState({ user_id: details.id, details: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, ab.", topics: [
-    //     'Anxiety', 'OffMyChest', 'SelfHarm', 'Depression', 'SelfEsteem', 'Stress', 'Casual', 'Therapy', 'BadHabits', 'Rehabilitation'
-    // ], last_updated: "1/1/2022" });
 
     const [requestDetails, setRequestDetails] = useState("");
     // const [nickname, setNickname] = useState();
@@ -52,7 +48,6 @@ const CounselModal = () => {
                 return response.json();
             })
             .then(data => {
-                console.log(data);
                 setCounselRequest(data);
             })
             .catch(err => console.log(err));
@@ -90,7 +85,6 @@ const CounselModal = () => {
         await fetch(config.API_URL + "/counsel", deleteRequestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 window.location.reload();
             })
             .catch(err => {

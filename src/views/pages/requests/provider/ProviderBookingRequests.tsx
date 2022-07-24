@@ -9,16 +9,14 @@ import "./providerBookingRequests.css";
 
 const ProviderBookingRequests = () => {
     const {details} = useSelector((state: any) => state.user);
-    const [applicant, setApplicant] = useState<Applicant>(null);
-    // console.log(details);
     const [bookings, setBookings] = useState<BookingUser[]>([]);
+    const [applicants, setApplicants] = useState<any[]>([]);
+
     const getBookings = async () => {
         await fetch(config.API_URL + "/booking", getRequestOptions)
             .then(response => response.json())
             .then(data => {
-                // console.log(data);
                 setBookings(data);
-                // console.log(data[0].booking.recipient_id);
             })
     }
 
@@ -26,16 +24,24 @@ const ProviderBookingRequests = () => {
         getBookings();
     }, []);
 
-    const getApplicant = async (applicant_id: number) => {
-        await fetch(config.API_URL + "/user/" + applicant_id, getRequestOptions)
+    const getApplicants = () => {
+        bookings.map(async (obj) => {
+            await fetch(config.API_URL + "/user/" + obj?.booking?.recipient_id, getRequestOptions)
             .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                if (applicant !== null) return;
-                setApplicant(data);
+            .then(result => {
+                // console.log(data);
+                // if (applicant !== null) return;
+                setApplicants(prev => ([
+                    ...prev, { applicant: result, booking: obj }
+                ]));
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+        });
     }
+
+    useEffect(() => {
+        bookings.length > 0 && getApplicants();
+    }, [bookings.length]);
     
     return (
         <div>
@@ -45,21 +51,16 @@ const ProviderBookingRequests = () => {
                     <h2 className="bookingRequest_subheading">Booking Requests</h2>
                     <div className="layout_content_container_grid">
                         {
-                            bookings.map((obj, id) => {
-                                // console.log(obj)
-                                const applicant_id = obj?.booking?.recipient_id;
-                                applicant_id && getApplicant(applicant_id);
+                            applicants.map((appl, id) => {
                                 return (
-                                    applicant &&
+                                    // applicants &&
                                     <div key={id} className="bookingRequest">
-                                        <div className="bookingRequest_heading">From: {applicant.user.first_name} {applicant.user.last_name}</div>
-                                        {/* <div className="bookingRequest_heading">To: {obj.user.first_name} {obj.user.last_name}</div> */}
+                                        <div className="bookingRequest_heading">From: {appl.applicant.user.first_name} {appl.applicant.user.last_name}</div>
                                         <br />
-                                        {obj?.booking && <div><b>Start: </b>{new Date(obj.booking.start_time).toLocaleString()}</div>}
-                                        {obj?.booking && <div><b>End: </b>{new Date(obj.booking.end_time).toLocaleString()}</div>}
-                                        <br />
+                                        <div><b>Start: </b>{new Date(appl.booking.booking.start_time).toLocaleString()}</div>
+                                        <div><b>End: </b>{new Date(appl.booking.booking.end_time).toLocaleString()}</div>
                                         <div>
-                                            {obj?.booking && <ApplicantProfile applicant={applicant} booking={obj.booking}/>}
+                                            <ApplicantProfile applicant={appl.applicant} booking={appl.booking.booking}/>
                                         </div>
                                     </div>
                                 )

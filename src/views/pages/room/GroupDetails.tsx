@@ -20,9 +20,6 @@ const GroupDetails = (props : Props) => {
             <br className="no-display"/>
             <div className="groupRoom_detail no-display">{group.group_description}</div>
             <div className="groupRoom_category no-display">{group.category}</div>
-            <Link to="/groups">
-                <Button className="groupRoom_button_exit">Exit</Button>
-            </Link>
         </div>
     )
 }
