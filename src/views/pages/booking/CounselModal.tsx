@@ -62,7 +62,7 @@ const CounselModal = () => {
         const requestOptions = {
             ...postRequestOptions,
             body: JSON.stringify({
-                // nickname: nickname,
+                nickname: details.first_name,
                 details: requestDetails,
                 topics: topics
             })

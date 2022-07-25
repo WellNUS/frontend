@@ -5,8 +5,10 @@ import { postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import DateTimePicker from 'react-datetime-picker';
 import "./bookingModal.css";
+import { useSelector } from "react-redux";
 
 const BookingModal = ({ provider_id } : { provider_id: string }) => {
+    const { first_name } = useSelector((state: any) => state.user.details);
     const [errMsg, setErrMsg] = useState("");
     const [show, setShow] = useState(false);
 
@@ -21,6 +23,7 @@ const BookingModal = ({ provider_id } : { provider_id: string }) => {
         const requestOptions = {
             ...postRequestOptions,
             body: JSON.stringify({
+                nickname: first_name,
                 provider_id: provider_id,
                 details: details,
                 start_time: startTime,

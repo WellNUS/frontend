@@ -4,7 +4,7 @@
     border-radius: 10px;
     padding: 1rem;
     position: relative; /* to keep groups_group_card_footing fixed at the bottom */
-    height: 200px;
+    height: fit-content;
 }
 
 .counsellor_card_heading {

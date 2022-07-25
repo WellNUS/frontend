@@ -112,7 +112,10 @@ const EventModal = ({ event } : Props) => {
                 </Modal.Header>
                 <Modal.Body className="create_group_modal_body">
                     <h2>{name}</h2>
-                    <div className="event-owner">{event.owner_id === details.id && <div><FiUser /> You are the owner of this event.</div>}</div>
+                    {
+                        event.owner_id === details.id &&
+                        <div className="event-owner">{event.owner_id === details.id && <div><FiUser /> You are the owner of this event.</div>}</div>
+                    }
                     <div><b>Description: </b>{description}</div>
                     <div><b>Start:</b> {startTime.toLocaleString()}</div>
                     <div><b>End:</b> {endTime.toLocaleString()}</div>
@@ -139,13 +142,13 @@ const EventModal = ({ event } : Props) => {
                             <div className="button-centralised">Once clicked, you will be redirected to a newly-generated room with all the event members. And this event will be deleted permanently.</div>
                         </div>
                     }
-                    <br />
-                    <hr />
-                    <br />
-                    <h2>Add User to Event</h2>
                     {
                         event.owner_id === details.id &&
                         <div>
+                            <br />
+                            <hr />
+                            <br />
+                            <h2>Add User to Event</h2>
                             <Form className="bookingModal-form">
                                 <Form.Group className="bookingModal-form-group" onChange={(e: any) => setUserID(e.target.value)}>
                                     <Form.Control type="text" placeholder="Enter user ID..." />
@@ -156,12 +159,12 @@ const EventModal = ({ event } : Props) => {
                             </div>
                         </div>
                     }
-                    <br />
-                    <hr />
-                    <br />
                     {
                         event.owner_id === details.id &&
                         <div>
+                            <br />
+                            <hr />
+                            <br />
                             <h2>Update Event Details</h2>
                             <Form className="bookingModal-form">
                                 <Form.Group className="bookingModal-form-group" onChange={(e: any) => setName(e.target.value)}>
