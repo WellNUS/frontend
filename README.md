@@ -1,4 +1,4 @@
-# WellNUS frontend
+# [WellNUS](https://wellnus-frontend.vercel.app/)
 
 ## Installation and Setup
 1. Ensure you have npm package manager on your machine
