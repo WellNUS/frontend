@@ -220,6 +220,13 @@ h3 {
 }
 
 @media (max-width: 1000px) {
+    .homenav {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: var(--theme-two);
+        padding: 1rem;
+    }
 
     .home_carousel {
         display: none;
@@ -227,6 +234,7 @@ h3 {
 
     .home_top_row_left_col {
         width: 100%;
+        padding-top: 4rem !important;
     }
 
     .home_card {
@@ -239,7 +247,6 @@ h3 {
 }
 
 @media (max-width: 700px) {
-
     .homenav {
         width: 100vw;
     }
@@ -262,10 +269,10 @@ h3 {
     }
 
     .home_top_row_left_col p {
-        font-size: 80px;
+        font-size: 60px;
         font-weight: 700;
         text-align: left;
-        line-height: 80px;
+        line-height: 70px;
     }
 
 

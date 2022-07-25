@@ -47,7 +47,7 @@ const BookingModal = ({ provider_id } : { provider_id: string }) => {
                 </Modal.Header>
                 <Modal.Body>
                     Your booking request will be sent to the provider you have chosen. There will be no formation of groups upon
-                    approval by the chosen provider. To request for group formation with a counsellor, go to the COUNSEL page and
+                    approval by the chosen provider. To request for group formation with a counsellor, go to the REQUESTS page and
                     click on Request Group Counsellor.
                     <br /><br />
                     <Form className="bookingModal-form">

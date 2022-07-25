@@ -122,3 +122,9 @@
     margin: 1rem;
     gap: 1rem;
 }
+
+@media (max-width: 1100px) {
+    .no-display-mobile {
+        display: none;
+    }
+}

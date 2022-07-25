@@ -76,6 +76,9 @@ const Home = () => {
             <div className="home_second_row_container">
                 <div className="home_second_row_header">About WellNUS</div>
                 <div className="home_second_row_content">
+                    WellNUS supports the friend making process and provide on-demand mental health support provided by student volunteers and mental health professionals.
+                </div>
+                <div className="home_second_row_content no-display-mobile">
                     In 2022, researchers at NUHS Mind Science Centre found that 3 in 4 NUS students are at risk of depression due to the pandemic and restrictions imposed to curb the spread of Covid-19. These restrictions hampered opportunities for students to meet new people of common interests that can share their hardships they might face. One can argue that NUS has many CCAs and holds many events that offer great opportunities to make new friends. However, many of these events are shared through word of mouth and students who do participate in these events do so with their friends. The result is that it is easier to make friends when you have friends to begin with.
                     WellNUS jump starts the friend making process and provide on-demand mental health support provided by student volunteers and mental health professionals.
                 </div>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { abortableGetRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import Empty from "../error/Empty";
+import "./group.css";
 
 const GroupsGrid = () => {
     const [groups, setGroups] = useState<any[]>([]);
@@ -41,7 +42,7 @@ const GroupsGrid = () => {
                             {/* <div className="group_card_id">{group.id}</div> */}
                         </div>
                         <div className="groups_group_card_body">
-                            <div role="group_description">{group.group_description}</div>
+                            <div role="group_description" className="no-display-small">{group.group_description}</div>
                         </div>
                         <div className="groups_group_card_footing">
                             <Link to={`/groups/${group.id}`}>

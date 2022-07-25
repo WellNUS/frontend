@@ -27,7 +27,7 @@ const ProviderSettings = () => {
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const [intro, setIntro] = useState("");
     const [availability, setAvailability] = useState(false);
-
+    
     const getProvider = async () => {
         await fetch(config.API_URL + "/provider/" + details.id, getRequestOptions)
             .then(response => {
@@ -67,14 +67,18 @@ const ProviderSettings = () => {
         }
         await fetch(config.API_URL + "/provider", requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                window.location.reload();
+            })
             .catch(err => console.log(err));
     }
 
     const clearSetting = async () => {
         await fetch(config.API_URL + "/provider", deleteRequestOptions)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                window.location.reload();
+            })
             .catch(err => console.log(err));
     }
     
@@ -120,7 +124,7 @@ const ProviderSettings = () => {
             <small>Select at most 4 hobbies.</small>
             <br/>
             <div className="providerSettings_buttons">
-                <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Submit</Button>
+                <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Save</Button>
                 <Button onClick={clearSetting} className="layout_heading_button match_submit_btn">Remove</Button>
             </div>
         </div>

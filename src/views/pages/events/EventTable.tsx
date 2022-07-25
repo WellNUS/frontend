@@ -48,10 +48,10 @@ const EventTable = () => {
                     <thead>
                         <tr>
                             <th>Event Name</th>
-                            <th>Start Time</th>
-                            <th>End Time</th>
-                            <th>Access</th>
-                            <th>Category</th>
+                            <th className="no-display-mobile">Start Time</th>
+                            <th className="no-display-mobile">End Time</th>
+                            <th className="no-display-mobile">Access</th>
+                            <th className="no-display-mobile">Category</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -66,10 +66,10 @@ const EventTable = () => {
                                                 <FiUser />
                                             } {event.event_name}
                                         </td>
-                                        <td>{new Date(event.start_time).toLocaleString()}</td>
-                                        <td>{new Date(event.end_time).toLocaleString()}</td>
-                                        <td>{event.access}</td>
-                                        <td>{event.category}</td>
+                                        <td className="no-display-mobile">{new Date(event.start_time).toLocaleString()}</td>
+                                        <td className="no-display-mobile">{new Date(event.end_time).toLocaleString()}</td>
+                                        <td className="no-display-mobile">{event.access}</td>
+                                        <td className="no-display-mobile">{event.category}</td>
                                         <td><EventModal event={event}/></td>
                                     </tr>
                                 )
