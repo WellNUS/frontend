@@ -15,7 +15,7 @@ function NavbarCollapsed() {
   const { user_role } = useSelector((state: any) => state.user.details);
   return (
     <>
-      {["md"].map((expand : any) => (
+      {["lg"].map((expand : any) => (
         <Navbar key={expand} expand={expand} className="mb-3 navbar-container">
           <Container fluid>
             <Navbar.Brand href="#" className='navbar-logo-container'>
@@ -31,33 +31,33 @@ function NavbarCollapsed() {
               <Offcanvas.Header closeButton>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                    <NavLink to="/events" className="navlink">
+                <Nav className="justify-content-end flex-grow-1 pe-3 nav-gap">
+                    <NavLink to="/events" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                         EVENTS
                     </NavLink>
-                    <NavLink to="/groups" className="navlink">
+                    <NavLink to="/groups" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                         MEET
                     </NavLink>
                     {
                       user_role === "MEMBER" &&
-                      <NavLink to="/join" className="navlink">
+                      <NavLink to="/join" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                           JOIN
                       </NavLink>
                     }
                     {
-                      <NavLink to="/requests" className="navlink">
+                      <NavLink to="/requests" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                         REQUESTS
                       </NavLink>
                     }
                     {
                       user_role !== "MEMBER" &&
-                      <NavLink to="/admin" className="navlink">
+                      <NavLink to="/admin" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                         ADMIN
                       </NavLink>
                     }
                     {
                       user_role === "MEMBER" &&
-                      <NavLink to="/booking" className="navlink">
+                      <NavLink to="/booking" className={({ isActive }) => isActive ? "navlink-active" : "navlink" }>
                         BOOK
                       </NavLink>
                     }
