@@ -32,6 +32,9 @@ function NavbarCollapsed() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                    <NavLink to="/events" className="navlink">
+                        EVENTS
+                    </NavLink>
                     <NavLink to="/groups" className="navlink">
                         MEET
                     </NavLink>
@@ -42,15 +45,14 @@ function NavbarCollapsed() {
                       </NavLink>
                     }
                     {
-                      user_role !== "MEMBER" &&
-                      <NavLink to="/admin" className="navlink">
-                        ADMIN
+                      <NavLink to="/requests" className="navlink">
+                        REQUESTS
                       </NavLink>
                     }
                     {
-                      // user_role === "MEMBER" &&
-                      <NavLink to="/requests" className="navlink">
-                        REQUESTS
+                      user_role !== "MEMBER" &&
+                      <NavLink to="/admin" className="navlink">
+                        ADMIN
                       </NavLink>
                     }
                     {

@@ -5,6 +5,7 @@ import { config } from "../../../config";
 import { getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { Button } from "react-bootstrap";
 import BookingModal from "./BookingModal";
+import Empty from "../error/Empty";
 
 const CounselGrid = () => {
 
@@ -57,6 +58,10 @@ const CounselGrid = () => {
 
     return (
         <div className="layout_content_container_grid">
+            {
+                counsellors.length === 0 &&
+                <Empty message={"There are no counsellors or volunteers currently available."}/>
+            }
             {
                 counsellors &&
                 counsellors.map((counsellor, index) => {

@@ -27,7 +27,7 @@ const BookingRequests = () => {
             <div className="layout_content_container_grid">
                 {
                     bookings.length === 0 &&
-                    <Empty message={"You have no pending requests!"}/>
+                    <Empty message={"You have no pending requests."}/>
                 }
                 {
                     bookings.map((obj, id) => {

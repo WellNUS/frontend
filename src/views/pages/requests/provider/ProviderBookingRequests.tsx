@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getRequestOptions } from "../../../../api/fetch/requestOptions";
 import { config } from "../../../../config";
+import Empty from "../../error/Empty";
 import { Applicant, BookingUser } from "../types";
 import ApplicantProfile from "./ApplicantProfile";
 import "./providerBookingRequests.css";
@@ -50,6 +51,10 @@ const ProviderBookingRequests = () => {
                 <div className="">
                     <h2 className="bookingRequest_subheading">Booking Requests</h2>
                     <div className="layout_content_container_grid">
+                        {
+                            bookings.length === 0 &&
+                            <Empty message={"You have no pending requests."}/>
+                        }
                         {
                             applicants.map((appl, id) => {
                                 return (

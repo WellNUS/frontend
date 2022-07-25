@@ -29,7 +29,7 @@ const Register = () => {
             passwordConfirmation: e.target[6].value,
             user_role: e.target[7].value
         }
-        console.log(userDetails)
+        // console.log(userDetails)
         if (userDetails.passwordConfirmation !== userDetails.password) {
             return setErrMsg("Password and password confirmation does not match.")
         }

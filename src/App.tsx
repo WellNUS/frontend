@@ -17,6 +17,7 @@ import "./global.css";
 import Requests from './views/pages/requests/Requests';
 import Admin from './views/pages/admin/Admin';
 import Booking from './views/pages/booking/Booking';
+import Events from './views/pages/events/Events';
 
 // Ensure that redux state changes will be saved into sessionStorage.
 store.subscribe(
@@ -30,7 +31,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Groups />} />
+            <Route path="/dashboard" element={<Events />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />
@@ -40,6 +41,7 @@ const App = () => {
             <Route path="/admin" element={<Admin />} />
             <Route path="/requests" element={<Requests />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/events" element={<Events />} />
           </Routes>
         </BrowserRouter>
     </Provider>
