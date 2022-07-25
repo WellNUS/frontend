@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
-import { postRequestOptions, updateRequestOptions } from "../../../api/fetch/requestOptions";
+import { postRequestOptions, patchRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import "./updateGroup.css";
 
@@ -27,7 +27,7 @@ const UpdateGroup = ({ group_id, group_description, group_name } : Props) => {
     const handleUpdateGroup = async () => {
         console.log(group)
         const requestOptions = {
-            ...updateRequestOptions,
+            ...patchRequestOptions,
             body: JSON.stringify({
                 group_name: group.name,
                 group_description: group.description
@@ -37,6 +37,7 @@ const UpdateGroup = ({ group_id, group_description, group_name } : Props) => {
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(err => console.log(err));
+        window.location.reload();
     }
 
     return (

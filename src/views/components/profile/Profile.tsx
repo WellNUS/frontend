@@ -53,6 +53,7 @@ const ProfileModal = () => {
             </div>
             <div className="profile_content_right">
               <div className="profile_name">{details.first_name} {details.last_name}</div>
+              <div className="profile_detail">User ID: <div className="profile_value">{details.id}</div></div>
               <div className="profile_detail">Gender: <div className="profile_value">{details.gender === "F" ? "Female" : "Male"}</div></div>
               <div className="profile_detail">Email: <div className="profile_value">{details.email}</div></div>
               <div className="profile_detail">Faculty: <div className="profile_value">{details.faculty}</div></div>
