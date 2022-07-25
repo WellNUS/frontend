@@ -33,7 +33,7 @@ const CreateGroup = () => {
                 console.log(data);
                 handleClose();
             });
-        window.location.reload();
+        // window.location.reload();
     }
 
     return (

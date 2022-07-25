@@ -145,6 +145,7 @@ h3 {
     text-align: justify;
     background-color: var(--theme-three);
     height: fit-content;
+    font-size: 20px;
 }
 
 .home_second_row_header,

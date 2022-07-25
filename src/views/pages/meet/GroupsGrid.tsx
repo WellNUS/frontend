@@ -30,7 +30,7 @@ const GroupsGrid = () => {
     return (
         <div className="layout_content_container_grid">
         {
-            groups.length === 0 && <Empty message="Click on Create Group to create a new group! Or click on the JOIN button on the navbar to join one!" />
+            groups.length === 0 && <Empty message="Click on Create Group to create a new group!" />
         }
         {
             groups &&

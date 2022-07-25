@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Table, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
+import { deleteRequestOptions, getRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 
 const CounselRequests = () => {
@@ -9,20 +9,25 @@ const CounselRequests = () => {
     const { details } = useSelector((state: any) => state.user);
     const [requests, setRequests] = useState<any[]>([]);
 
-    const handleDelete = (x: any) => {
-
-    }
-
-    const handleApprove = async (user_id: string) => {
-        await fetch(config.API_URL + "/counsel/" + user_id, postRequestOptions)
+    const handleDelete =  async () => {
+        await fetch(config.API_URL + "/counsel/" + details.id, deleteRequestOptions)
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(err => console.log(err));
     }
 
-    const handleReject = (x: any) => {
-
+    const handleApprove = async (user_id: string) => {
+        await fetch(config.API_URL + "/counsel/" + user_id, postRequestOptions)
+            .then(response => response.json())
+            .then(data => {
+                window.location.reload();
+            })
+            .catch(err => console.log(err));
     }
+
+    // const handleReject = (x: any) => {
+
+    // }
 
     const getCounselRequests = async () => {
         await fetch(config.API_URL + "/counsel", getRequestOptions)
@@ -55,6 +60,7 @@ const CounselRequests = () => {
                 <tbody>
                     {requests.map((request, id) => {
                         console.log(request)
+                        const topicArray = request.topics.map((topic: any) => topic + ", ");
                         return (
                             <tr key={id} className="">
                                 {/* <td className="display-none">{request.join_request.id}</td> */}
@@ -64,16 +70,16 @@ const CounselRequests = () => {
                                     : <td>{request.nickname}</td>
                                 }
                                 <td>{request.details}</td>
-                                <td>{request.topics}</td>
+                                <td>
+                                    {topicArray}
+                                </td>
                                 <td className="request_action_buttons">
                                     {
                                         <Button onClick={() => handleApprove(request.user_id)} className="request_approve">Accept</Button>
-                                        // request.user_id === details.id
-                                        // ? <Button onClick={() => handleDelete(request.user_id)} className="request_delete">Delete</Button>
-                                        // : <div>
-                                        //     <Button onClick={() => handleApprove(request.user_id)} className="request_approve">Accept</Button>
-                                        //     <Button onClick={() => handleReject(request.user_id)} className="request_reject">Reject</Button>
-                                        // </div>
+                                    }
+                                    {
+                                        request.user_id === details.id &&
+                                        <Button onClick={handleDelete} className="request_delete">Delete</Button>
                                     }
                                 </td>
                             </tr>
