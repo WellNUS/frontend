@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { deleteRequestOptions, getRequestOptions, patchRequestOptions, postRequestOptions } from "../../../api/fetch/requestOptions";
 import { config } from "../../../config";
 import "./eventTable.css";
+import "./eventModal.css";
 import { Event } from "./types";
 
 type Props = {
@@ -111,12 +112,12 @@ const EventModal = ({ event } : Props) => {
                 </Modal.Header>
                 <Modal.Body className="create_group_modal_body">
                     <h2>{name}</h2>
+                    <div className="event-owner">{event.owner_id === details.id && <div><FiUser /> You are the owner of this event.</div>}</div>
                     <div><b>Description: </b>{description}</div>
                     <div><b>Start:</b> {startTime.toLocaleString()}</div>
                     <div><b>End:</b> {endTime.toLocaleString()}</div>
                     <div><b>Access: </b>{access}</div>
                     <div><b>Category: </b>{category}</div>
-                    <div>{event.owner_id === details.id && <div><FiUser />You are the owner of this event.</div>}</div>
                     <div>
                         <b>Members: </b>
                         <ol>
@@ -135,7 +136,7 @@ const EventModal = ({ event } : Props) => {
                             <div className="button-centralised">
                                 <Button className="modal_btn" onClick={handleStartEvent}>Start Event</Button>
                             </div>
-                            <div className="button-centralised">Once clicked, you will be redirected to a room with all the event members.</div>
+                            <div className="button-centralised">Once clicked, you will be redirected to a newly-generated room with all the event members. And this event will be deleted permanently.</div>
                         </div>
                     }
                     <br />

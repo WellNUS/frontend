@@ -40,6 +40,8 @@ const CounselRequests = () => {
     return (
         <div>
             <h2>Group Counsel Requests</h2>
+            <div><b>Note: </b>Once you accepted a request, you will be added into an automatically generated group with the applicant.</div>
+            <br />
             <Table className="joinGroup_table" size="lg" width={100} hover>
                 <thead>
                     <tr className="">

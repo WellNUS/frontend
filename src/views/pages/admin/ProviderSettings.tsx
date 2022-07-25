@@ -82,6 +82,8 @@ const ProviderSettings = () => {
         <div className="providerSettings">
             <h2>Provider Settings</h2>
             <div>
+                <div><b>Important: </b>You need to initialise your provider settings for your profile to be visible by others.</div>
+                <br />
                 <b>Introduction: </b>
                 <div>{provider?.setting.intro}</div>
                 <br />

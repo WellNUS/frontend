@@ -10,9 +10,6 @@ const Admin = () => {
             <Navbar hideTop={false}/>
             <div className="layout_heading_container">
                 <div className="layout_heading_title">{details.user_role === "MEMBER" ? "Join a group" : "Provider Admin Panel"}</div>
-                <div className="layout_heading_buttons">
-                    {/* <JoinModal /> */}
-                </div>
             </div>
             <div className="layout_content_container_rows">
                 <div className="join_content_container_left">

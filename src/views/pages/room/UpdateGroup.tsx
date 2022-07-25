@@ -41,7 +41,7 @@ const UpdateGroup = ({ group_id, group_description, group_name } : Props) => {
 
     return (
         <div>
-            <Button className="groupRoom_button_exit" onClick={handleShow}>Update Group</Button>
+            <Button className="groupRoom_button_exit" onClick={handleShow}>Update</Button>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                 <Modal.Title>Update Group</Modal.Title>

@@ -43,11 +43,12 @@
 }
 
 .groupRoom_button_exit {
-    margin-top: 1rem;
+    height: fit-content;
     background-color: var(--theme-three);
     color: var(--theme-one);
     border: 1px solid var(--theme-three);
     font-weight: 600;
+    width: fit-content;
 }
 
 .groupRoom_button_exit:hover,
@@ -58,13 +59,12 @@
 }
 
 .groupRoom_button_delete {
+    height: fit-content;
+    width: fit-content;
     background-color: var(--theme-three);
     color: var(--theme-one);
     border: 1px solid var(--theme-three);
     font-weight: 600;
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
 }
 
 .groupRoom_button_delete:hover,
@@ -72,6 +72,13 @@
     background-color: red;
     color: var(--theme-two);
     border: 1px solid red;
+}
+
+.groupRoom_buttons_wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 @media (max-width: 1100px) {
@@ -87,10 +94,8 @@
     .groupRoom_left {
         width: 100%;
         display: flex;
-        flex-direction: row;
-        gap: 2rem;
+        flex-direction: column;
         padding: 0.8rem 0.5rem;
-        padding-right: 0 !important;
     }
 
     .groupRoom_right {
@@ -114,5 +119,13 @@
         flex-direction: row;
         justify-content: space-between !important;
         width: 100%;
+    }
+
+    .groupRoom_buttons_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        justify-content: right;
     }
 }
