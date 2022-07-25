@@ -26,7 +26,6 @@ const ProviderSettings = () => {
     const { details } = useSelector((state: any) => state.user);
     const [selectedOptions, setSelectedOptions] = useState<any[]>([]);
     const [intro, setIntro] = useState("");
-    const [availability, setAvailability] = useState(false);
     
     const getProvider = async () => {
         await fetch(config.API_URL + "/provider/" + details.id, getRequestOptions)
@@ -49,11 +48,6 @@ const ProviderSettings = () => {
         setIntro(e.target.value);
     }
 
-    const handleChangeAvailability = (e: any) => {
-        const value = e.target.options[e.target.selectedIndex].value;
-        setAvailability(value === "true");
-    }
-
     const postSetting = async (e: any) => {
         e.preventDefault();
         const topics = selectedOptions.map(option => option.value);
@@ -61,7 +55,6 @@ const ProviderSettings = () => {
             ...postRequestOptions,
             body: JSON.stringify({
                 "intro": intro,
-                "available": availability,
                 "topics": topics
             })
         }
@@ -108,11 +101,6 @@ const ProviderSettings = () => {
             <Form.Group className="mb-3" onChange={handleIntroChange}>
                 <Form.Control type="text" placeholder="Enter a brief intro about yourself..." />
             </Form.Group>
-            <Form.Select onChange={handleChangeAvailability} className="match_form">
-                <option value={"false"}>Enter your availability...</option>
-                <option value={"true"}>Available</option>
-                <option value={"false"}>Not Available</option>
-            </Form.Select>
             <MultiSelect
                 options={availableTopics}
                 value={selectedOptions}

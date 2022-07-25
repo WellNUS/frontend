@@ -43,7 +43,7 @@ const Group = () => {
         }
 
         if (socket.current !== undefined) socket.current.close();
-        socket.current = new WebSocketUnit("ws://localhost:8080/ws/" + group_id);
+        socket.current = new WebSocketUnit(config.WS_API_URL + "/" + group_id);
         fetch(config.API_URL + `/group/${groupId}`, abortableGetRequestOptions(abortController.signal))
             .then(response => response.json())
             .then(data => setGroup(data.group));
