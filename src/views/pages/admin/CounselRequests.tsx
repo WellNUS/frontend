@@ -12,7 +12,7 @@ const CounselRequests = () => {
     const handleDelete =  async () => {
         await fetch(config.API_URL + "/counsel/" + details.id, deleteRequestOptions)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => window.location.reload())
             .catch(err => console.log(err));
     }
 
@@ -59,8 +59,9 @@ const CounselRequests = () => {
                 </thead>
                 <tbody>
                     {requests.map((request, id) => {
-                        console.log(request)
                         const topicArray = request.topics.map((topic: any) => topic + ", ");
+                        // remove comma from last topic
+                        topicArray[topicArray.length - 1] = topicArray[topicArray.length - 1].slice(0, -2);
                         return (
                             <tr key={id} className="">
                                 {/* <td className="display-none">{request.join_request.id}</td> */}

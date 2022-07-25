@@ -109,7 +109,6 @@ const ProviderSettings = () => {
                 hasSelectAll={false}
                 className="match_form"
             />
-            <small>Select at most 4 hobbies.</small>
             <br/>
             <div className="providerSettings_buttons">
                 <Button onClick={postSetting} className="layout_heading_button match_submit_btn">Save</Button>
