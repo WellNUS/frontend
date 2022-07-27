@@ -111,7 +111,20 @@ const EventModal = ({ event } : Props) => {
                 <Modal.Title>Event Details</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="create_group_modal_body">
-                    <h2>{name}</h2>
+                    {
+                        event.access === "PUBLIC"
+                        ? <div>
+                            <div className="flex-around">
+                                <h2>{name}</h2>
+                                <div>Event ID: <b>{event.id}</b></div>
+                            </div>
+                            <div>Note: This is a public event. To allow someone else to join this event, send them this event's Event ID.</div>
+                            <br />
+                        </div>
+                        : <div>
+                            <h2>{name}</h2>
+                        </div>
+                    }
                     {
                         event.owner_id === details.id &&
                         <div className="event-owner">{event.owner_id === details.id && <div><FiUser /> You are the owner of this event.</div>}</div>
