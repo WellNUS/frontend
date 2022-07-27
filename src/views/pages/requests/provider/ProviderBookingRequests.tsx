@@ -64,6 +64,7 @@ const ProviderBookingRequests = () => {
                                         <br />
                                         <div><b>Start: </b>{new Date(appl.booking.booking.start_time).toLocaleString()}</div>
                                         <div><b>End: </b>{new Date(appl.booking.booking.end_time).toLocaleString()}</div>
+                                        <br />
                                         <div>
                                             <ApplicantProfile applicant={appl.applicant} booking={appl.booking.booking}/>
                                         </div>
