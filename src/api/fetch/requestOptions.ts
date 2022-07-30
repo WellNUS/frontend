@@ -1,29 +1,25 @@
 export const getRequestOptions = {
     method: 'GET',
     credentials: 'include' as RequestCredentials,
-    crossDomain: true,
-    xhrFields: { withCredentials: true }
+    mode: 'cors' as RequestMode
 }
 
 export const postRequestOptions = {
     method: 'POST',
     credentials: 'include' as RequestCredentials,
-    crossDomain: true,
-    xhrFields: { withCredentials: true }
+    mode: 'cors' as RequestMode
 }
 
 export const deleteRequestOptions = {
     method: 'DELETE',
     credentials: 'include' as RequestCredentials,
-    crossDomain: true,
-    xhrFields: { withCredentials: true }
+    mode: 'cors' as RequestMode
 }
 
 export const patchRequestOptions = {
     method: 'PATCH',
     credentials: 'include' as RequestCredentials,
-    crossDomain: true,
-    xhrFields: { withCredentials: true }
+    mode: 'cors' as RequestMode
 }
 
 export const abortableGetRequestOptions = (signal: AbortSignal) => ({
